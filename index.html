@@ -411,6 +411,12 @@
     font-size: .85cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
   }
 
+  /* ---------- MindRouter flow ---------- */
+  .mr-flow .uc-box { min-height: 8cqw; font-size: 1.1cqw; }
+  .mr-flow .uc-llm { background: var(--ink); min-width: 14cqw; }
+  .mr-flow .uc-llm-label { font-size: 1.2cqw; }
+  .mr-flow .uc-llm-sub { font-size: 1cqw; line-height: 1.5; text-align: center; }
+
   /* ---------- setup checklist ---------- */
   .t-card h3 .url { display: block; margin-top: .2cqw; font-size: 1.15cqw; font-weight: 600; color: var(--gold-text); }
   .checklist { list-style: none; margin: .3cqw 0 0; padding: 0; display: flex; flex-direction: column; gap: .6cqw; font-size: 1.55cqw; font-weight: 700; }
@@ -699,20 +705,30 @@
     <p class="tamper-sub">MindRouter &rarr; Vandal Chat</p>
   </section>
 
-  <!-- MindRouter -->
+  <!-- MindRouter: the layer between any tool and the models on UI hardware -->
   <section class="slide" data-part="Activity 1 &middot; Meet your tools">
-    <h2>MindRouter: the engine</h2>
-    <p class="lede">The University of Idaho&rsquo;s own AI cluster. Vandal Chat runs on it.</p>
-    <div class="act-grid" style="margin-top:1.6cqw">
-      <div class="t-cards stack">
-        <article class="t-card"><h3>60+ open-weight models</h3><p>Llama, Qwen, Gemma, Mistral, gpt-oss, and more, from half a billion to over 100 billion parameters. The live list is on the status page.</p></article>
-        <article class="t-card"><h3>Your data stays on campus</h3><p>Every model runs on university-owned GPUs. No outside company sees your prompts.</p></article>
-        <article class="t-card dark"><h3>More than chat</h3><p>API keys for your own code, coding agents, transcription, and PDF-to-text. Agents can use it to build your website in Activity 4.</p></article>
+    <h2>MindRouter</h2>
+    <p class="lede">The layer that connects your AI tools to models running on University of Idaho hardware.</p>
+    <div class="uc-flow mr-flow" style="margin-top:1.2cqw">
+      <div class="uc-box input">
+        <p class="uc-label">Your tools</p>
+        <p class="uc-content">Vandal Chat<br>A coding agent: Goose, Codex, Claude Code&hellip;<br>Your own Python or R code</p>
       </div>
+      <div class="uc-llm">
+        <p class="uc-llm-label">MindRouter</p>
+        <p class="uc-llm-sub" style="color:#fff">checks your key<br>translates the request<br>routes it to a GPU</p>
+      </div>
+      <div class="uc-box output">
+        <p class="uc-label">Models on UI GPUs</p>
+        <p class="uc-content">60+ open-weight models: Qwen, Llama, Gemma, Mistral, gpt-oss&hellip;<br><br>Prompts and files stay on campus.</p>
+      </div>
+    </div>
+    <div class="act-grid" style="margin-top:1.2cqw; grid-template-columns:1fr 1.25fr">
+      <p class="body" style="font-size:1.2cqw">It does not care which tool you use. It accepts requests in the OpenAI, Anthropic, and Ollama formats, so most AI tools can connect with just an address and your API key.</p>
       <div class="gold-band">
         <span class="k">Your turn &middot; 8 min</span>
         <ol class="act-steps">
-          <li>Open <strong>mindrouter.uidaho.edu</strong>. Watch the live status page for a moment: every request on campus flows through here.</li>
+          <li>Open <strong>mindrouter.uidaho.edu</strong>. The status page shows requests from across campus passing through.</li>
           <li>Log in with your University of Idaho account.</li>
           <li>Find the model list. Write down one <strong>small</strong> model (under 10B) and one <strong>large</strong> model (over 100B). You will use both in a minute.</li>
           <li><strong>Create an API key:</strong> Dashboard &rarr; Create New Key. Copy it right away; it is shown once. Treat it like a password. Your agent needs it in Activity 2.</li>
@@ -725,7 +741,7 @@
   <!-- Vandal Chat -->
   <section class="slide" data-part="Activity 1 &middot; Meet your tools">
     <h2>Vandal Chat: the front door</h2>
-    <p class="lede">A chat window on MindRouter. Sign in with your university account.</p>
+    <p class="lede">A chat app that reaches the models through MindRouter. Sign in with your university account.</p>
     <div class="act-grid" style="margin-top:1.4cqw">
       <div class="gold-band">
         <span class="k">Your turn &middot; 12 min</span>
@@ -756,8 +772,8 @@
   <section class="slide" data-part="Activity 1 &middot; Meet your tools">
     <h2>Your two tools</h2>
     <div class="t-cards two" style="margin-top:1.2cqw">
-      <article class="t-card big"><h3>MindRouter <span class="url">mindrouter.uidaho.edu</span></h3><p>Runs 60+ AI models on university GPUs, so your prompts stay on campus. Your API key lets other programs use these models, including the coding agent you set up next.</p></article>
-      <article class="t-card big"><h3>Vandal Chat <span class="url">chat.uidaho.edu</span></h3><p>A chat window for the models on MindRouter. Sign in with your university account. Use it to ask questions and draft text; it can also write cited Deep Research reports.</p></article>
+      <article class="t-card big"><h3>MindRouter <span class="url">mindrouter.uidaho.edu</span></h3><p>Connects AI tools to 60+ models running on university GPUs, so prompts stay on campus. It works with most tools. Your API key is how a tool connects, including the coding agent you set up next.</p></article>
+      <article class="t-card big"><h3>Vandal Chat <span class="url">chat.uidaho.edu</span></h3><p>A chat app that reaches the models through MindRouter. Sign in with your university account. Use it to ask questions and draft text; it can also write cited Deep Research reports.</p></article>
     </div>
     <div class="gold-band" style="margin-top:auto">
       <span class="k">Setup check</span>
@@ -814,10 +830,6 @@
         <p class="who-tally">Your steps: <strong>deciding, approving, reviewing</strong></p>
       </div>
     </div>
-    <div class="gold-band frag" style="margin-top:auto">
-      <span class="k">The shift</span>
-      Your job changes from carrying code around to making decisions about it.
-    </div>
   </section>
 
   <!-- Anatomy: model + tools + loop -->
@@ -825,13 +837,13 @@
     <h2>Same model, different harness</h2>
     <p class="formula">Agent = <span class="hl">model</span> + <span class="hl">tools</span> + <span class="hl">a loop</span></p>
     <div class="t-cards">
-      <article class="t-card big"><h3>Model</h3><p>The same kind of model behind Vandal Chat. An agent can use any model on MindRouter.</p></article>
+      <article class="t-card big"><h3>Model</h3><p>Runs on a server: on campus through MindRouter, or at a company such as Anthropic or OpenAI.</p></article>
       <article class="t-card big"><h3>Tools</h3><p>Read and write files, run commands, search the web, preview a page. You decide which ones it may use.</p></article>
       <article class="t-card big dark"><h3>A loop</h3><p>Act, look at the result, try again. It keeps going until the job is done or it needs you.</p></article>
     </div>
     <div class="gold-band" style="margin-top:auto">
-      <span class="k">The harness is the difference</span>
-      The harness is the hands; the model is the brain. Vandal Chat gives a model a text box. An agent gives it your project folder and a terminal. Six harnesses run on MindRouter: Codex, Goose, OpenCode, Claude Code, Pi, and ForgeCode. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">(Setup guide)</a> <a class="cite" href="https://ai.uidaho.edu/docs/gallery" target="_blank" rel="noopener">(20 apps they built)</a>
+      <span class="k">Where MindRouter fits</span>
+      The harness runs on your laptop; the model runs on a server. MindRouter connects them. Vandal Chat reaches the models through MindRouter, and so can any of six coding harnesses: Codex, Goose, OpenCode, Claude Code, Pi, and ForgeCode. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">(Setup guide)</a> <a class="cite" href="https://ai.uidaho.edu/docs/gallery" target="_blank" rel="noopener">(20 apps they built)</a>
     </div>
   </section>
 
@@ -851,20 +863,17 @@
     </table>
   </section>
 
-  <!-- Why a website -->
+  <!-- Why an agent for a website -->
   <section class="slide" data-part="Agentic coding">
-    <h2>A website is a project, not an answer.</h2>
-    <div class="act-grid" style="margin-top:1.2cqw">
-      <div class="t-cards stack">
-        <article class="t-card mid"><h3>Many files</h3><p>Pages, styles, your photo, your CV. A chatbot hands you snippets to assemble; an agent writes the files.</p></article>
-        <article class="t-card mid"><h3>It has to work</h3><p>Broken links, a layout that falls apart on a phone. An agent previews the page and fixes what it sees.</p></article>
-        <article class="t-card mid dark"><h3>It has to be published, and kept up</h3><p>A GitHub repository, published free with GitHub Pages, updated for years. An agent can do the commits.</p></article>
-      </div>
-      <div class="gold-band" style="font-size:1.5cqw">
-        <span class="k">You&rsquo;re looking at one</span>
-        This workshop site was built with an AI coding agent: one HTML file and an image folder, in a GitHub repository, published free with GitHub Pages.
-        <br><a class="go" href="https://github.com/ProfessorPolymorphic/ai-workshop-grad-prodev-2026" target="_blank" rel="noopener">See how it&rsquo;s built &rarr;</a>
-      </div>
+    <h2>Why use an agent for a website</h2>
+    <div class="t-cards" style="margin-top:1.4cqw">
+      <article class="t-card mid"><h3>A website is several files</h3><p>Pages, a stylesheet, images, your CV. An agent creates and edits the files directly. A chatbot gives you text to paste into them.</p></article>
+      <article class="t-card mid"><h3>It needs testing</h3><p>An agent can open the page in a browser, find broken links or layout problems, and fix them.</p></article>
+      <article class="t-card mid"><h3>It needs publishing and updates</h3><p>An agent can commit changes to GitHub and publish them with GitHub Pages.</p></article>
+    </div>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">Example</span>
+      This workshop site was built by an AI coding agent: one HTML file and an image folder in a GitHub repository, published with GitHub Pages. <a class="cite" href="https://github.com/ProfessorPolymorphic/ai-workshop-grad-prodev-2026" target="_blank" rel="noopener">(View the repository)</a>
     </div>
   </section>
 
@@ -902,7 +911,7 @@
   <!-- Pick a harness -->
   <section class="slide" data-part="Activity 2 &middot; Set up your agent">
     <h2>Pick one harness</h2>
-    <p class="lede">All six run on MindRouter. Each name links to its setup steps in the guide.</p>
+    <p class="lede">All six can connect to MindRouter. Each name links to its setup steps in the guide.</p>
     <div class="who-cols" style="margin-top:1.4cqw">
       <div class="panel agent">
         <div class="panel-head"><span class="dot"></span>Never opened a terminal? Start with an app.</div>
@@ -921,7 +930,11 @@
         </ul>
       </div>
     </div>
-    <a class="go" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">Open the setup guide &rarr;</a>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">Already have a Claude or ChatGPT account?</span>
+      Claude Code works with a Claude account, including its desktop app, and Codex works with a ChatGPT account. Sign in with that account and skip the MindRouter connection. Your prompts then go to Anthropic or OpenAI instead of staying on campus: fine for a public website, not for research data.
+      <br><a class="go" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">Open the setup guide &rarr;</a>
+    </div>
   </section>
 
   <!-- Connect -->
@@ -942,6 +955,7 @@ Model: default-agent</span></li>
       </div>
       <div class="t-cards stack">
         <article class="t-card mid"><h3>Some tools want /v1</h3><p>Some harnesses need the host as https://mindrouter.uidaho.edu/v1. Your section of the guide says which.</p></article>
+        <article class="t-card mid"><h3>Using your own Claude or ChatGPT account?</h3><p>Sign in with it instead of doing step 2, then do steps 3 and 4.</p></article>
         <article class="t-card mid dark"><h3>Error codes</h3><p><strong>401</strong> key wrong or expired &middot; <strong>404</strong> model name misspelled &middot; <strong>429</strong> rate limit, wait a moment.</p></article>
       </div>
     </div>
@@ -1279,15 +1293,19 @@ OUTPUT FORMAT: Save it as index.html in this folder, then open it in a browser a
 
   <!-- Debrief -->
   <section class="slide" data-part="Activity 4 &middot; Build your own website">
-    <h2>Who did the work?</h2>
-    <div class="t-cards" style="margin-top:1.4cqw">
-      <article class="t-card big"><h3>Decisions</h3><p>How many did you make? Did you read the plan, or just approve it?</p></article>
-      <article class="t-card big"><h3>Permissions</h3><p>What did it ask to do? Did you understand every request you said yes to?</p></article>
-      <article class="t-card big dark"><h3>Invention</h3><p>Did it make anything up about you? You caught it because you know the source: you.</p></article>
-    </div>
-    <div class="gold-band" style="margin-top:auto">
-      <span class="k">Debrief &middot; 3 min</span>
-      Keep the page and the folder. Next week, ask your agent to add your CV and one figure from your research.
+    <h2>Debrief</h2>
+    <div class="act-grid" style="margin-top:1.2cqw">
+      <div class="gold-band">
+        <span class="k">3 min</span>
+        <ol class="act-steps" style="font-size:1.45cqw">
+          <li>Did your site publish? Send the link to a neighbor.</li>
+          <li>Is anything on the page that you did not give it? Fix it before you share the link more widely.</li>
+          <li>What did your agent ask permission to do?</li>
+        </ol>
+      </div>
+      <div class="t-cards stack">
+        <article class="t-card mid"><h3>After today</h3><p>Open your agent in the same my-website folder and ask it to add your CV and a figure from your research.</p></article>
+      </div>
     </div>
   </section>
 
@@ -1327,11 +1345,11 @@ OUTPUT FORMAT: Save it as index.html in this folder, then open it in a browser a
     <div class="resource-list">
       <div class="resource-item">
         <a class="r-name" href="https://mindrouter.uidaho.edu" target="_blank" rel="noopener">MindRouter</a>
-        <span class="r-desc">The university&rsquo;s AI cluster: 60+ open-weight models on university GPUs, a web chat, and API keys for your own code and coding agents. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">(Guide: running agents)</a> <a class="cite" href="https://github.com/ui-insight/MindRouter" target="_blank" rel="noopener">(GitHub)</a></span>
+        <span class="r-desc">Connects AI tools to 60+ open-weight models on university GPUs. Accepts OpenAI, Anthropic, and Ollama request formats, so chat apps, coding agents, and your own code can all use it with one API key. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">(Guide: running agents)</a> <a class="cite" href="https://github.com/ui-insight/MindRouter" target="_blank" rel="noopener">(GitHub)</a></span>
       </div>
       <div class="resource-item">
         <a class="r-name" href="https://chat.uidaho.edu" target="_blank" rel="noopener">Vandal Chat</a>
-        <span class="r-desc">University AI chat, powered by MindRouter. Includes Deep Research: a team of agents that writes a cited report on one big question. <a class="cite" href="https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research" target="_blank" rel="noopener">(Deep Research)</a></span>
+        <span class="r-desc">University AI chat app that reaches the models through MindRouter. Includes Deep Research: a team of agents that writes a cited report on one big question. <a class="cite" href="https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research" target="_blank" rel="noopener">(Deep Research)</a></span>
       </div>
       <div class="resource-item">
         <a class="r-name" href="https://vandalizer.nkn.uidaho.edu" target="_blank" rel="noopener">Vandalizer</a>

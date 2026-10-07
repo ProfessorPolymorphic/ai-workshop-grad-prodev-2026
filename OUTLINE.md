@@ -2,7 +2,7 @@
 
 2:30 to 5:00 pm, for Biology and BCB graduate students, with experience ranging from none to advanced. About half the time is hands-on.
 
-Main goal: show students how agentic coding can help them build their own website. Students work in **MindRouter** and **Vandal Chat**, set up one of the six coding harnesses from the [MindRouter agents guide](https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter), and use it to build and publish a personal academic website. Vandalizer appears only in the appendix list of tools.
+Main goal: show students how agentic coding can help them build their own website. MindRouter is the layer that connects AI tools (Vandal Chat, coding harnesses, students' own code) to models on University of Idaho GPUs; it accepts OpenAI, Anthropic, and Ollama request formats, so it works with any of the harnesses. Students work in **MindRouter** and **Vandal Chat**, set up one of the six coding harnesses from the [MindRouter agents guide](https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter), and use it to build and publish a personal academic website. Vandalizer appears only in the appendix list of tools.
 
 | Time | Block | Mode | Min |
 |---|---|---|---|
@@ -44,6 +44,7 @@ Follows the [MindRouter agents guide](https://mindrouter.uidaho.edu/blog/running
 
 - **Pick one harness.** Never opened a terminal: a desktop app (Goose, OpenCode, or Codex inside the ChatGPT desktop app). Comfortable in a terminal: Claude Code (terminal version only; its desktop app cannot use MindRouter), Pi, or ForgeCode.
 - **Connect it** with three values: host `https://mindrouter.uidaho.edu` (some tools want `/v1`), the `mr2_` key from Activity 1, model `default-agent`.
+- **Already have a Claude or ChatGPT account?** Claude Code (including its desktop app) works with a Claude account and Codex with a ChatGPT account; sign in with it and skip the MindRouter connection. Prompts then go to Anthropic or OpenAI rather than staying on campus: fine for a public website, not for research data.
 - **Test it** in an empty folder called my-website: "What files are in this folder?"
 - **Seatbelts on** (from the guide's security section): one folder, read before you approve, no secrets in the chat, outside content is untrusted (prompt injection), never skip permissions, keep a way to undo.
 - **Checkpoint** before the break; stragglers get help during it.
