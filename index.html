@@ -1420,11 +1420,19 @@ OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</p
   Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'), function (btn) {
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
-      var text = document.getElementById(btn.getAttribute('data-copy')).textContent;
+      var el = document.getElementById(btn.getAttribute('data-copy'));
       var label = btn.textContent;
-      function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = label; }, 1500); }
-      if (navigator.clipboard) { navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { done('Select and copy'); }); }
-      else { done('Select and copy'); }
+      function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = label; }, 2500); }
+      /* Fallback when the clipboard API is blocked: select the text and try the older copy command. */
+      function selectAndCopy() {
+        var range = document.createRange(); range.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (err) {}
+        done(ok ? 'Copied' : 'Press \u2318C / Ctrl+C');
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(el.textContent).then(function () { done('Copied'); }, selectAndCopy);
+      } else { selectAndCopy(); }
     });
   });
 
