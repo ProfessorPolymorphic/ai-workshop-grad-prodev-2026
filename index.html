@@ -411,6 +411,12 @@
     font-size: .85cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
   }
 
+  /* ---------- harness list ---------- */
+  .harness-list { list-style: none; margin: 0; padding: 1.1cqw 1.4cqw; display: flex; flex-direction: column; gap: 1cqw; }
+  .harness-list li { font-size: 1.9cqw; font-weight: 800; letter-spacing: -.015em; }
+  .harness-list .link { color: var(--ink); }
+  .harness-list .h-note { display: block; margin-top: .15cqw; font-size: 1.05cqw; font-weight: 400; letter-spacing: 0; color: var(--muted); }
+
   /* ---------- copyable prompt ---------- */
   .copy-wrap { position: relative; }
   .copy-wrap .pc-template { max-height: none; font-size: 1.2cqw; padding-right: 9cqw; }
@@ -429,11 +435,46 @@
     display: block; margin: .4cqw 0 .3cqw; padding: .6cqw .9cqw; background: #fff; border: 1px solid #e6c87a;
     border-radius: .5cqw; font-family: var(--mono); font-size: .98cqw; line-height: 1.45; color: #333;
   }
+  .prompt.pre { white-space: pre; }
   .go {
-    display: inline-block; margin-top: 1cqw; padding: .6cqw 1.2cqw; border-radius: 999px; background: var(--ink);
+    display: inline-block; align-self: flex-start; margin-top: 1cqw; padding: .6cqw 1.2cqw; border-radius: 999px; background: var(--ink);
     color: #fff; font-size: 1.05cqw; font-weight: 700; text-decoration: none;
   }
   .go:hover { background: var(--gold); color: var(--ink); }
+
+  /* ---------- slide menu ---------- */
+  .toc {
+    position: absolute; top: 0; bottom: 0; left: 0; z-index: 20; width: 31cqw; display: flex; flex-direction: column;
+    background: #fff; border-right: 1px solid var(--rule); box-shadow: var(--shadow);
+    transform: translateX(-102%); visibility: hidden; transition: transform .25s ease, visibility .25s;
+  }
+  .toc.open { transform: none; visibility: visible; }
+  .toc-head {
+    display: flex; align-items: center; justify-content: space-between; padding: 2cqw 1.6cqw 1cqw 2cqw;
+    font-size: 1cqw; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-text);
+  }
+  .toc-head button { font: inherit; font-size: 1.3cqw; line-height: 1; padding: .4cqw .7cqw; border: 1px solid var(--rule); border-radius: 999px; background: #fff; color: var(--muted); cursor: pointer; }
+  .toc-head button:hover { color: var(--gold-text); border-color: var(--gold); }
+  .toc-list { flex: 1; overflow-y: auto; padding: 0 1.2cqw 2cqw; }
+  .toc details { border-top: 1px solid var(--rule); }
+  .toc summary {
+    display: flex; align-items: baseline; gap: .6cqw; padding: .8cqw .6cqw; cursor: pointer; list-style: none;
+    font-size: 1.15cqw; font-weight: 800; color: var(--ink);
+  }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc summary::before { content: '\25B8'; display: inline-block; color: var(--gold-text); transition: transform .15s; }
+  .toc details[open] summary::before { transform: rotate(90deg); }
+  .toc summary .tp { margin-left: auto; font-size: .75cqw; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); white-space: nowrap; }
+  .toc ol { list-style: none; margin: 0 0 .6cqw; padding: 0; }
+  .toc li button {
+    display: grid; grid-template-columns: 2.4cqw 1fr; gap: .4cqw; width: 100%; padding: .4cqw .6cqw .4cqw 1.6cqw;
+    border: none; border-radius: .4cqw; background: none; cursor: pointer; text-align: left;
+    font: inherit; font-size: 1.02cqw; line-height: 1.3; color: var(--muted);
+  }
+  .toc li button:hover { background: var(--card-bg); color: var(--ink); }
+  .toc li button[aria-current="true"] { background: var(--gold-soft); color: var(--ink); font-weight: 700; box-shadow: inset .3cqw 0 0 var(--gold); }
+  .toc .n { color: var(--faint); font-variant-numeric: tabular-nums; }
+  .toc-hint { margin: 0; padding: .8cqw 2cqw 1.4cqw; font-size: .85cqw; color: var(--faint); border-top: 1px solid var(--rule); }
 
   /* ---------- controls ---------- */
   .bar { position: absolute; left: 0; right: 0; bottom: 0; height: .35cqw; background: var(--rule); }
@@ -441,7 +482,7 @@
   .nav { position: absolute; bottom: 2.2cqw; right: 7cqw; display: flex; gap: .6cqw; }
   .nav button { font: inherit; font-size: 1.1cqw; line-height: 1; padding: .7cqw .9cqw; cursor: pointer; color: var(--muted); background: #fff; border: 1px solid var(--rule); border-radius: 999px; }
   .nav button:hover { color: var(--gold-text); border-color: var(--gold); }
-  @media (prefers-reduced-motion: reduce) { .bar span, .bars .fill, .frag { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .bar span, .bars .fill, .frag, .toc { transition: none; } }
 </style>
 </head>
 <body>
@@ -469,10 +510,10 @@
     <h2>Today, 2:30 to 5:00</h2>
     <ol class="agenda">
       <li><span class="at">2:35</span><span class="an">What AI is, and your tools<span class="ad">Activity 1: Get on MindRouter and Vandal Chat</span></span></li>
-      <li><span class="at">3:12</span><span class="an">Agentic coding<span class="ad">Chatbot vs. agent. Live: an agent builds a website</span></span></li>
-      <li class="brk"><span class="at">3:27</span><span class="an">Break</span></li>
-      <li><span class="at">3:37</span><span class="an">Rules of the road<span class="ad">Integrity, disclosure, privacy, IRB. Activity 2: Green, yellow, red</span></span></li>
-      <li><span class="at">4:03</span><span class="an">Working well<span class="ad">TaMPER in practice. Activity 3: Fix a bad prompt</span></span></li>
+      <li><span class="at">3:12</span><span class="an">Agentic coding<span class="ad">Chatbot vs. agent. Live demo. Activity 2: Set up your agent</span></span></li>
+      <li class="brk"><span class="at">3:39</span><span class="an">Break</span></li>
+      <li><span class="at">3:49</span><span class="an">Rules of the road<span class="ad">Integrity, disclosure, privacy, IRB. Activity 3: Green, yellow, red</span></span></li>
+      <li><span class="at">4:15</span><span class="an">Working well<span class="ad">TaMPER in practice: prompts that work</span></span></li>
       <li><span class="at">4:23</span><span class="an">AI in your research<span class="ad">Literature and Deep Research. Activity 4: Build your own website</span></span></li>
       <li><span class="at">4:50</span><span class="an">Your AI-use statement<span class="ad">Exit ticket, takeaways, where to go next</span></span></li>
     </ol>
@@ -668,7 +709,7 @@
           <li>Open <strong>mindrouter.uidaho.edu</strong>. Watch the live status page for a moment: every request on campus flows through here.</li>
           <li>Log in with your University of Idaho account.</li>
           <li>Find the model list. Write down one <strong>small</strong> model (under 10B) and one <strong>large</strong> model (over 100B). You will use both in a minute.</li>
-          <li><em>Already comfortable?</em> Create an API key in your Dashboard and save it somewhere safe. It lets an agent use MindRouter in Activity 4.</li>
+          <li><strong>Create an API key:</strong> Dashboard &rarr; Create New Key. Copy it right away; it is shown once. Treat it like a password. Your agent needs it in Activity 2.</li>
         </ol>
         <a class="go" href="https://mindrouter.uidaho.edu" target="_blank" rel="noopener">Open MindRouter &rarr;</a>
       </div>
@@ -715,7 +756,7 @@
     </div>
     <div class="gold-band" style="margin-top:auto; font-size:1.6cqw; padding:1.2cqw 1.6cqw">
       <span class="k" style="font-size:1cqw">Checkpoint</span>
-      Signed in to both MindRouter and Vandal Chat? If either one is not working, tell us now. Every activity today runs on these two tools.
+      Signed in to both MindRouter and Vandal Chat, with your API key saved? If anything is not working, tell us now. Every activity today runs on these tools.
     </div>
   </section>
 
@@ -727,6 +768,7 @@
       <li>Chatbot vs. agent</li>
       <li>Same model, different harness</li>
       <li>Live: an agent builds a website</li>
+      <li>Activity 2: Set up your agent</li>
     </ul>
   </section>
 
@@ -779,7 +821,7 @@
     </div>
     <div class="gold-band" style="margin-top:auto">
       <span class="k">The harness is the difference</span>
-      Vandal Chat gives a model a text box. An agent gives it your project folder and a terminal. Agents that run on MindRouter include Claude Code, Codex, OpenCode, and Goose. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">(Setup guide)</a>
+      The harness is the hands; the model is the brain. Vandal Chat gives a model a text box. An agent gives it your project folder and a terminal. Six harnesses run on MindRouter: Codex, Goose, OpenCode, Claude Code, Pi, and ForgeCode. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">(Setup guide)</a> <a class="cite" href="https://ai.uidaho.edu/docs/gallery" target="_blank" rel="noopener">(20 apps they built)</a>
     </div>
   </section>
 
@@ -839,6 +881,86 @@
     </div>
   </section>
 
+  <!-- ═══════════════ ACTIVITY 2 — SET UP YOUR AGENT (follows the MindRouter agents guide) ═══════════════ -->
+  <section class="slide tdiv" data-part="Activity 2 &middot; Set up your agent" data-letter="2">
+    <p class="tdiv-kick">Activity 2 &middot; 12 min</p>
+    <h2>Set up your agent</h2>
+    <div class="gold-rule"></div>
+    <p class="tamper-sub">One harness, one key, one folder.</p>
+  </section>
+
+  <!-- Pick a harness -->
+  <section class="slide" data-part="Activity 2 &middot; Set up your agent">
+    <h2>Pick one harness</h2>
+    <p class="lede">All six run on MindRouter. Each name links to its setup steps in the guide.</p>
+    <div class="who-cols" style="margin-top:1.4cqw">
+      <div class="panel agent">
+        <div class="panel-head"><span class="dot"></span>Never opened a terminal? Start with an app.</div>
+        <ul class="harness-list">
+          <li><a class="link" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter#2-goose-app-and-terminal" target="_blank" rel="noopener">Goose</a> <span class="h-note">desktop app</span></li>
+          <li><a class="link" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter#3-opencode-app-and-terminal" target="_blank" rel="noopener">OpenCode</a> <span class="h-note">desktop app</span></li>
+          <li><a class="link" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter#1-openai-codex-app-and-terminal" target="_blank" rel="noopener">Codex</a> <span class="h-note">inside the ChatGPT desktop app; no ChatGPT account needed</span></li>
+        </ul>
+      </div>
+      <div class="panel chat">
+        <div class="panel-head"><span class="dot"></span>Comfortable in a terminal</div>
+        <ul class="harness-list">
+          <li><a class="link" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter#4-claude-code-terminal" target="_blank" rel="noopener">Claude Code</a> <span class="h-note">terminal version only; its desktop app cannot use MindRouter</span></li>
+          <li><a class="link" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter#5-pi-terminal" target="_blank" rel="noopener">Pi</a></li>
+          <li><a class="link" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter#6-forgecode-terminal" target="_blank" rel="noopener">ForgeCode</a></li>
+        </ul>
+      </div>
+    </div>
+    <a class="go" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">Open the setup guide &rarr;</a>
+  </section>
+
+  <!-- Connect -->
+  <section class="slide" data-part="Activity 2 &middot; Set up your agent">
+    <h2>Connect it to MindRouter</h2>
+    <div class="act-grid" style="margin-top:1.2cqw">
+      <div class="gold-band">
+        <span class="k">Your turn &middot; follow your harness&rsquo;s section of the guide</span>
+        <ol class="act-steps" style="font-size:1.3cqw">
+          <li><strong>Install</strong> it. Desktop app first, if there is one.</li>
+          <li><strong>Connect</strong> it with three values:
+            <span class="prompt pre">Host:  https://mindrouter.uidaho.edu
+Key:   your mr2_&hellip; key from Activity 1
+Model: default-agent</span></li>
+          <li>Make an empty folder called <strong>my-website</strong> and open your agent <em>in that folder</em>.</li>
+          <li><strong>Test it.</strong> Ask: <em>What files are in this folder?</em> An answer means you are connected.</li>
+        </ol>
+      </div>
+      <div class="t-cards stack">
+        <article class="t-card mid"><h3>Some tools want /v1</h3><p>Some harnesses need the host as https://mindrouter.uidaho.edu/v1. Your section of the guide says which.</p></article>
+        <article class="t-card mid dark"><h3>Error codes</h3><p><strong>401</strong> key wrong or expired &middot; <strong>404</strong> model name misspelled &middot; <strong>429</strong> rate limit, wait a moment.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seatbelts -->
+  <section class="slide" data-part="Activity 2 &middot; Set up your agent">
+    <h2>Seatbelts on</h2>
+    <p class="lede">A chatbot answers. An agent acts, on your computer.</p>
+    <div class="t-cards" style="margin-top:1.4cqw">
+      <article class="t-card mid"><h3>One folder</h3><p>Start it in the folder for this job. Never your home folder, Documents, or Desktop.</p></article>
+      <article class="t-card mid"><h3>Read before you approve</h3><p>Leave permission prompts on. If you don&rsquo;t understand a command, say no and ask what it does.</p></article>
+      <article class="t-card mid dark"><h3>No secrets in the chat</h3><p>Not your password, not your API key. The agent may write them into files.</p></article>
+      <article class="t-card mid"><h3>Outside content is untrusted</h3><p>Web pages, downloaded code, and PDFs can hide instructions the model will follow. This is prompt injection.</p></article>
+      <article class="t-card mid"><h3>Never &ldquo;skip permissions&rdquo;</h3><p>Full-access modes are for disposable virtual machines, not your laptop.</p></article>
+      <article class="t-card mid"><h3>Keep a way to undo</h3><p>Git, Time Machine, OneDrive history. Something that rolls back what it changed.</p></article>
+    </div>
+    <p class="ex-note" style="margin-top:auto">From the MindRouter guide&rsquo;s section on agentic harnesses and cybersecurity. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter#agentic-harnesses-and-cybersecurity" target="_blank" rel="noopener">(Read it)</a></p>
+  </section>
+
+  <!-- Checkpoint before the break -->
+  <section class="slide" data-part="Activity 2 &middot; Set up your agent" style="justify-content:center">
+    <h2>Checkpoint</h2>
+    <div class="t-cards two" style="margin-top:1.4cqw; max-width:76cqw">
+      <article class="t-card big"><h3>Your agent answered?</h3><p>You are ready to build your website in Activity 4.</p></article>
+      <article class="t-card big dark"><h3>Stuck?</h3><p>Flag us now. We will fix it over the break.</p></article>
+    </div>
+  </section>
+
   <!-- ═══════════════ PART 3 — RULES OF THE ROAD ═══════════════ -->
   <section class="slide divider" data-part="Part 3">
     <div class="rule"></div>
@@ -846,7 +968,7 @@
     <ul class="points">
       <li>Integrity and disclosure</li>
       <li>Data privacy and IRB</li>
-      <li>Activity 2: Green, yellow, red</li>
+      <li>Activity 3: Green, yellow, red</li>
     </ul>
   </section>
 
@@ -856,7 +978,7 @@
     <h1>Working well</h1>
     <ul class="points">
       <li>TaMPER in practice</li>
-      <li>Activity 3: Fix a bad prompt</li>
+      <li>Developing a prompt is a loop</li>
     </ul>
   </section>
 
@@ -1076,44 +1198,33 @@
     <p class="tdiv-kick">Activity 4 &middot; 20 min</p>
     <h2>Build your own website</h2>
     <div class="gold-rule"></div>
-    <p class="tamper-sub">Chat track or agent track. Same goal: a page with your name on it.</p>
+    <p class="tamper-sub">Your agent, your folder, your page.</p>
   </section>
 
-  <!-- Pick your track -->
+  <!-- Build it -->
   <section class="slide" data-part="Activity 4 &middot; Build your own website">
-    <h2>Pick your track</h2>
-    <div class="who-cols">
-      <div class="panel chat">
-        <div class="panel-head"><span class="dot"></span>Chat track &middot; anyone</div>
-        <div class="panel-body sans">
-          <ol class="act-steps" style="font-size:1.55cqw">
-            <li>Open <strong>Vandal Chat</strong>. Paste the prompt from the next slide, with your details filled in.</li>
-            <li>Copy the HTML it returns into a file named <strong>index.html</strong>. Open that file in your browser.</li>
-            <li>Ask for one change. Copy, save, reload. Notice who is doing the work.</li>
-          </ol>
-        </div>
+    <h2>Build it</h2>
+    <div class="act-grid" style="margin-top:1.2cqw">
+      <div class="gold-band">
+        <span class="k">Build &middot; 12 min</span>
+        <ol class="act-steps" style="font-size:1.45cqw">
+          <li>Open your agent in your <strong>my-website</strong> folder.</li>
+          <li>Paste the prompt from the next slide, with your details filled in.</li>
+          <li><strong>Read its plan</strong> before you approve anything.</li>
+          <li>When the page opens, ask for one change of your own.</li>
+        </ol>
       </div>
-      <div class="panel agent">
-        <div class="panel-head"><span class="dot"></span>Agent track &middot; agent already set up</div>
-        <div class="panel-body sans">
-          <ol class="act-steps" style="font-size:1.55cqw">
-            <li>Make an empty folder and start your agent in it, using MindRouter as its model.</li>
-            <li>Give it the same prompt. <strong>Read its plan</strong> before you approve anything.</li>
-            <li>Ask it to open the page in a browser and fix whatever looks broken.</li>
-          </ol>
-        </div>
+      <div class="t-cards stack">
+        <article class="t-card mid"><h3>Only what belongs on the web</h3><p>This page is meant to be seen. Nothing private goes in the prompt.</p></article>
+        <article class="t-card mid dark"><h3>Agent not working?</h3><p>Use Vandal Chat instead: same prompt, then save the HTML it returns as index.html yourself. Notice who is doing the work.</p></article>
       </div>
-    </div>
-    <div class="gold-band" style="margin-top:auto">
-      <span class="k">Build &middot; 12 min</span>
-      Only put in what you would put on a public web page. This page is meant to be seen.
     </div>
   </section>
 
   <!-- The prompt (TaMPER-structured, copyable) -->
   <section class="slide" data-part="Activity 4 &middot; Build your own website">
     <h2>Your prompt</h2>
-    <p class="pc-hint" style="font-size:1.1cqw">Fill in the brackets. It has the parts from Part 4: task, context, instructions, output format.</p>
+    <p class="pc-hint" style="font-size:1.1cqw">Fill in the brackets. It has the parts from Working well: task, context, instructions, output format.</p>
     <div class="copy-wrap interactive">
       <pre class="pc-template" id="sitePrompt">TASK: Build a one-page academic website for me.
 
@@ -1124,33 +1235,33 @@ Research interests: [two or three, in plain language]
 Short bio: [three or four sentences]
 Links: [university email, GitHub, ORCID, Google Scholar: whichever you have]
 
-INSTRUCTIONS: Use one self-contained HTML file with the CSS inside it. No frameworks and no external images; use a gray box as a photo placeholder. Make it easy to read on a phone. Where I left something blank, put a clearly marked placeholder instead of inventing it.
+INSTRUCTIONS: Use one self-contained HTML file with the CSS inside it. No frameworks and no external images; use a gray box as a photo placeholder. Make it easy to read on a phone. Where I left something blank, put a clearly marked placeholder instead of inventing it. Show me your plan before you write anything.
 
-OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</pre>
+OUTPUT FORMAT: Save it as index.html in this folder, then open it in a browser and fix anything that looks broken.</pre>
       <button class="copy-btn" type="button" data-copy="sitePrompt">Copy prompt</button>
     </div>
     <div class="gold-band" style="margin-top:auto">
-      <span class="k">Agent track</span>
-      Replace the last line with: <em>Save it as index.html in this folder, then open it in a browser and fix anything that looks broken.</em>
+      <span class="k">Using Vandal Chat instead?</span>
+      Replace the last line with: <em>Return only the complete index.html file, with no explanation.</em>
     </div>
   </section>
 
   <!-- Publish -->
   <section class="slide" data-part="Activity 4 &middot; Build your own website">
     <h2>Put it on the web</h2>
-    <p class="lede">Free, with GitHub Pages. Nothing to install.</p>
+    <p class="lede">Free, with GitHub Pages.</p>
     <div class="act-grid" style="margin-top:1.4cqw">
       <div class="gold-band">
         <span class="k">Publish &middot; 5 min</span>
         <ol class="act-steps" style="font-size:1.25cqw">
           <li>Sign in at <strong>github.com</strong>. No account yet? Making one is free.</li>
           <li>Create a new <strong>public</strong> repository named <strong>yourusername.github.io</strong>.</li>
-          <li><strong>Add file &rarr; Upload files</strong>, choose your index.html, and commit.</li>
+          <li><strong>Add file &rarr; Upload files</strong>, choose the index.html in your my-website folder, and commit.</li>
           <li>In a minute or two, your site is live at <strong>https://yourusername.github.io</strong>. Not there? <strong>Settings &rarr; Pages</strong>, deploy from the main branch.</li>
         </ol>
       </div>
       <div class="t-cards stack">
-        <article class="t-card mid"><h3>Agent track</h3><p>Ask your agent to create the repository and publish it. It will ask permission first. Read what it is about to do.</p></article>
+        <article class="t-card mid"><h3>Comfortable with git?</h3><p>Ask your agent to commit and push it. It will ask permission first. Read what it is about to do.</p></article>
         <article class="t-card mid dark"><h3>Before you share the link</h3><p>Open it on your phone. Read every line. Nothing invented, nothing private.</p></article>
       </div>
     </div>
@@ -1160,13 +1271,13 @@ OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</p
   <section class="slide" data-part="Activity 4 &middot; Build your own website">
     <h2>Who did the work?</h2>
     <div class="t-cards" style="margin-top:1.4cqw">
-      <article class="t-card big"><h3>Chat track</h3><p>How many times did you copy and paste? Where did you get stuck?</p></article>
-      <article class="t-card big"><h3>Agent track</h3><p>How many decisions did you make? Did you read the plan, or just approve it?</p></article>
-      <article class="t-card big dark"><h3>Everyone</h3><p>Did it invent anything about you? You found it because you know the source: you.</p></article>
+      <article class="t-card big"><h3>Decisions</h3><p>How many did you make? Did you read the plan, or just approve it?</p></article>
+      <article class="t-card big"><h3>Permissions</h3><p>What did it ask to do? Did you understand every request you said yes to?</p></article>
+      <article class="t-card big dark"><h3>Invention</h3><p>Did it make anything up about you? You caught it because you know the source: you.</p></article>
     </div>
     <div class="gold-band" style="margin-top:auto">
       <span class="k">Debrief &middot; 3 min</span>
-      Keep the page. Next week, add your CV and one figure from your research.
+      Keep the page and the folder. Next week, ask your agent to add your CV and one figure from your research.
     </div>
   </section>
 
@@ -1226,7 +1337,14 @@ OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</p
     <span class="num" id="metaNum"></span>
   </div>
 
+  <nav class="toc" id="toc" aria-label="Slide menu">
+    <div class="toc-head"><span>Slides</span><button id="tocClose" type="button" aria-label="Close slide menu">&times;</button></div>
+    <div class="toc-list" id="tocList"></div>
+    <p class="toc-hint">Press M to open or close. Esc closes.</p>
+  </nav>
+
   <div class="nav">
+    <button id="tocBtn" type="button" aria-label="Open slide menu" aria-controls="toc" aria-expanded="false">&#9776;</button>
     <button id="prev" type="button" aria-label="Previous slide">&larr;</button>
     <button id="next" type="button" aria-label="Next slide">&rarr;</button>
   </div>
@@ -1251,6 +1369,7 @@ OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</p
     document.getElementById('metaNum').textContent = (i + 1) + ' / ' + slides.length;
     document.getElementById('bar').style.width = ((i + 1) / slides.length * 100) + '%';
     history.replaceState(null, '', '#' + (i + 1));
+    if (window.markToc) { markToc(); }
     var kind = slides[i].querySelector('[data-init]');
     if (kind && INIT[kind.getAttribute('data-init')]) { INIT[kind.getAttribute('data-init')](); }
   }
@@ -1273,6 +1392,8 @@ OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</p
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { prev(); e.preventDefault(); }
     else if (e.key === 'Home') { show(0); e.preventDefault(); }
     else if (e.key === 'End') { show(slides.length - 1, true); e.preventDefault(); }
+    else if (e.key === 'm' || e.key === 'M') { toggleToc(); }
+    else if (e.key === 'Escape') { toggleToc(false); }
     else if (e.key === 'f') {
       var el = document.documentElement;
       if (document.fullscreenElement) { document.exitFullscreen(); }
@@ -1283,7 +1404,7 @@ OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</p
   document.getElementById('prev').addEventListener('click', function (e) { e.stopPropagation(); prev(); });
   document.getElementById('stage').addEventListener('click', function (e) {
     if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.interactive') ||
-        e.target.closest('.pcx') || e.target.closest('#prompt-developing')) { return; }
+        e.target.closest('.pcx') || e.target.closest('#prompt-developing') || e.target.closest('.toc')) { return; }
     next();
   });
 
@@ -1415,6 +1536,63 @@ OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</p
     });
     highlight('generic');
   })();
+
+  /* ---- slide menu: sections start at each divider; click a slide to jump there ---- */
+  function slideTitle(sl) {
+    var stack = sl.querySelectorAll('.tamper-stack .tw.on');
+    if (stack.length) { return 'TaMPER: ' + stack[stack.length - 1].textContent; }
+    var h = sl.querySelector('h1, h2, .worst-quote, .tamper-hero');
+    return h ? h.textContent.replace(/\s+/g, ' ').trim() : (sl.getAttribute('data-part') || 'Slide');
+  }
+  (function buildToc() {
+    var list = document.getElementById('tocList');
+    var group = null;
+    slides.forEach(function (sl, k) {
+      if (!group || sl.classList.contains('divider')) {
+        group = document.createElement('details');
+        var sum = document.createElement('summary');
+        var name = document.createElement('span');
+        name.textContent = sl.classList.contains('divider') ? slideTitle(sl) : 'Start';
+        sum.appendChild(name);
+        if (sl.classList.contains('divider') && sl.getAttribute('data-part')) {
+          var tp = document.createElement('span'); tp.className = 'tp'; tp.textContent = sl.getAttribute('data-part');
+          sum.appendChild(tp);
+        }
+        group.appendChild(sum);
+        group.appendChild(document.createElement('ol'));
+        list.appendChild(group);
+      }
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('data-k', k);
+      b.innerHTML = '<span class="n">' + (k + 1) + '</span><span></span>';
+      b.lastChild.textContent = slideTitle(sl);
+      b.addEventListener('click', function (e) { e.stopPropagation(); show(k); toggleToc(false); });
+      li.appendChild(b);
+      group.lastChild.appendChild(li);
+    });
+  })();
+  function markToc() {
+    Array.prototype.forEach.call(document.querySelectorAll('#tocList button'), function (b) {
+      var on = +b.getAttribute('data-k') === i;
+      b.setAttribute('aria-current', on ? 'true' : 'false');
+      if (on) { b.closest('details').open = true; }
+    });
+  }
+  function toggleToc(force) {
+    var toc = document.getElementById('toc');
+    var open = typeof force === 'boolean' ? force : !toc.classList.contains('open');
+    toc.classList.toggle('open', open);
+    document.getElementById('tocBtn').setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      markToc();
+      Array.prototype.forEach.call(toc.querySelectorAll('details'), function (d) { d.open = !!d.querySelector('button[aria-current="true"]'); });
+      var cur = toc.querySelector('button[aria-current="true"]');
+      if (cur) { cur.scrollIntoView({ block: 'center' }); cur.focus({ preventScroll: true }); }
+    }
+  }
+  document.getElementById('tocBtn').addEventListener('click', function (e) { e.stopPropagation(); toggleToc(); });
+  document.getElementById('tocClose').addEventListener('click', function (e) { e.stopPropagation(); toggleToc(false); });
 
   /* ---- copy-to-clipboard buttons: data-copy names the element whose text to copy ---- */
   Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'), function (btn) {

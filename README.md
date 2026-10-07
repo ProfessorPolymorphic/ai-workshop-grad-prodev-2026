@@ -8,7 +8,7 @@ Barrie Robison, University of Idaho.
 
 Rendered deck: https://professorpolymorphic.github.io/ai-workshop-grad-prodev-2026/
 
-Or open `index.html` in any modern browser. Arrow keys or the on-screen arrows move forward and back; some slides build one piece per press. Press `f` for full screen. The slide number is kept in the URL (`#12`), so a reload keeps your place and you can link straight to a slide.
+Or open `index.html` in any modern browser. Arrow keys or the on-screen arrows move forward and back; some slides build one piece per press. Press `f` for full screen. Press `m` (or the &#9776; button) for a slide menu grouped by section; click any slide to jump to it. The slide number is kept in the URL (`#12`), so a reload keeps your place and you can link straight to a slide.
 
 The deck is one self-contained HTML file plus the `img/` folder. No build step, no dependencies.
 
