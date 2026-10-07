@@ -365,6 +365,35 @@
   .pw-steps li { margin-bottom: .75cqw; }
   .pw-steps strong { color: var(--ink); }
 
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; margin: 1.4cqw 0 0; padding: 0; display: flex; flex-direction: column; gap: .9cqw; max-width: 74cqw; }
+  .agenda li { display: grid; grid-template-columns: 9cqw 1fr; gap: 1.6cqw; align-items: baseline; padding-bottom: .9cqw; border-bottom: 1px solid var(--rule); }
+  .agenda li:last-child { border-bottom: none; }
+  .agenda .at { font-family: var(--mono); font-size: 1.2cqw; font-weight: 700; color: var(--gold-text); font-variant-numeric: tabular-nums; }
+  .agenda .an { font-size: 1.8cqw; font-weight: 800; color: var(--ink); letter-spacing: -.015em; }
+  .agenda .ad { display: block; margin-top: .2cqw; font-size: 1.1cqw; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+  .agenda li.brk .an { font-size: 1.4cqw; font-weight: 700; color: var(--faint); }
+
+  /* ---------- activity slides ---------- */
+  .act-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.4cqw; margin-top: .8cqw; align-items: start; }
+  .act-steps { margin: 0; padding: 0 0 0 1.4cqw; font-size: 1.12cqw; line-height: 1.5; color: var(--ink); }
+  .act-steps li { margin-bottom: .7cqw; }
+  .act-steps li:last-child { margin-bottom: 0; }
+  .prompt {
+    display: block; margin: .4cqw 0 .3cqw; padding: .6cqw .9cqw; background: #fff; border: 1px solid #e6c87a;
+    border-radius: .5cqw; font-family: var(--mono); font-size: .98cqw; line-height: 1.45; color: #333;
+  }
+  .go {
+    display: inline-block; margin-top: 1cqw; padding: .6cqw 1.2cqw; border-radius: 999px; background: var(--ink);
+    color: #fff; font-size: 1.05cqw; font-weight: 700; text-decoration: none;
+  }
+  .go:hover { background: var(--gold); color: var(--ink); }
+  .demo-tag {
+    display: inline-block; align-self: flex-start; margin: 0 0 .8cqw; padding: .3cqw .8cqw; border-radius: 999px; border: 1px solid var(--rule);
+    font-size: .85cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  }
+  .extract-out .uc-content span { color: var(--muted); }
+
   /* ---------- controls ---------- */
   .bar { position: absolute; left: 0; right: 0; bottom: 0; height: .35cqw; background: var(--rule); }
   .bar span { display: block; height: 100%; background: var(--gold); transition: width .22s ease; }
@@ -394,14 +423,169 @@
     </div>
   </section>
 
-  <!-- ═══════════════ AGENDA (placeholder until the outline is set) ═══════════════ -->
-  <section class="slide divider" data-part="Today">
+  <!-- ═══════════════ AGENDA ═══════════════ -->
+  <section class="slide" data-part="Today">
+    <h2>Today</h2>
+    <ol class="agenda">
+      <li><span class="at">0:05</span><span class="an">What AI is, and your tools<span class="ad">Activity 1: Meet MindRouter, Vandal Chat, and Vandalizer</span></span></li>
+      <li><span class="at">0:42</span><span class="an">Rules of the road<span class="ad">Integrity, disclosure, privacy, IRB. Activity 2: Green, yellow, red</span></span></li>
+      <li class="brk"><span class="at">1:08</span><span class="an">Break</span></li>
+      <li><span class="at">1:18</span><span class="an">Working well<span class="ad">TaMPER in practice. Activity 3: Fix a bad prompt</span></span></li>
+      <li><span class="at">1:38</span><span class="an">AI in your research<span class="ad">Literature, coding, agents. Activity 4: Build something</span></span></li>
+      <li><span class="at">2:17</span><span class="an">Your AI-use statement<span class="ad">Exit ticket, takeaways, where to go next</span></span></li>
+    </ol>
+  </section>
+
+  <!-- ═══════════════ PART 1 — WHAT AI IS, AND YOUR TOOLS ═══════════════ -->
+  <section class="slide divider" data-part="Part 1">
     <div class="rule"></div>
-    <h1>Today</h1>
+    <h1>What AI is, and your tools</h1>
     <ul class="points">
-      <li>Section 1</li>
-      <li>Section 2</li>
-      <li>Section 3</li>
+      <li>What AI is</li>
+      <li>Activity 1: Meet your tools</li>
+    </ul>
+  </section>
+
+  <!-- What AI is: slides to come -->
+
+  <!-- ═══════════════ ACTIVITY 1 — MEET YOUR TOOLS ═══════════════ -->
+  <section class="slide tdiv" data-part="Activity 1 &middot; Meet your tools" data-letter="1">
+    <p class="tdiv-kick">Activity 1 &middot; 25 min</p>
+    <h2>Meet your tools</h2>
+    <div class="gold-rule"></div>
+    <p class="tamper-sub">MindRouter &rarr; Vandal Chat &rarr; Vandalizer</p>
+  </section>
+
+  <!-- MindRouter -->
+  <section class="slide" data-part="Activity 1 &middot; Meet your tools">
+    <h2>MindRouter: the engine</h2>
+    <p class="lede">The University of Idaho&rsquo;s own AI cluster. Vandal Chat runs on it.</p>
+    <div class="act-grid" style="margin-top:1.6cqw">
+      <div class="t-cards stack">
+        <article class="t-card"><h3>60+ open-weight models</h3><p>Llama, Qwen, Gemma, Mistral, gpt-oss, and more, from half a billion to over 100 billion parameters. The live list is on the status page.</p></article>
+        <article class="t-card"><h3>Your data stays on campus</h3><p>Every model runs on university-owned GPUs. No outside company sees your prompts.</p></article>
+        <article class="t-card dark"><h3>More than chat</h3><p>API keys for your own code, coding agents, transcription, and PDF-to-text. You can use the API in Activity 4.</p></article>
+      </div>
+      <div class="gold-band">
+        <span class="k">Your turn &middot; 6 min</span>
+        <ol class="act-steps">
+          <li>Open <strong>mindrouter.uidaho.edu</strong>. Watch the live status page for a moment: every request on campus flows through here.</li>
+          <li>Log in with your University of Idaho account.</li>
+          <li>Find the model list. Write down one <strong>small</strong> model (under 10B) and one <strong>large</strong> model (over 100B). You will use both in a minute.</li>
+        </ol>
+        <a class="go" href="https://mindrouter.uidaho.edu" target="_blank" rel="noopener">Open MindRouter &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vandal Chat -->
+  <section class="slide" data-part="Activity 1 &middot; Meet your tools">
+    <h2>Vandal Chat: the front door</h2>
+    <p class="lede">A chat window on MindRouter. Sign in with your university account.</p>
+    <div class="act-grid" style="margin-top:1.4cqw">
+      <div class="gold-band">
+        <span class="k">Your turn &middot; 10 min</span>
+        <ol class="act-steps">
+          <li><strong>Compare two models.</strong> Ask your small model, then your large one:
+            <span class="prompt">How many protein-coding genes are in the human genome? Give one number and one sentence of justification.</span>
+            Compare with your neighbor. Same answer? Which is right? How would you check?</li>
+          <li><strong>Check a source.</strong> Ask:
+            <span class="prompt">List three peer-reviewed papers on [your thesis topic], with authors, year, and DOI.</span>
+            Pick one and paste its DOI into doi.org.</li>
+        </ol>
+        <a class="go" href="https://chat.uidaho.edu" target="_blank" rel="noopener">Open Vandal Chat &rarr;</a>
+      </div>
+      <div class="t-cards stack">
+        <article class="t-card"><h3>Watch for</h3>
+          <ul>
+            <li>Different answers to the same question</li>
+            <li>A citation that looks perfect and does not exist</li>
+            <li>A real paper that does not say what the model claims</li>
+          </ul>
+        </article>
+        <article class="t-card dark"><h3>Report back</h3><p>Did your DOI resolve? Right authors? Right claim? We will tally the room.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vandalizer (instructor demo; output fields fill in once the workshop paper is chosen) -->
+  <section class="slide" data-part="Activity 1 &middot; Meet your tools">
+    <span class="demo-tag">Instructor demo</span>
+    <h2>Vandalizer: the specialist</h2>
+    <p class="body">Built at UI for research administration. Not &ldquo;chat with a PDF&rdquo;: named extraction tasks pull the same fields out of every document, and chain into workflows.</p>
+    <div class="uc-flow extract-out" style="margin-top:1.4cqw">
+      <div class="uc-box input frag">
+        <p class="uc-label">Input</p>
+        <p class="uc-content">workshop_paper.pdf<br><br><span>The paper we use all afternoon.</span></p>
+      </div>
+      <div class="uc-llm frag">
+        <p class="uc-llm-label">Task</p><p class="uc-llm-icon">&#128269;</p><p class="uc-llm-sub">extract fields</p>
+      </div>
+      <div class="uc-box output frag">
+        <p class="uc-label">Output</p>
+        <p class="uc-content">organism: &hellip;<br>sample_size: &hellip;<br>study_design: &hellip;<br>main_finding: &hellip;<br>data_availability: &hellip;</p>
+      </div>
+    </div>
+    <div class="gold-band frag" style="margin-top:auto">
+      <span class="k">Then we check every field against the PDF</span>
+      Vandalizer can score a workflow against a &ldquo;Golden Set&rdquo; of documents you have checked by hand, using TaMPER. The check is built into the tool.
+    </div>
+  </section>
+
+  <!-- Debrief -->
+  <section class="slide" data-part="Activity 1 &middot; Meet your tools">
+    <h2>What the tools just showed you</h2>
+    <div class="t-cards" style="margin-top:1.4cqw">
+      <article class="t-card big"><h3>Pick the model on purpose</h3><p>Two models, two answers. Which model you used is a decision, and part of your record.</p></article>
+      <article class="t-card big"><h3>Know where your data goes</h3><p>MindRouter and Vandal Chat keep it on campus. A commercial chatbot does not. Part 2 covers what still cannot go in.</p></article>
+      <article class="t-card big dark"><h3>Check against the source</h3><p>A clean-looking answer is not a checked answer. The DOI, the PDF, the paper: go look.</p></article>
+    </div>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">From here on</span>
+      Every activity today runs on these tools.
+    </div>
+  </section>
+
+  <!-- ═══════════════ PART 2 — RULES OF THE ROAD ═══════════════ -->
+  <section class="slide divider" data-part="Part 2">
+    <div class="rule"></div>
+    <h1>Rules of the road</h1>
+    <ul class="points">
+      <li>Integrity and disclosure</li>
+      <li>Data privacy and IRB</li>
+      <li>Activity 2: Green, yellow, red</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ PART 3 — WORKING WELL ═══════════════ -->
+  <section class="slide divider" data-part="Part 3">
+    <div class="rule"></div>
+    <h1>Working well</h1>
+    <ul class="points">
+      <li>TaMPER in practice</li>
+      <li>Activity 3: Fix a bad prompt</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ PART 4 — AI IN YOUR RESEARCH ═══════════════ -->
+  <section class="slide divider" data-part="Part 4">
+    <div class="rule"></div>
+    <h1>AI in your research</h1>
+    <ul class="points">
+      <li>Literature and Deep Research</li>
+      <li>Coding with an agent</li>
+      <li>Activity 4: Build something</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ CLOSE ═══════════════ -->
+  <section class="slide divider" data-part="Close">
+    <div class="rule"></div>
+    <h1>Your AI-use statement</h1>
+    <ul class="points">
+      <li>Exit ticket</li>
+      <li>Takeaways</li>
+      <li>Where to go next</li>
     </ul>
   </section>
 
