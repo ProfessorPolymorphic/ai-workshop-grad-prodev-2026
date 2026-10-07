@@ -411,6 +411,12 @@
     font-size: .85cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
   }
 
+  /* ---------- setup checklist ---------- */
+  .t-card h3 .url { display: block; margin-top: .2cqw; font-size: 1.15cqw; font-weight: 600; color: var(--gold-text); }
+  .checklist { list-style: none; margin: .3cqw 0 0; padding: 0; display: flex; flex-direction: column; gap: .6cqw; font-size: 1.55cqw; font-weight: 700; }
+  .checklist li { display: flex; align-items: center; gap: 1cqw; }
+  .checklist li::before { content: ''; flex: none; width: 1.5cqw; height: 1.5cqw; border: .2cqw solid var(--ink); border-radius: .3cqw; background: #fff; }
+
   /* ---------- harness list ---------- */
   .harness-list { list-style: none; margin: 0; padding: 1.1cqw 1.4cqw; display: flex; flex-direction: column; gap: 1cqw; }
   .harness-list li { font-size: 1.9cqw; font-weight: 800; letter-spacing: -.015em; }
@@ -746,17 +752,21 @@
     </div>
   </section>
 
-  <!-- Debrief -->
+  <!-- Summary and setup check -->
   <section class="slide" data-part="Activity 1 &middot; Meet your tools">
-    <h2>What the tools just showed you</h2>
-    <div class="t-cards" style="margin-top:1.4cqw">
-      <article class="t-card big"><h3>Pick the model on purpose</h3><p>Two models, two answers. Which model you used is a decision, and part of your record.</p></article>
-      <article class="t-card big"><h3>Know where your data goes</h3><p>MindRouter and Vandal Chat keep it on campus. A commercial chatbot does not. After the break: what still cannot go in.</p></article>
-      <article class="t-card big dark"><h3>Check against the source</h3><p>A clean-looking answer is not a checked answer. The DOI, the paper, the data: go look.</p></article>
+    <h2>Your two tools</h2>
+    <div class="t-cards two" style="margin-top:1.2cqw">
+      <article class="t-card big"><h3>MindRouter <span class="url">mindrouter.uidaho.edu</span></h3><p>Runs 60+ AI models on university GPUs, so your prompts stay on campus. Your API key lets other programs use these models, including the coding agent you set up next.</p></article>
+      <article class="t-card big"><h3>Vandal Chat <span class="url">chat.uidaho.edu</span></h3><p>A chat window for the models on MindRouter. Sign in with your university account. Use it to ask questions and draft text; it can also write cited Deep Research reports.</p></article>
     </div>
-    <div class="gold-band" style="margin-top:auto; font-size:1.6cqw; padding:1.2cqw 1.6cqw">
-      <span class="k" style="font-size:1cqw">Checkpoint</span>
-      Signed in to both MindRouter and Vandal Chat, with your API key saved? If anything is not working, tell us now. Every activity today runs on these tools.
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">Setup check</span>
+      <ul class="checklist">
+        <li>I can sign in to MindRouter.</li>
+        <li>I created an API key and saved it somewhere safe.</li>
+        <li>I can sign in to Vandal Chat and get an answer.</li>
+      </ul>
+      <p style="margin:.8cqw 0 0">Missing one? Tell us now.</p>
     </div>
   </section>
 

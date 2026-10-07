@@ -36,7 +36,7 @@ Goal: everyone leaves this activity signed in to MindRouter and Vandal Chat, wit
 |---|---|---|---|
 | 8 | MindRouter | Live status page; sign in; note one small and one large model; create an API key (shown once; treat it like a password) | Choosing a model; where your data goes |
 | 12 | Vandal Chat | Same question, two models, compare with a neighbor. Ask for three papers on your thesis topic; check one DOI | Answers vary between models; sources get invented |
-| 5 | Debrief and checkpoint | Three takeaways; anyone not signed in to both tools, or without a key, flags it now | |
+| 5 | Summary and setup check | What each tool does; three-item check (MindRouter sign-in, API key saved, Vandal Chat answers). Anyone missing one flags it now | |
 
 ## Activity 2: Set up your agent (12 min)
 
