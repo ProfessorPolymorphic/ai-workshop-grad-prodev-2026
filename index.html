@@ -411,6 +411,19 @@
     font-size: .85cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
   }
 
+  /* ---------- jagged frontier ---------- */
+  .jag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; align-items: center; margin-top: .6cqw; }
+  .jag-fig { margin: 0; text-align: center; }
+  .jag-svg { width: 100%; height: auto; max-height: 26cqw; overflow: visible; }
+  .jag-now { fill: var(--gold-soft); stroke: var(--gold); stroke-width: 2.5; stroke-linejoin: round; }
+  .jag-later { fill: none; stroke: var(--gold-text); stroke-width: 2; stroke-dasharray: 6 5; stroke-linejoin: round; }
+  .t-in { fill: var(--gold-text); }
+  .t-out { fill: #b0b0b0; }
+  .jag-lbl { font-family: var(--sans); font-size: 14px; font-weight: 800; fill: var(--ink); }
+  .jag-lbl.later { fill: var(--gold-text); }
+  .t-card ul.big-list { margin: .4cqw 0 0; padding-left: 1.6cqw; font-size: 1.7cqw; line-height: 1.5; color: var(--ink); }
+  .t-card ul.big-list li { margin-bottom: .5cqw; }
+
   /* ---------- MindRouter flow ---------- */
   .mr-flow .uc-box { min-height: 8cqw; font-size: 1.1cqw; }
   .mr-flow .uc-llm { background: var(--ink); min-width: 14cqw; }
@@ -990,11 +1003,139 @@ Model: default-agent</span></li>
     <div class="rule"></div>
     <h1>Rules of the road</h1>
     <ul class="points">
+      <li>What AI can do keeps changing</li>
       <li>Integrity and disclosure</li>
-      <li>Data privacy and IRB</li>
+      <li>Data and IRB</li>
       <li>Activity 3: Green, yellow, red</li>
     </ul>
   </section>
+
+  <!-- The jagged frontier (Dell'Acqua et al. 2023); the "Later" outline and the band reveal on clicks -->
+  <section class="slide" data-part="Rules of the road">
+    <h2>The frontier is jagged, and it moves</h2>
+    <div class="jag-grid">
+      <figure class="jag-fig">
+        <svg class="jag-svg" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: a jagged boundary separates tasks AI does well, inside, from tasks it does poorly, outside. A larger dashed boundary shows the frontier later: bigger, and still jagged.">
+          <g class="frag">
+            <polygon class="jag-later" points="394,160 325,184 368,233 299,233 294,290 232,251 189,290 170,231 77,277 108,210 67,192 105,160 58,126 103,108 90,55 161,74 188,25 231,74 302,19 296,90 353,94 323,136"/>
+            <text class="jag-lbl later" x="302" y="13" text-anchor="middle">Later</text>
+          </g>
+          <polygon class="jag-now" points="344,160 303,181 321,214 281,222 263,248 222,223 189,271 176,216 110,248 128,200 82,189 120,160 92,134 138,125 109,71 169,91 189,51 225,82 268,64 269,108 336,98 292,142"/>
+          <circle class="t-out" cx="87" cy="69" r="5.5"/>
+          <circle class="t-out" cx="330" cy="177" r="5.5"/>
+          <circle class="t-out" cx="355" cy="119" r="5.5"/>
+          <circle class="t-in" cx="257" cy="134" r="5.5"/>
+          <circle class="t-in" cx="129" cy="172" r="5.5"/>
+          <circle class="t-out" cx="74" cy="131" r="5.5"/>
+          <circle class="t-in" cx="287" cy="165" r="5.5"/>
+          <circle class="t-in" cx="217" cy="110" r="5.5"/>
+          <circle class="t-in" cx="165" cy="129" r="5.5"/>
+          <circle class="t-out" cx="405" cy="162" r="5.5"/>
+          <circle class="t-in" cx="229" cy="216" r="5.5"/>
+          <circle class="t-out" cx="404" cy="144" r="5.5"/>
+          <circle class="t-out" cx="54" cy="130" r="5.5"/>
+          <circle class="t-in" cx="282" cy="117" r="5.5"/>
+          <circle class="t-in" cx="167" cy="199" r="5.5"/>
+          <circle class="t-in" cx="240" cy="190" r="5.5"/>
+          <circle class="t-out" cx="163" cy="266" r="5.5"/>
+          <circle class="t-out" cx="370" cy="163" r="5.5"/>
+          <circle class="t-in" cx="161" cy="221" r="5.5"/>
+          <circle class="t-in" cx="262" cy="74" r="5.5"/>
+          <circle class="t-out" cx="160" cy="247" r="5.5"/>
+          <circle class="t-in" cx="197" cy="125" r="5.5"/>
+          <circle class="t-out" cx="210" cy="15" r="5.5"/>
+          <circle class="t-out" cx="389" cy="176" r="5.5"/>
+          <circle class="t-in" cx="115" cy="241" r="5.5"/>
+          <circle class="t-out" cx="299" cy="305" r="5.5"/>
+          <circle class="t-out" cx="268" cy="285" r="5.5"/>
+          <circle class="t-out" cx="398" cy="92" r="5.5"/>
+          <circle class="t-out" cx="34" cy="139" r="5.5"/>
+          <circle class="t-out" cx="345" cy="243" r="5.5"/>
+          <circle class="t-out" cx="267" cy="19" r="5.5"/>
+          <circle class="t-in" cx="293" cy="201" r="5.5"/>
+          <circle class="t-out" cx="54" cy="61" r="5.5"/>
+          <circle class="t-out" cx="100" cy="292" r="5.5"/>
+          <circle class="t-in" cx="120" cy="140" r="5.5"/>
+          <circle class="t-in" cx="182" cy="208" r="5.5"/>
+          <circle class="t-in" cx="267" cy="183" r="5.5"/>
+          <circle class="t-out" cx="344" cy="151" r="5.5"/>
+          <circle class="t-in" cx="143" cy="194" r="5.5"/>
+          <circle class="t-out" cx="54" cy="81" r="5.5"/>
+          <circle class="t-in" cx="100" cy="184" r="5.5"/>
+          <circle class="t-out" cx="401" cy="213" r="5.5"/>
+          <circle class="t-in" cx="242" cy="121" r="5.5"/>
+          <circle class="t-out" cx="323" cy="277" r="5.5"/>
+          <text class="jag-lbl" x="210" y="165" text-anchor="middle">AI does it well</text>
+        </svg>
+        <figcaption class="ex-note">Each dot is a task. An illustration of the idea, not data from the study.</figcaption>
+      </figure>
+      <div class="t-cards stack">
+        <p class="proto-label">Dell&rsquo;Acqua et al., 2023 &middot; 758 BCG consultants &middot; GPT-4 <a class="cite" href="https://ssrn.com/abstract=4573321" target="_blank" rel="noopener">(paper)</a></p>
+        <article class="t-card mid"><h3>Inside the frontier</h3><p>On 18 realistic consulting tasks, consultants using AI finished 12.2% more tasks, 25.1% faster, with more than 40% higher quality.</p></article>
+        <article class="t-card mid dark"><h3>Outside the frontier</h3><p>On one task chosen to be just beyond the AI&rsquo;s ability, consultants using it were 19 percentage points less likely to get the right answer.</p></article>
+      </div>
+    </div>
+    <div class="gold-band frag" style="margin-top:auto">
+      <span class="k">It moves</span>
+      The authors describe AI&rsquo;s abilities as &ldquo;expanding, but uneven.&rdquo; What failed last year may work now, and the new edge is just as jagged. Test it on your own tasks, and test again.
+    </div>
+  </section>
+
+  <!-- Raise the floor -->
+  <section class="slide" data-part="Rules of the road">
+    <h2>Test the floor, not the ceiling</h2>
+    <div class="who-cols" style="margin-top:1.4cqw">
+      <div class="panel chat">
+        <div class="panel-head"><span class="dot"></span>The ceiling test</div>
+        <div class="panel-body sans">
+          <ol class="act-steps" style="font-size:1.5cqw">
+            <li>Pick something only you and a few other experts can do.</li>
+            <li>Ask the AI to do it.</li>
+            <li>It fails. Conclude that AI is useless.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="panel agent">
+        <div class="panel-head"><span class="dot"></span>The floor test</div>
+        <div class="panel-body sans">
+          <ol class="act-steps" style="font-size:1.5cqw">
+            <li>Pick something you are weak at: code, statistics, writing in a second language, building a website.</li>
+            <li>Ask the AI to help.</li>
+            <li>Does it get you to competent?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">Same study</span>
+      Consultants below the average performance threshold improved 43%; those above it improved 17%. AI raises the floor for everybody.
+    </div>
+  </section>
+
+  <!-- Judgment and questions -->
+  <section class="slide" data-part="Rules of the road">
+    <h2>Judgment and good questions are worth more now</h2>
+    <div class="t-cards two" style="margin-top:1.4cqw">
+      <article class="t-card big plain"><h3>Cheaper with AI</h3>
+        <ul class="big-list">
+          <li>First drafts of text</li>
+          <li>Code for a standard analysis</li>
+          <li>Summaries of papers</li>
+          <li>Figures, formatting, a website</li>
+        </ul>
+      </article>
+      <article class="t-card big"><h3>Worth more now</h3>
+        <ul class="big-list">
+          <li>Choosing a question worth answering</li>
+          <li>Knowing whether a result is right</li>
+          <li>Knowing what matters in your field</li>
+          <li>Putting your name on it</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Integrity and disclosure, data and IRB, Activity 3: slides to come -->
 
   <!-- ═══════════════ PART 4 — WORKING WELL ═══════════════ -->
   <section class="slide divider" data-part="Part 4">

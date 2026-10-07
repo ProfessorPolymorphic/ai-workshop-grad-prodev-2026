@@ -16,9 +16,12 @@ Main goal: show students how agentic coding can help them build their own websit
 | 3:27 | **Activity 2: Set up your agent.** Pick one of six harnesses, connect it to MindRouter, test it in an empty my-website folder; safety habits; checkpoint | Hands-on | 12 |
 | 3:39 | *Break* (fix any setup problems) | | 10 |
 | **Part 3** | **Rules of the road** | | |
-| 3:49 | Integrity and disclosure: university and journal policies, authorship, disclosure statements, talking with your advisor | Talk | 8 |
-| 3:57 | Data privacy and IRB: on campus does not mean anything goes. Human-subjects data, unpublished data, manuscripts under review, student work | Talk | 8 |
-| 4:05 | **Activity 3: Green, yellow, red.** Pairs sort grad-student scenarios, then debrief disagreements | Hands-on | 10 |
+| 3:49 | The frontier is jagged, and it moves: Dell'Acqua et al. 2023 (758 BCG consultants, GPT-4). Inside the frontier: 12.2% more tasks, 25.1% faster, 40%+ higher quality; outside: 19 points less likely to be correct. Abilities are "expanding, but uneven," so re-test on your own tasks | Talk | 4 |
+| 3:53 | Test the floor, not the ceiling: skeptics test AI on what only experts can do; the useful test is what you are weak at. Same study: below-average performers +43%, above-average +17%. AI raises the floor for everybody | Talk | 3 |
+| 3:56 | Judgment and good questions are worth more now: what AI made cheaper vs. what is worth more (choosing the question, knowing whether a result is right, putting your name on it) | Talk | 3 |
+| 3:59 | Integrity and disclosure: university, funder, and journal rules; authorship; disclosure statements; talking with your advisor | Talk | 5 |
+| 4:04 | Data and IRB: on campus does not mean anything goes. Human-subjects data, unpublished data, manuscripts under review, student work | Talk | 4 |
+| 4:08 | **Activity 3: Green, yellow, red.** Pairs sort grad-student scenarios, then debrief disagreements | Hands-on | 7 |
 | **Part 4** | **Working well** | | |
 | 4:15 | TaMPER in practice: Overton's TaMPER build and prompt walkthrough (fellowship Broader Impacts example), then the revise-and-repeat loop. Sets up the Activity 4 prompt | Talk | 8 |
 | **Part 5** | **AI in your research** | | |
