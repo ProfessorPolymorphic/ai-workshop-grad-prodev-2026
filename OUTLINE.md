@@ -23,7 +23,7 @@ Rough balance: skills and judgment first, the research lifecycle second, tools a
 | 4:11 | **Activity 3: Fix a bad prompt** in Vandal Chat | Hands-on | 12 |
 | **Part 5** | **AI in your research** | | |
 | 4:23 | Literature: a Vandal Chat Deep Research report (run before class), citations spot-checked live | Demo | 7 |
-| 4:30 | **Activity 4: Build something** (topic to decide; see open items) | Hands-on | 20 |
+| 4:30 | **Activity 4: Build your own website.** Chat track (Vandal Chat) or agent track (agent on MindRouter), same TaMPER-structured prompt; publish free with GitHub Pages | Hands-on | 20 |
 | **Close** | | | |
 | 4:50 | **Exit ticket:** draft your own AI-use disclosure statement | Hands-on | 5 |
 | 4:55 | Takeaways and where to go next with these tools | Talk | 5 |
@@ -38,13 +38,25 @@ Goal: everyone leaves this activity signed in to MindRouter and Vandal Chat, wit
 | 12 | Vandal Chat | Same question, two models, compare with a neighbor. Ask for three papers on your thesis topic; check one DOI | Answers vary between models; sources get invented |
 | 5 | Debrief and checkpoint | Three takeaways; anyone not signed in to both tools flags it now | |
 
+## Activity 4: Build your own website (20 min)
+
+Goal: every student leaves with a one-page academic website, and a felt sense of the difference between chatbot and agentic coding.
+
+| Min | Step | Chat track (anyone) | Agent track (agent already set up) |
+|---|---|---|---|
+| 12 | Build | Paste the prompt into Vandal Chat, save the HTML as index.html, open it in a browser, ask for one change | Same prompt to an agent in an empty folder; read its plan before approving; have it preview and fix |
+| 5 | Publish | GitHub: new public repo named yourusername.github.io, upload index.html; live in a minute or two | Ask the agent to create the repo and publish; read each permission request |
+| 3 | Debrief | Who did the work? Copy-paste count vs. decisions made; did it invent anything about you? | |
+
+The prompt is on the slide with a Copy button. It uses the Part 4 components (task, context, instructions, output format) and tells the model to leave placeholders rather than invent details. Students include only what belongs on a public web page.
+
 ## Appendix
 
 - **Tools we've built:** MindRouter, Vandal Chat, and Vandalizer, with links to each tool, its guide or manual, and GitHub. Public tools only; add others as needed.
 
 ## Open items
 
-- Activity 4 topic: building a personal website with an agent (fits the agentic coding goal) or reproducing a figure from a paper's data. If a figure, the workshop paper is still needed (search paused).
 - Which agent to use for the Part 2 live demo (Claude Code, Codex, OpenCode, or Goose on MindRouter).
 - Activity 4 went from 25 to 20 minutes and the exit ticket from 8 to 5 to make room for Part 2.
+- Activity 3 (fix a bad prompt) was planned around the workshop paper, which is paused; it needs a source text.
 - Vandal Chat steps on the Activity 1 slides were written without seeing the signed-in interface; check them against the real UI.

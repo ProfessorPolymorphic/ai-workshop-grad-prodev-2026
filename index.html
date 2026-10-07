@@ -411,6 +411,15 @@
     font-size: .85cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
   }
 
+  /* ---------- copyable prompt ---------- */
+  .copy-wrap { position: relative; }
+  .copy-wrap .pc-template { max-height: none; font-size: 1.2cqw; padding-right: 9cqw; }
+  .copy-btn {
+    position: absolute; top: .8cqw; right: .8cqw; padding: .5cqw 1cqw; border: none; border-radius: 999px; cursor: pointer;
+    font: inherit; font-size: .95cqw; font-weight: 700; color: var(--ink); background: var(--gold);
+  }
+  .copy-btn:hover { filter: brightness(1.05); }
+
   /* ---------- activity slides ---------- */
   .act-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.4cqw; margin-top: .8cqw; align-items: start; }
   .act-steps { margin: 0; padding: 0 0 0 1.4cqw; font-size: 1.12cqw; line-height: 1.5; color: var(--ink); }
@@ -464,7 +473,7 @@
       <li class="brk"><span class="at">3:27</span><span class="an">Break</span></li>
       <li><span class="at">3:37</span><span class="an">Rules of the road<span class="ad">Integrity, disclosure, privacy, IRB. Activity 2: Green, yellow, red</span></span></li>
       <li><span class="at">4:03</span><span class="an">Working well<span class="ad">TaMPER in practice. Activity 3: Fix a bad prompt</span></span></li>
-      <li><span class="at">4:23</span><span class="an">AI in your research<span class="ad">Literature and Deep Research. Activity 4: Build something</span></span></li>
+      <li><span class="at">4:23</span><span class="an">AI in your research<span class="ad">Literature and Deep Research. Activity 4: Build your own website</span></span></li>
       <li><span class="at">4:50</span><span class="an">Your AI-use statement<span class="ad">Exit ticket, takeaways, where to go next</span></span></li>
     </ol>
   </section>
@@ -651,7 +660,7 @@
       <div class="t-cards stack">
         <article class="t-card"><h3>60+ open-weight models</h3><p>Llama, Qwen, Gemma, Mistral, gpt-oss, and more, from half a billion to over 100 billion parameters. The live list is on the status page.</p></article>
         <article class="t-card"><h3>Your data stays on campus</h3><p>Every model runs on university-owned GPUs. No outside company sees your prompts.</p></article>
-        <article class="t-card dark"><h3>More than chat</h3><p>API keys for your own code, coding agents, transcription, and PDF-to-text. You can use the API in Activity 4.</p></article>
+        <article class="t-card dark"><h3>More than chat</h3><p>API keys for your own code, coding agents, transcription, and PDF-to-text. Agents can use it to build your website in Activity 4.</p></article>
       </div>
       <div class="gold-band">
         <span class="k">Your turn &middot; 8 min</span>
@@ -659,7 +668,7 @@
           <li>Open <strong>mindrouter.uidaho.edu</strong>. Watch the live status page for a moment: every request on campus flows through here.</li>
           <li>Log in with your University of Idaho account.</li>
           <li>Find the model list. Write down one <strong>small</strong> model (under 10B) and one <strong>large</strong> model (over 100B). You will use both in a minute.</li>
-          <li><em>Already comfortable?</em> Create an API key in your Dashboard and save it somewhere safe. You can use it in Activity 4.</li>
+          <li><em>Already comfortable?</em> Create an API key in your Dashboard and save it somewhere safe. It lets an agent use MindRouter in Activity 4.</li>
         </ol>
         <a class="go" href="https://mindrouter.uidaho.edu" target="_blank" rel="noopener">Open MindRouter &rarr;</a>
       </div>
@@ -1056,8 +1065,109 @@
     <h1>AI in your research</h1>
     <ul class="points">
       <li>Literature and Deep Research</li>
-      <li>Activity 4: Build something</li>
+      <li>Activity 4: Build your own website</li>
     </ul>
+  </section>
+
+  <!-- Literature and Deep Research: slides to come -->
+
+  <!-- ═══════════════ ACTIVITY 4 — BUILD YOUR OWN WEBSITE ═══════════════ -->
+  <section class="slide tdiv" data-part="Activity 4 &middot; Build your own website" data-letter="4">
+    <p class="tdiv-kick">Activity 4 &middot; 20 min</p>
+    <h2>Build your own website</h2>
+    <div class="gold-rule"></div>
+    <p class="tamper-sub">Chat track or agent track. Same goal: a page with your name on it.</p>
+  </section>
+
+  <!-- Pick your track -->
+  <section class="slide" data-part="Activity 4 &middot; Build your own website">
+    <h2>Pick your track</h2>
+    <div class="who-cols">
+      <div class="panel chat">
+        <div class="panel-head"><span class="dot"></span>Chat track &middot; anyone</div>
+        <div class="panel-body sans">
+          <ol class="act-steps" style="font-size:1.55cqw">
+            <li>Open <strong>Vandal Chat</strong>. Paste the prompt from the next slide, with your details filled in.</li>
+            <li>Copy the HTML it returns into a file named <strong>index.html</strong>. Open that file in your browser.</li>
+            <li>Ask for one change. Copy, save, reload. Notice who is doing the work.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="panel agent">
+        <div class="panel-head"><span class="dot"></span>Agent track &middot; agent already set up</div>
+        <div class="panel-body sans">
+          <ol class="act-steps" style="font-size:1.55cqw">
+            <li>Make an empty folder and start your agent in it, using MindRouter as its model.</li>
+            <li>Give it the same prompt. <strong>Read its plan</strong> before you approve anything.</li>
+            <li>Ask it to open the page in a browser and fix whatever looks broken.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">Build &middot; 12 min</span>
+      Only put in what you would put on a public web page. This page is meant to be seen.
+    </div>
+  </section>
+
+  <!-- The prompt (TaMPER-structured, copyable) -->
+  <section class="slide" data-part="Activity 4 &middot; Build your own website">
+    <h2>Your prompt</h2>
+    <p class="pc-hint" style="font-size:1.1cqw">Fill in the brackets. It has the parts from Part 4: task, context, instructions, output format.</p>
+    <div class="copy-wrap interactive">
+      <pre class="pc-template" id="sitePrompt">TASK: Build a one-page academic website for me.
+
+CONTEXT:
+Name: [your name]
+Program and lab: [e.g., PhD student, Biological Sciences, ___ Lab, University of Idaho]
+Research interests: [two or three, in plain language]
+Short bio: [three or four sentences]
+Links: [university email, GitHub, ORCID, Google Scholar: whichever you have]
+
+INSTRUCTIONS: Use one self-contained HTML file with the CSS inside it. No frameworks and no external images; use a gray box as a photo placeholder. Make it easy to read on a phone. Where I left something blank, put a clearly marked placeholder instead of inventing it.
+
+OUTPUT FORMAT: Return only the complete index.html file, with no explanation.</pre>
+      <button class="copy-btn" type="button" data-copy="sitePrompt">Copy prompt</button>
+    </div>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">Agent track</span>
+      Replace the last line with: <em>Save it as index.html in this folder, then open it in a browser and fix anything that looks broken.</em>
+    </div>
+  </section>
+
+  <!-- Publish -->
+  <section class="slide" data-part="Activity 4 &middot; Build your own website">
+    <h2>Put it on the web</h2>
+    <p class="lede">Free, with GitHub Pages. Nothing to install.</p>
+    <div class="act-grid" style="margin-top:1.4cqw">
+      <div class="gold-band">
+        <span class="k">Publish &middot; 5 min</span>
+        <ol class="act-steps" style="font-size:1.25cqw">
+          <li>Sign in at <strong>github.com</strong>. No account yet? Making one is free.</li>
+          <li>Create a new <strong>public</strong> repository named <strong>yourusername.github.io</strong>.</li>
+          <li><strong>Add file &rarr; Upload files</strong>, choose your index.html, and commit.</li>
+          <li>In a minute or two, your site is live at <strong>https://yourusername.github.io</strong>. Not there? <strong>Settings &rarr; Pages</strong>, deploy from the main branch.</li>
+        </ol>
+      </div>
+      <div class="t-cards stack">
+        <article class="t-card mid"><h3>Agent track</h3><p>Ask your agent to create the repository and publish it. It will ask permission first. Read what it is about to do.</p></article>
+        <article class="t-card mid dark"><h3>Before you share the link</h3><p>Open it on your phone. Read every line. Nothing invented, nothing private.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Debrief -->
+  <section class="slide" data-part="Activity 4 &middot; Build your own website">
+    <h2>Who did the work?</h2>
+    <div class="t-cards" style="margin-top:1.4cqw">
+      <article class="t-card big"><h3>Chat track</h3><p>How many times did you copy and paste? Where did you get stuck?</p></article>
+      <article class="t-card big"><h3>Agent track</h3><p>How many decisions did you make? Did you read the plan, or just approve it?</p></article>
+      <article class="t-card big dark"><h3>Everyone</h3><p>Did it invent anything about you? You found it because you know the source: you.</p></article>
+    </div>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">Debrief &middot; 3 min</span>
+      Keep the page. Next week, add your CV and one figure from your research.
+    </div>
   </section>
 
   <!-- ═══════════════ CLOSE ═══════════════ -->
@@ -1305,6 +1415,18 @@
     });
     highlight('generic');
   })();
+
+  /* ---- copy-to-clipboard buttons: data-copy names the element whose text to copy ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'), function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var text = document.getElementById(btn.getAttribute('data-copy')).textContent;
+      var label = btn.textContent;
+      function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = label; }, 1500); }
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { done('Select and copy'); }); }
+      else { done('Select and copy'); }
+    });
+  });
 
   /* Slide-specific widgets register an init function here, keyed by data-init. */
   var INIT = { pred: initPred };
