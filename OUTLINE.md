@@ -8,7 +8,7 @@ Rough balance: skills and judgment first, the research lifecycle second, tools a
 |---|---|---|---|
 | 0:00 | Welcome | Talk | 5 |
 | **Part 1** | **What AI is, and your tools** | | |
-| 0:05 | What AI is: next-token prediction, confident fabrication, inconsistency. Demoed live in Vandal Chat | Talk + demo | 12 |
+| 0:05 | What AI is: next-token prediction, confident fabrication, inconsistency. Overton's slides, biology examples; run the "Inconsistent" prompt live in Vandal Chat | Talk + demo | 12 |
 | 0:17 | **Activity 1: Meet your tools.** MindRouter, then Vandal Chat, then a Vandalizer demo | Hands-on | 25 |
 | **Part 2** | **Rules of the road** | | |
 | 0:42 | Integrity and disclosure: university and journal policies, authorship, disclosure statements, talking with your advisor | Talk | 8 |
@@ -16,7 +16,7 @@ Rough balance: skills and judgment first, the research lifecycle second, tools a
 | 0:58 | **Activity 2: Green, yellow, red.** Pairs sort grad-student scenarios, then debrief disagreements | Hands-on | 10 |
 | 1:08 | *Break* | | 10 |
 | **Part 3** | **Working well** | | |
-| 1:18 | TaMPER in practice: context, output format, instructions; checking the output; keeping a log | Talk | 8 |
+| 1:18 | TaMPER in practice: Overton's TaMPER build and prompt walkthrough (fellowship Broader Impacts example), then the revise-and-repeat loop; checking the output; keeping a log | Talk | 8 |
 | 1:26 | **Activity 3: Fix a bad prompt** in Vandal Chat, on the workshop paper | Hands-on | 12 |
 | **Part 4** | **AI in your research** | | |
 | 1:38 | Literature: a Vandal Chat Deep Research report (run before class), citations spot-checked live | Demo | 7 |
@@ -36,6 +36,5 @@ Rough balance: skills and judgment first, the research lifecycle second, tools a
 
 ## Open items
 
-- Workshop paper: choose an open-access paper with public data (used in the Activity 1 demo, Activity 3, and Activity 4).
+- Workshop paper (paused): an open-access paper with public data for the Activity 1 Vandalizer demo, Activity 3, and Activity 4. The Vandalizer slide's output fields are placeholders until then.
 - Vandal Chat steps on the Activity 1 slides were written without seeing the signed-in interface; check them against the real UI.
-- Whether to reuse Overton's "What AI is" slides and prompt walkthrough, with credit.

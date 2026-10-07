@@ -18,4 +18,12 @@ Hands-on materials live in `examples/`, one folder per activity, each with its o
 
 ## Credits
 
-The slide layout and navigation are adapted from Michael Overton's [Using AI Effectively](https://github.com/mro0001/using-ai-effectively-icctfoa-2026) deck (2026 ICCTFOA Institute).
+The slide layout and navigation come from Michael Overton's [Using AI Effectively](https://github.com/mro0001/using-ai-effectively-icctfoa-2026) deck (2026 ICCTFOA Institute). The "What AI is" slides, the TaMPER build, and the prompt walkthrough are adapted from the same deck; each one says "Adapted from M. Overton" in its top bar. The local-government examples were swapped for biology ones. The 20-questions experiment and the job-posting result on the "Paste the source in" slide are Overton's.
+
+TaMPER: Overton, Robison & Sheneman, arXiv 2504.01037, https://arxiv.org/abs/2504.01037
+
+Survivorship bias illustration: Martin Grandjean, McGeddon, Cameron Moll. CC BY-SA 4.0, via Wikimedia Commons.
+
+## Note on illustrative content
+
+The next-word sentence and its percentages, and the three "Inconsistent" runs, were written for these slides. They are illustrative, not measured. Running the prompt three times in Vandal Chat during the workshop gives real ones. The rainbow trout methods paragraph is invented for the input, process, output example.

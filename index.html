@@ -56,6 +56,8 @@
   .meta .part { color: var(--gold-text); }
   .meta .spacer { flex: 1; }
   .meta .num { font-variant-numeric: tabular-nums; }
+  .meta .credit { font-weight: 600; letter-spacing: .08em; }
+  .img-credit { font-size: .75cqw; color: var(--faint); margin: .4cqw 0 0; }
 
   /* ---------- type ---------- */
   h1 {
@@ -446,7 +448,133 @@
     </ul>
   </section>
 
-  <!-- What AI is: slides to come -->
+  <!-- ═══════════════ WHAT AI IS (adapted from Overton, ICCTFOA 2026) ═══════════════ -->
+
+  <!-- AI is the worst. Long live AI. -->
+  <section class="slide" data-part="What AI Is" data-credit="Adapted from M. Overton">
+    <div class="worst-grid">
+      <p class="worst-quote">&ldquo;AI is <em>the worst</em>. Long live AI.&rdquo;</p>
+      <div>
+        <p class="slop-quote">&ldquo;I know AI slop the instant I see it.&rdquo;</p>
+        <img class="slop-img" src="img/survivorship-bias.png" alt="Survivorship bias diagram, red dots marking damage on planes that returned">
+        <p class="img-credit">Illustration: Martin Grandjean, McGeddon, Cameron Moll. CC BY-SA 4.0, via Wikimedia Commons.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Input, process, output (click to reveal) -->
+  <section class="slide" data-part="What AI Is" data-credit="Adapted from M. Overton">
+    <h2>Input, process, output.</h2>
+    <div class="uc-flow ipo-flow" style="margin-top:1cqw">
+      <div class="uc-box input frag">
+        <p class="uc-label">Input</p>
+        <p class="uc-content">Extract organisms and sample sizes.<br><br>
+          METHODS: We held 48 juvenile rainbow trout (Oncorhynchus mykiss) from two hatchery lines in warm (18 &deg;C) or cold (12 &deg;C) tanks, 24 fish per treatment. After six weeks, we sequenced liver RNA from 10 fish per treatment.<br>
+          etc.</p>
+      </div>
+      <div class="uc-llm frag">
+        <p class="uc-llm-label">Process</p><p class="uc-llm-icon">&#129504;</p><p class="uc-llm-sub">the model</p>
+      </div>
+      <div class="uc-box output frag">
+        <p class="uc-label">Output</p>
+        <p class="uc-content">1. Oncorhynchus mykiss (rainbow trout): 48 fish, two hatchery lines<br>
+          2. Warm (18 &deg;C): 24 &middot; Cold (12 &deg;C): 24<br>
+          3. RNA-seq: 10 per treatment (20 total)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next token prediction machine -->
+  <section class="slide" data-part="What AI Is" data-credit="Adapted from M. Overton">
+    <h2>Next token prediction machine</h2>
+    <div class="interactive" data-init="pred" id="pred-widget">
+      <div class="uc-flow pred-flow">
+        <div class="uc-box input">
+          <p class="uc-label">Input</p>
+          <p class="uc-content">Answer the following question in exactly one sentence: <strong>Why are biology graduate students the very best? (Do not pander)</strong></p>
+        </div>
+        <div class="uc-llm">
+          <p class="uc-llm-label">Process</p><p class="uc-llm-icon">&#129504;</p><p class="uc-llm-sub">one word at a time</p>
+        </div>
+        <div class="uc-box output">
+          <p class="uc-label">Output</p>
+          <p class="uc-content"><span id="predText"></span> <b id="predSlot" style="color:var(--gold-text)">___</b></p>
+        </div>
+      </div>
+      <div class="pred-row">
+        <div class="bars" id="predBars"></div>
+        <div class="pred-side">
+          <button class="step-btn" id="predBtn" type="button" data-auto-run="1">Start.</button>
+          <p class="dist-foot">Illustrative. The sentence and the percentages were written for this slide, not measured.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Bullshitter (click to reveal) -->
+  <section class="slide" data-credit="Adapted from M. Overton" data-part="What AI Is">
+    <h2>Bullshitter</h2>
+    <div class="branch-grid">
+      <div class="branch-convo frag">
+        <p class="uc-label">20 Questions conversation</p>
+        <p class="bc-line"><span class="bc-who">You</span>I want to play a game of 20 questions: ready?</p>
+        <p class="bc-line"><span class="bc-who">Model</span>I&rsquo;ve picked something. Question 1?</p>
+      </div>
+      <svg class="branch-svg frag" viewBox="0 0 200 220" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An arrow labeled Branch splits into two arrows">
+        <defs><marker id="brah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="currentColor"/></marker></defs>
+        <line x1="0" y1="110" x2="78" y2="110" stroke="currentColor" stroke-width="3"/>
+        <text x="40" y="96" text-anchor="middle" class="br-lbl">Branch</text>
+        <path d="M78,110 C 125,110 118,50 194,50" fill="none" stroke="currentColor" stroke-width="3" marker-end="url(#brah)"/>
+        <path d="M78,110 C 125,110 118,170 194,170" fill="none" stroke="currentColor" stroke-width="3" marker-end="url(#brah)"/>
+      </svg>
+      <div class="branch-out frag">
+        <div class="q-card">
+          <h3>Branch A</h3>
+          <p>Asked one question, then quit and <strong>asked the model what its word had been</strong>.</p>
+          <div class="word">&ldquo;lighthouse&rdquo;</div>
+        </div>
+        <div class="q-card">
+          <h3>Branch B</h3>
+          <p>Asked the model to <strong>write its word to a file before any questions were asked</strong>.</p>
+          <div class="word">&ldquo;kangaroo&rdquo;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inconsistent (runs reveal one at a time) -->
+  <section class="slide" data-part="What AI Is" data-credit="Adapted from M. Overton">
+    <h2>Inconsistent</h2>
+    <div class="uc-flow runs-flow">
+      <div class="uc-box input">
+        <p class="uc-label">Input</p>
+        <p class="uc-content">Answer the following question in exactly one sentence: <strong>Why are biology graduate students the very best? (Do not pander)</strong></p>
+      </div>
+      <div class="uc-llm">
+        <p class="uc-llm-label">Process</p><p class="uc-llm-icon">&#129504;</p><p class="uc-llm-sub">same prompt, three runs</p>
+      </div>
+      <div class="panel bad">
+        <div class="panel-head"><span class="dot"></span>Three runs, one prompt</div>
+        <div class="panel-body">
+          <p class="frag">Run 1&nbsp; &ldquo;Because they run the experiments, write the code, and teach the labs, often on a stipend smaller than the sequencing budget.&rdquo;</p>
+          <p class="frag">Run 2&nbsp; &ldquo;Because nobody else in the department will troubleshoot a PCR, debug a pipeline, and grade forty lab reports in the same afternoon.&rdquo;</p>
+          <p class="frag">Run 3&nbsp; &ldquo;Because they are the ones who notice the strange result, rerun it three times, and only then believe it.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+    <p class="ex-note frag">Illustrative runs written for this slide. Run the prompt three times in Vandal Chat for real ones.</p>
+  </section>
+
+  <!-- 7. To Recap -->
+  <section class="slide" data-credit="Adapted from M. Overton" data-part="What AI Is" style="justify-content:center">
+    <h2>To Recap</h2>
+    <ul class="recap">
+      <li>Next Token Prediction Machines</li>
+      <li>Bullshitters</li>
+      <li>Inconsistent</li>
+    </ul>
+  </section>
+
 
   <!-- ═══════════════ ACTIVITY 1 — MEET YOUR TOOLS ═══════════════ -->
   <section class="slide tdiv" data-part="Activity 1 &middot; Meet your tools" data-letter="1">
@@ -567,6 +695,205 @@
     </ul>
   </section>
 
+  <!-- ═══════════════ TaMPER + PROMPT (adapted from Overton, ICCTFOA 2026) ═══════════════ -->
+  <!-- 8. TaMPER hero -->
+  <section class="slide" data-credit="Adapted from M. Overton" data-part="TaMPER" style="justify-content:center; align-items:center">
+    <p class="tamper-hero">T<span class="lc">a</span>MPER</p>
+  </section>
+
+  <!-- 9-13. TaMPER stack -->
+  <section class="slide" data-credit="Adapted from M. Overton" data-part="TaMPER" style="justify-content:center; align-items:center">
+    <div class="tamper-stack">
+      <p class="tw on"><span class="ti">T</span>ask</p><p class="tw"><span class="ti">M</span>odel</p><p class="tw"><span class="ti">P</span>rompt</p><p class="tw"><span class="ti">E</span>valuation</p><p class="tw"><span class="ti">R</span>ecording</p>
+    </div>
+  </section>
+  <section class="slide" data-credit="Adapted from M. Overton" data-part="TaMPER" style="justify-content:center; align-items:center">
+    <div class="tamper-stack">
+      <p class="tw on"><span class="ti">T</span>ask</p><p class="tw on"><span class="ti">M</span>odel</p><p class="tw"><span class="ti">P</span>rompt</p><p class="tw"><span class="ti">E</span>valuation</p><p class="tw"><span class="ti">R</span>ecording</p>
+    </div>
+  </section>
+  <section class="slide" data-credit="Adapted from M. Overton" data-part="TaMPER" style="justify-content:center; align-items:center">
+    <div class="tamper-stack">
+      <p class="tw on"><span class="ti">T</span>ask</p><p class="tw on"><span class="ti">M</span>odel</p><p class="tw on"><span class="ti">P</span>rompt</p><p class="tw"><span class="ti">E</span>valuation</p><p class="tw"><span class="ti">R</span>ecording</p>
+    </div>
+  </section>
+  <section class="slide" data-credit="Adapted from M. Overton" data-part="TaMPER" style="justify-content:center; align-items:center">
+    <div class="tamper-stack">
+      <p class="tw on"><span class="ti">T</span>ask</p><p class="tw on"><span class="ti">M</span>odel</p><p class="tw on"><span class="ti">P</span>rompt</p><p class="tw on"><span class="ti">E</span>valuation</p><p class="tw"><span class="ti">R</span>ecording</p>
+    </div>
+  </section>
+  <section class="slide" data-credit="Adapted from M. Overton" data-part="TaMPER" style="justify-content:center; align-items:center">
+    <div class="tamper-stack">
+      <p class="tw on"><span class="ti">T</span>ask</p><p class="tw on"><span class="ti">M</span>odel</p><p class="tw on"><span class="ti">P</span>rompt</p><p class="tw on"><span class="ti">E</span>valuation</p><p class="tw on"><span class="ti">R</span>ecording</p>
+    </div>
+  </section>
+
+  <section class="slide tdiv" data-credit="Adapted from M. Overton" data-part="TaMPER &middot; Prompt" data-letter="P">
+    <h2>Prompt</h2>
+    <div class="gold-rule"></div>
+    <p class="tamper-sub">Tell it what you want. (What you really, really want.)</p>
+  </section>
+
+  <!-- Prompt components, five walkthrough slides -->
+  <section class="slide pcx" data-credit="Adapted from M. Overton" data-part="TaMPER &middot; Prompt" data-initial="task">
+    <h2>Start with a clear request</h2>
+    <p class="pc-hint">Click a component to highlight it in the prompt and see the guidance.</p>
+    <div class="pc-grid">
+      <div class="pc-left">
+        <button class="pc-btn" data-comp="task">Task</button>
+        <button class="pc-btn" data-comp="definitions">Definitions</button>
+        <button class="pc-btn" data-comp="source">Source</button>
+        <button class="pc-btn" data-comp="instructions">Instructions</button>
+        <button class="pc-btn" data-comp="output">Output format</button>
+      </div>
+      <pre class="pc-template"><code><span class="pc-sec" data-comp="task">TASK: Review my fellowship research statement for how well it addresses the Broader Impacts review criterion.</span><span class="pc-sec" data-comp="source">CONTEXT: [paste the solicitation&rsquo;s review criteria and your research statement]</span><span class="pc-sec" data-comp="definitions">DEFINITIONS: Broader Impacts means &lt;paste the solicitation&rsquo;s own definition&gt;.</span><span class="pc-sec" data-comp="instructions">INSTRUCTIONS: Carefully read the review criteria and the research statement. Find every sentence in the statement that speaks to Broader Impacts. Assess how well the statement addresses Broader Impacts as the solicitation defines it. Provide your response as a number between 1 (not addressed) and 5 (thoroughly addressed) with a 1-2 sentence explanation that quotes the statement.</span><span class="pc-sec" data-comp="output">OUTPUT FORMAT: Broader Impacts: &lt;insert number 1-5&gt;, Evidence: &lt;quoted sentences&gt;, Explanation: &lt;insert explanation&gt;</span></code></pre>
+    </div>
+    <div class="pc-rec"><p class="pc-rec-label">Guidance</p><div class="pc-rec-body pc-rec-target"></div></div>
+    <div class="t-cards pc-cards">
+      <article class="t-card" data-card="context"><h3>Context</h3><p>Definitions and the source material.</p></article>
+      <article class="t-card" data-card="output"><h3>Output format</h3><p>The shape of the answer you want back.</p></article>
+      <article class="t-card" data-card="instructions"><h3>Instructions</h3><p>The task and how to do it.</p></article>
+    </div>
+  </section>
+
+  <section class="slide pcx" data-credit="Adapted from M. Overton" data-part="TaMPER &middot; Prompt" data-initial="definitions">
+    <h2>Definitions</h2>
+    <p class="pc-hint">Click a component to highlight it in the prompt and see the guidance.</p>
+    <div class="pc-grid">
+      <div class="pc-left">
+        <button class="pc-btn" data-comp="task">Task</button>
+        <button class="pc-btn" data-comp="definitions">Definitions</button>
+        <button class="pc-btn" data-comp="source">Source</button>
+        <button class="pc-btn" data-comp="instructions">Instructions</button>
+        <button class="pc-btn" data-comp="output">Output format</button>
+      </div>
+      <pre class="pc-template"><code><span class="pc-sec" data-comp="task">TASK: Review my fellowship research statement for how well it addresses the Broader Impacts review criterion.</span><span class="pc-sec" data-comp="source">CONTEXT: [paste the solicitation&rsquo;s review criteria and your research statement]</span><span class="pc-sec" data-comp="definitions">DEFINITIONS: Broader Impacts means &lt;paste the solicitation&rsquo;s own definition&gt;.</span><span class="pc-sec" data-comp="instructions">INSTRUCTIONS: Carefully read the review criteria and the research statement. Find every sentence in the statement that speaks to Broader Impacts. Assess how well the statement addresses Broader Impacts as the solicitation defines it. Provide your response as a number between 1 (not addressed) and 5 (thoroughly addressed) with a 1-2 sentence explanation that quotes the statement.</span><span class="pc-sec" data-comp="output">OUTPUT FORMAT: Broader Impacts: &lt;insert number 1-5&gt;, Evidence: &lt;quoted sentences&gt;, Explanation: &lt;insert explanation&gt;</span></code></pre>
+    </div>
+    <div class="pc-rec"><p class="pc-rec-label">Guidance</p><div class="pc-rec-body pc-rec-target"></div></div>
+    <div class="t-cards pc-cards">
+      <article class="t-card" data-card="context"><h3>Context</h3><p>Definitions and the source material.</p></article>
+      <article class="t-card" data-card="output"><h3>Output format</h3><p>The shape of the answer you want back.</p></article>
+      <article class="t-card" data-card="instructions"><h3>Instructions</h3><p>The task and how to do it.</p></article>
+    </div>
+  </section>
+
+  <section class="slide pcx" data-credit="Adapted from M. Overton" data-part="TaMPER &middot; Prompt" data-initial="source">
+    <h2>Paste the source in</h2>
+    <p class="pc-hint">Click a component to highlight it in the prompt and see the guidance.</p>
+    <div class="pc-grid">
+      <div class="pc-left">
+        <button class="pc-btn" data-comp="task">Task</button>
+        <button class="pc-btn" data-comp="definitions">Definitions</button>
+        <button class="pc-btn" data-comp="source">Source</button>
+        <button class="pc-btn" data-comp="instructions">Instructions</button>
+        <button class="pc-btn" data-comp="output">Output format</button>
+      </div>
+      <pre class="pc-template"><code><span class="pc-sec" data-comp="task">TASK: Review my fellowship research statement for how well it addresses the Broader Impacts review criterion.</span><span class="pc-sec" data-comp="source">CONTEXT: [paste the solicitation&rsquo;s review criteria and your research statement]</span><span class="pc-sec" data-comp="definitions">DEFINITIONS: Broader Impacts means &lt;paste the solicitation&rsquo;s own definition&gt;.</span><span class="pc-sec" data-comp="instructions">INSTRUCTIONS: Carefully read the review criteria and the research statement. Find every sentence in the statement that speaks to Broader Impacts. Assess how well the statement addresses Broader Impacts as the solicitation defines it. Provide your response as a number between 1 (not addressed) and 5 (thoroughly addressed) with a 1-2 sentence explanation that quotes the statement.</span><span class="pc-sec" data-comp="output">OUTPUT FORMAT: Broader Impacts: &lt;insert number 1-5&gt;, Evidence: &lt;quoted sentences&gt;, Explanation: &lt;insert explanation&gt;</span></code></pre>
+    </div>
+    <div class="pc-rec"><p class="pc-rec-label">Guidance</p><div class="pc-rec-body pc-rec-target"></div></div>
+    <div class="t-cards pc-cards">
+      <article class="t-card" data-card="context"><h3>Context</h3><p>Definitions and the source material.</p></article>
+      <article class="t-card" data-card="output"><h3>Output format</h3><p>The shape of the answer you want back.</p></article>
+      <article class="t-card" data-card="instructions"><h3>Instructions</h3><p>The task and how to do it.</p></article>
+    </div>
+  </section>
+
+  <section class="slide pcx" data-credit="Adapted from M. Overton" data-part="TaMPER &middot; Prompt" data-initial="instructions">
+    <h2>Developing a prompt</h2>
+    <p class="pc-hint">Click a component to highlight it in the prompt and see the guidance.</p>
+    <div class="pc-grid">
+      <div class="pc-left">
+        <button class="pc-btn" data-comp="task">Task</button>
+        <button class="pc-btn" data-comp="definitions">Definitions</button>
+        <button class="pc-btn" data-comp="source">Source</button>
+        <button class="pc-btn" data-comp="instructions">Instructions</button>
+        <button class="pc-btn" data-comp="output">Output format</button>
+      </div>
+      <pre class="pc-template"><code><span class="pc-sec" data-comp="task">TASK: Review my fellowship research statement for how well it addresses the Broader Impacts review criterion.</span><span class="pc-sec" data-comp="source">CONTEXT: [paste the solicitation&rsquo;s review criteria and your research statement]</span><span class="pc-sec" data-comp="definitions">DEFINITIONS: Broader Impacts means &lt;paste the solicitation&rsquo;s own definition&gt;.</span><span class="pc-sec" data-comp="instructions">INSTRUCTIONS: Carefully read the review criteria and the research statement. Find every sentence in the statement that speaks to Broader Impacts. Assess how well the statement addresses Broader Impacts as the solicitation defines it. Provide your response as a number between 1 (not addressed) and 5 (thoroughly addressed) with a 1-2 sentence explanation that quotes the statement.</span><span class="pc-sec" data-comp="output">OUTPUT FORMAT: Broader Impacts: &lt;insert number 1-5&gt;, Evidence: &lt;quoted sentences&gt;, Explanation: &lt;insert explanation&gt;</span></code></pre>
+    </div>
+    <div class="pc-rec"><p class="pc-rec-label">Guidance</p><div class="pc-rec-body pc-rec-target"></div></div>
+    <div class="t-cards pc-cards">
+      <article class="t-card" data-card="context"><h3>Context</h3><p>Definitions and the source material.</p></article>
+      <article class="t-card" data-card="output"><h3>Output format</h3><p>The shape of the answer you want back.</p></article>
+      <article class="t-card" data-card="instructions"><h3>Instructions</h3><p>The task and how to do it.</p></article>
+    </div>
+  </section>
+
+  <section class="slide pcx" data-credit="Adapted from M. Overton" data-part="TaMPER &middot; Prompt" data-initial="output">
+    <h2>Output format</h2>
+    <p class="pc-hint">Click a component to highlight it in the prompt and see the guidance.</p>
+    <div class="pc-grid">
+      <div class="pc-left">
+        <button class="pc-btn" data-comp="task">Task</button>
+        <button class="pc-btn" data-comp="definitions">Definitions</button>
+        <button class="pc-btn" data-comp="source">Source</button>
+        <button class="pc-btn" data-comp="instructions">Instructions</button>
+        <button class="pc-btn" data-comp="output">Output format</button>
+      </div>
+      <pre class="pc-template"><code><span class="pc-sec" data-comp="task">TASK: Review my fellowship research statement for how well it addresses the Broader Impacts review criterion.</span><span class="pc-sec" data-comp="source">CONTEXT: [paste the solicitation&rsquo;s review criteria and your research statement]</span><span class="pc-sec" data-comp="definitions">DEFINITIONS: Broader Impacts means &lt;paste the solicitation&rsquo;s own definition&gt;.</span><span class="pc-sec" data-comp="instructions">INSTRUCTIONS: Carefully read the review criteria and the research statement. Find every sentence in the statement that speaks to Broader Impacts. Assess how well the statement addresses Broader Impacts as the solicitation defines it. Provide your response as a number between 1 (not addressed) and 5 (thoroughly addressed) with a 1-2 sentence explanation that quotes the statement.</span><span class="pc-sec" data-comp="output">OUTPUT FORMAT: Broader Impacts: &lt;insert number 1-5&gt;, Evidence: &lt;quoted sentences&gt;, Explanation: &lt;insert explanation&gt;</span></code></pre>
+    </div>
+    <div class="pc-rec"><p class="pc-rec-label">Guidance</p><div class="pc-rec-body pc-rec-target"></div></div>
+    <div class="t-cards pc-cards">
+      <article class="t-card" data-card="context"><h3>Context</h3><p>Definitions and the source material.</p></article>
+      <article class="t-card" data-card="output"><h3>Output format</h3><p>The shape of the answer you want back.</p></article>
+      <article class="t-card" data-card="instructions"><h3>Instructions</h3><p>The task and how to do it.</p></article>
+    </div>
+  </section>
+
+  <!-- 28. Developing a prompt is a loop (SVG flowchart) -->
+  <section class="slide" data-credit="Adapted from M. Overton" id="prompt-developing" data-part="TaMPER &middot; Prompt">
+    <h2>Developing a prompt is a loop</h2>
+    <p class="pc-hint">Click a node in the flowchart to highlight the matching step.</p>
+    <div class="pd-grid">
+      <ul class="pd-steps">
+        <li class="pd-step" data-step="generic">Start with a broad, generic question.</li>
+        <li class="pd-step" data-step="review">Review the output for what you dislike.
+          <ul class="pd-substeps">
+            <li class="pd-step" data-step="review">Misusing terms? Add definitions.</li>
+            <li class="pd-step" data-step="review">Strangely formatted? Specify the output, and limit the options.</li>
+            <li class="pd-step" data-step="review">Guide its thinking with step-by-step instructions.</li>
+          </ul>
+        </li>
+        <li class="pd-step" data-step="change">Change the prompt and repeat.</li>
+      </ul>
+      <div class="pd-chart">
+        <svg viewBox="0 0 470 420" width="470" height="420" preserveAspectRatio="xMidYMid meet" overflow="visible" class="pd-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Prompt development loop flowchart">
+          <defs>
+            <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#191919"/></marker>
+            <marker id="ahg" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#f1b300"/></marker>
+          </defs>
+          <g class="pd-node" data-step="generic">
+            <rect x="150" y="8" width="170" height="44" rx="9" fill="#fff" stroke="#191919" stroke-width="2"/>
+            <text x="235" y="35" text-anchor="middle" class="pd-t">Generic question</text>
+          </g>
+          <line x1="235" y1="52" x2="235" y2="84" stroke="#191919" stroke-width="2" marker-end="url(#ah)"/>
+          <g class="pd-node" data-step="review">
+            <polygon points="235,88 320,126 235,164 150,126" fill="#fff" stroke="#191919" stroke-width="2"/>
+            <text x="235" y="130" text-anchor="middle" class="pd-t">Review output</text>
+          </g>
+          <line x1="235" y1="164" x2="235" y2="196" stroke="#191919" stroke-width="2" marker-end="url(#ah)"/>
+          <g class="pd-node" data-step="satisfied">
+            <polygon points="235,200 320,238 235,276 150,238" fill="#fff" stroke="#191919" stroke-width="2"/>
+            <text x="235" y="242" text-anchor="middle" class="pd-t">Satisfied?</text>
+          </g>
+          <line x1="320" y1="238" x2="360" y2="238" stroke="#191919" stroke-width="2" marker-end="url(#ah)"/>
+          <text x="340" y="230" text-anchor="middle" class="pd-lbl">Yes!</text>
+          <rect x="362" y="216" width="100" height="44" rx="9" fill="#fff8df" stroke="#191919" stroke-width="2"/>
+          <text x="412" y="234" text-anchor="middle" class="pd-t">Stop and</text>
+          <text x="412" y="250" text-anchor="middle" class="pd-t">enjoy your life</text>
+          <line x1="235" y1="276" x2="235" y2="312" stroke="#191919" stroke-width="2" marker-end="url(#ah)"/>
+          <text x="248" y="298" text-anchor="start" class="pd-lbl">No</text>
+          <g class="pd-node" data-step="change">
+            <polygon points="235,316 320,354 235,392 150,354" fill="#fff" stroke="#191919" stroke-width="2"/>
+            <text x="235" y="358" text-anchor="middle" class="pd-t">Change prompt</text>
+          </g>
+          <polyline points="150,354 60,354 60,126 146,126" fill="none" stroke="#f1b300" stroke-width="2.5" marker-end="url(#ahg)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ═══════════════ PART 4 — AI IN YOUR RESEARCH ═══════════════ -->
   <section class="slide divider" data-part="Part 4">
     <div class="rule"></div>
@@ -601,6 +928,7 @@
   <div class="meta" id="meta">
     <span class="part" id="metaPart"></span>
     <span class="spacer"></span>
+    <span class="credit" id="metaCredit"></span>
     <span class="num" id="metaNum"></span>
   </div>
 
@@ -625,6 +953,7 @@
     var auto = slides[i].querySelector('[data-auto-run]');
     if (auto) { if (backward) { auto.setAttribute('data-ran', '1'); } else { auto.removeAttribute('data-ran'); } }
     document.getElementById('metaPart').innerHTML = slides[i].getAttribute('data-part') || '';
+    document.getElementById('metaCredit').textContent = slides[i].getAttribute('data-credit') || '';
     document.getElementById('metaNum').textContent = (i + 1) + ' / ' + slides.length;
     document.getElementById('bar').style.width = ((i + 1) / slides.length * 100) + '%';
     history.replaceState(null, '', '#' + (i + 1));
@@ -659,12 +988,142 @@
   document.getElementById('next').addEventListener('click', function (e) { e.stopPropagation(); next(); });
   document.getElementById('prev').addEventListener('click', function (e) { e.stopPropagation(); prev(); });
   document.getElementById('stage').addEventListener('click', function (e) {
-    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.interactive')) { return; }
+    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.interactive') ||
+        e.target.closest('.pcx') || e.target.closest('#prompt-developing')) { return; }
     next();
   });
 
+  /* ---- next-word prediction, one word at a time. Illustrative spreads. (Overton) ---- */
+  var PRED_STEPS = [
+    { pick: 0, c: [['Because', 58], ['They', 21], ['Biology', 8], ['Graduate', 7], ['other', 6]] },
+    { pick: 0, c: [['they', 74], ['biology', 8], ['graduate', 7], ['without', 5], ['other', 6]] },
+    { pick: 1, c: [['do', 26], ['run', 21], ['keep', 18], ['are', 15], ['generate', 9], ['other', 11]] },
+    { pick: 0, c: [['the', 48], ['experiments', 21], ['labs', 15], ['every', 7], ['other', 9]] },
+    { pick: 0, c: [['experiments,', 52], ['lab,', 17], ['analyses,', 12], ['gels,', 8], ['other', 11]] },
+    { pick: 0, c: [['write', 44], ['analyze', 24], ['collect', 13], ['clean', 8], ['other', 11]] },
+    { pick: 0, c: [['the', 63], ['code,', 18], ['papers,', 9], ['grants,', 5], ['other', 5]] },
+    { pick: 0, c: [['code,', 47], ['papers,', 31], ['grants,', 10], ['methods,', 6], ['other', 6]] },
+    { pick: 0, c: [['and', 88], ['analyze', 4], ['teach', 3], ['other', 5]] },
+    { pick: 0, c: [['teach', 39], ['still', 21], ['mentor', 14], ['somehow', 11], ['present', 6], ['other', 9]] },
+    { pick: 0, c: [['the', 58], ['undergraduates,', 22], ['intro', 9], ['labs,', 6], ['other', 5]] },
+    { pick: 0, c: [['labs,', 46], ['undergraduates,', 23], ['sections,', 16], ['students,', 8], ['other', 7]] },
+    { pick: 1, c: [['all', 29], ['often', 27], ['usually', 18], ['while', 13], ['other', 13]] },
+    { pick: 0, c: [['on', 57], ['for', 22], ['with', 11], ['while', 5], ['other', 5]] },
+    { pick: 0, c: [['a', 81], ['stipends', 9], ['coffee', 5], ['other', 5]] },
+    { pick: 0, c: [['stipend', 53], ['budget', 17], ['salary', 12], ['shoestring', 9], ['other', 9]] },
+    { pick: 1, c: [['that', 38], ['smaller', 24], ['less', 17], ['below', 9], ['other', 12]] },
+    { pick: 0, c: [['than', 94], ['then', 2], ['other', 4]] },
+    { pick: 0, c: [['the', 64], ['their', 19], ['a', 11], ['other', 6]] },
+    { pick: 1, c: [['cost', 31], ['sequencing', 18], ['lab', 16], ['equipment', 13], ['freezer', 9], ['other', 13]] },
+    { pick: 0, c: [['budget', 48], ['bill', 22], ['costs', 13], ['core', 7], ['other', 10]] },
+    { pick: 0, c: [['.', 71], ['and', 14], ['for', 8], ['other', 7]] }
+  ];
+  var predTimer = null, predStep = 0;
+
+  function drawPredBars(step, hi) {
+    var max = 0;
+    step.c.forEach(function (t) { if (t[1] > max) { max = t[1]; } });
+    document.getElementById('predBars').innerHTML = step.c.map(function (t, k) {
+      var on = (k === hi);
+      return '<div class="row' + (on ? ' is-new' : '') + '"><span class="w"' + (on ? ' style="font-weight:700"' : '') + '>' + t[0] + '</span>' +
+             '<span class="track"><span class="fill" style="width:' + (t[1] / max * 100) + '%"></span></span>' +
+             '<span class="p">' + t[1] + '%</span></div>';
+    }).join('');
+  }
+  function appendPredWord(word) {
+    var out = document.getElementById('predText');
+    out.textContent += (word === '.' || out.textContent === '' ? '' : ' ') + word;
+  }
+  function initPred() {
+    if (predTimer) { clearTimeout(predTimer); predTimer = null; }
+    predStep = 0;
+    document.getElementById('predText').textContent = '';
+    document.getElementById('predSlot').style.display = '';
+    drawPredBars(PRED_STEPS[0], -1);
+    document.getElementById('predBtn').textContent = 'Start.';
+  }
+  function runPredStep() {
+    var btn = document.getElementById('predBtn');
+    if (predStep >= PRED_STEPS.length) {
+      predTimer = null;
+      document.getElementById('predSlot').style.display = 'none';
+      btn.textContent = 'Run it again';
+      return;
+    }
+    var step = PRED_STEPS[predStep];
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ticks = 0;
+    function settle() {
+      drawPredBars(step, step.pick);
+      appendPredWord(step.c[step.pick][0]);
+      predStep += 1;
+      predTimer = setTimeout(runPredStep, reduce ? 0 : 420);
+    }
+    if (reduce) { settle(); return; }
+    function spin() {
+      drawPredBars(step, ticks % step.c.length);
+      if (++ticks > 6) { settle(); return; }
+      predTimer = setTimeout(spin, 55);
+    }
+    spin();
+  }
+  document.getElementById('predBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (predTimer || predStep >= PRED_STEPS.length) { initPred(); return; }
+    document.getElementById('predBtn').textContent = 'Predicting…';
+    runPredStep();
+  });
+
+  /* ---- prompt components: five walkthrough slides share one behavior (Overton) ---- */
+  /* which of the three "what you need" cards each component belongs to */
+  var PC_CARD = { task: 'instructions', definitions: 'context', source: 'context', instructions: 'instructions', output: 'output' };
+  var PC_GUIDANCE = {
+    task: '<p><strong>Start with a clear request.</strong> Clear, straightforward questions are good. Put the task at the top of your prompt.</p><p>Everything after it then gets read in the context of the job you are asking for, which makes an appropriate response far more likely.</p><p>Another example: Read this methods section and list every organism, with its sample size and the treatment it received.</p>',
+    definitions: '<p><strong>Define any ambiguous term.</strong> Definitions are key to maximizing the chance that the model does what you actually want.</p><p>If a word in your prompt could mean two things to a stranger, it can mean the wrong one here.</p><p>A definition doing work: &ldquo;Replicate&rdquo; means an independent biological sample: a different animal, plant, or culture. Repeated measurements of the same sample are technical replicates and do not count.</p>',
+    source: '<p><strong>Paste the source in.</strong> It is not Wikipedia and it is not a search engine. Ask it about a document it cannot see and it will produce a plausible, inaccurate answer.</p><p>Putting the real text in the prompt turns next token prediction to your advantage.</p><p>From Overton&rsquo;s tests on a job posting. Source described: it invented the degree, the university, the software, three different universities across six runs. Source pasted: it quoted the posting&rsquo;s own language back and used the real numbers.</p>',
+    instructions: '<p><strong>Say how to do it.</strong> Start with the question. Add a component at a time. Task at the top, details at the bottom.</p><p>Step-by-step instructions guide its thinking: what to read, what to assess, and how to score it.</p>',
+    output: '<p><strong>Say what you want back.</strong> A score, a label, a short explanation, a word limit. Specifying the shape prevents unwanted output and makes the answers comparable from one run to the next.</p>'
+  };
+  Array.prototype.forEach.call(document.querySelectorAll('.pcx'), function (slide) {
+    var btns = slide.querySelectorAll('.pc-btn');
+    var secs = slide.querySelectorAll('.pc-sec');
+    var target = slide.querySelector('.pc-rec-target');
+    var cards = slide.querySelectorAll('.pc-cards .t-card');
+    function pick(comp) {
+      Array.prototype.forEach.call(btns, function (b) { b.classList.toggle('active', b.getAttribute('data-comp') === comp); });
+      Array.prototype.forEach.call(secs, function (s) { s.classList.toggle('hl', s.getAttribute('data-comp') === comp); });
+      Array.prototype.forEach.call(cards, function (c) { c.classList.toggle('hl', c.getAttribute('data-card') === PC_CARD[comp]); });
+      target.innerHTML = PC_GUIDANCE[comp] || '';
+    }
+    Array.prototype.forEach.call(btns, function (b) {
+      b.addEventListener('click', function (e) { e.stopPropagation(); pick(b.getAttribute('data-comp')); });
+    });
+    pick(slide.getAttribute('data-initial'));
+  });
+
+  /* ---- prompt developing flowchart (Overton) ---- */
+  (function () {
+    var slide = document.getElementById('prompt-developing');
+    if (!slide) return;
+    var nodes = slide.querySelectorAll('.pd-node[data-step]');
+    var steps = slide.querySelectorAll('.pd-step');
+    function highlight(step) {
+      Array.prototype.forEach.call(nodes, function (n) { n.classList.toggle('active', n.getAttribute('data-step') === step); });
+      Array.prototype.forEach.call(steps, function (s) { s.classList.toggle('hl', s.getAttribute('data-step') === step); });
+    }
+    Array.prototype.forEach.call(nodes, function (n) {
+      var step = n.getAttribute('data-step');
+      n.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var hasStep = slide.querySelector('.pd-step[data-step="' + step + '"]');
+        highlight(hasStep ? step : null);
+      });
+    });
+    highlight('generic');
+  })();
+
   /* Slide-specific widgets register an init function here, keyed by data-init. */
-  var INIT = {};
+  var INIT = { pred: initPred };
 
   /* #N in the URL opens slide N, so a reload mid-workshop keeps your place. */
   show((parseInt(location.hash.slice(1), 10) || 1) - 1);
