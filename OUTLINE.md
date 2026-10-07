@@ -8,28 +8,28 @@ Main goal: show students how agentic coding can help them build their own websit
 |---|---|---|---|
 | 2:30 | Welcome | Talk | 5 |
 | **Part 1** | **What AI is, and your tools** | | |
-| 2:35 | What AI is: next-token prediction, confident fabrication, inconsistency. Overton's slides, biology examples; run the "Inconsistent" prompt live in Vandal Chat. Ends on "Both of these are true": it is an inconsistent, bullshitting next-token predictor, *and* you should use it well (treat it like a lab instrument: calibrate, run controls, replicate) | Talk + demo | 12 |
+| 2:35 | What AI is: next-token prediction, confident fabrication, inconsistency. Overton's slides, biology examples; run the "Inconsistent" prompt live in Vandal Chat. Ends on "Use it the way you use any lab instrument": pipettes drift and reagents come in bad lots, and you still use them because you calibrate, run controls, and replicate | Talk + demo | 12 |
 | 2:47 | **Activity 1: Meet your tools.** Every student signed in to MindRouter (with an API key) and Vandal Chat; end with a checkpoint | Hands-on | 25 |
 | **Part 2** | **Agentic coding** | | |
-| 3:12 | Chatbot vs. agent: who does the work; agent = model + tools + a loop ("same model, different harness"); what changes when it can act; why a website is a project, not an answer | Talk | 8 |
+| 3:12 | An agent runs the code and fixes its own errors; parts of an agent (model + tools + a loop); what changes when it can act; why a website is a project, not an answer | Talk | 8 |
 | 3:20 | **Live demo:** an agent on MindRouter builds a one-page academic website from a plain-language prompt | Demo | 7 |
 | 3:27 | **Activity 2: Set up your agent.** Pick one of six harnesses, connect it to MindRouter, test it in an empty my-website folder; safety habits; checkpoint | Hands-on | 12 |
 | 3:39 | *Break* (fix any setup problems) | | 10 |
-| **Part 3** | **Rules of the road** | | |
-| 3:49 | The frontier is jagged, and it moves: Dell'Acqua et al. 2023 (758 BCG consultants, GPT-4). Inside the frontier: 12.2% more tasks, 25.1% faster, 40%+ higher quality; outside: 19 points less likely to be correct. Abilities are "expanding, but uneven," so re-test on your own tasks | Talk | 4 |
-| 3:53 | Test the ceiling and the floor: skeptics test AI only on what they and a few experts can do, then dismiss it. Test both: your ceiling (where it fails; you judge best) and your floor (where it lifts you; check harder). Each person's ceiling and floor differ. Same study: below-average performers +43%, above-average +17%. AI raises the floor for everybody | Talk | 3 |
-| 3:56 | Judgment and good questions are worth more now: what AI made cheaper vs. what is worth more (choosing the question, knowing whether a result is right, putting your name on it) | Talk | 3 |
+| **Part 3** | **Policy, disclosure, and data** | | |
+| 3:49 | AI does well on some tasks and fails on similar ones (the "jagged technological frontier"): Dell'Acqua et al. 2023 (758 BCG consultants, GPT-4). Inside the frontier: 12.2% more tasks, 25.1% faster, 40%+ higher quality; outside: 19 points less likely to be correct. Abilities are "expanding, but uneven," so re-test on your own tasks | Talk | 4 |
+| 3:53 | Test the ceiling and the floor: skeptics test AI only on what they and a few experts can do, then dismiss it. Test both: your ceiling (where it fails; you judge best) and your floor (where it lifts you; check harder). Each person's ceiling and floor differ. Same study, tasks inside the frontier: below-average performers +43%, above-average +17% | Talk | 3 |
+| 3:56 | Tasks AI speeds up, and tasks that still need you (choosing the question, knowing whether a result is right, taking responsibility for the result) | Talk | 3 |
 | 3:59 | Integrity and disclosure: university, funder, and journal rules; authorship; disclosure statements; talking with your advisor | Talk | 5 |
-| 4:04 | Data and IRB: on campus does not mean anything goes. Human-subjects data, unpublished data, manuscripts under review, student work | Talk | 4 |
+| 4:04 | Data and IRB: rules that still apply on MindRouter. Human-subjects data, unpublished data, manuscripts under review, student work | Talk | 4 |
 | 4:08 | **Activity 3: Green, yellow, red.** Pairs sort grad-student scenarios, then debrief disagreements | Hands-on | 7 |
-| **Part 4** | **Working well** | | |
-| 4:15 | TaMPER in practice: Overton's TaMPER build and prompt walkthrough (fellowship Broader Impacts example), then the revise-and-repeat loop. Sets up the Activity 4 prompt | Talk | 8 |
+| **Part 4** | **Writing prompts** | | |
+| 4:15 | TaMPER and the parts of a prompt: Overton's TaMPER build and prompt walkthrough (fellowship Broader Impacts example), then the revise-and-repeat loop. Sets up the Activity 4 prompt | Talk | 8 |
 | **Part 5** | **AI in your research** | | |
 | 4:23 | Literature: Vandal Chat Deep Research, from the [MindRouter blog post](https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research). How to start one (telescope button, campus network or VPN, 30–60 min, PDF by email); the pipeline (agents checked by code: quotes verified on downloaded pages, writers see only verified evidence, every sentence fact-checked); one real run (263 drafted statements: 192 confirmed, 15 revised, 56 removed); what's okay and not, framed by Part 3's five rule-setters (instructor, advisor and committee, university, funder, journal); what it can and cannot check. Live spot-check of a report run before class (eDNA fish monitoring question); students start their own run, PDF arrives by email after the workshop | Talk + demo | 7 |
 | 4:30 | **Activity 4: Build your own website** with the agent from Activity 2; publish free with GitHub Pages | Hands-on | 20 |
 | **Close** | | | |
 | 4:50 | **Exit ticket:** an AI-use statement for the website built today (harness, model and version, what it did, how it was checked, responsibility), added to the site's footer and published. Template on the slide with a Copy button; same four parts for research writing | Hands-on | 5 |
-| 4:55 | Takeaways (what students leave with; what to keep doing) and where to go next (agents guide, Deep Research post, app gallery, OIT AI guidance, UI Library on citing AI, TaMPER, mindrouter@uidaho.edu) | Talk | 5 |
+| 4:55 | What you leave with today (account and key, Vandal Chat, a connected agent, a published site) and where to go next (agents guide, Deep Research post, app gallery, OIT AI guidance, UI Library on citing AI, TaMPER, mindrouter@uidaho.edu) | Talk | 5 |
 
 ## Activity 1: Meet your tools (25 min)
 
@@ -49,7 +49,7 @@ Follows the [MindRouter agents guide](https://mindrouter.uidaho.edu/blog/running
 - **Connect it** with three values: host `https://mindrouter.uidaho.edu` (some tools want `/v1`), the `mr2_` key from Activity 1, model `default-agent`.
 - **Already have a Claude or ChatGPT account?** Claude Code (including its desktop app) works with a Claude account and Codex with a ChatGPT account; sign in with it and skip the MindRouter connection. Prompts then go to Anthropic or OpenAI rather than staying on campus: fine for a public website, not for research data.
 - **Test it** in an empty folder called my-website: "What files are in this folder?"
-- **Seatbelts on** (from the guide's security section): one folder, read before you approve, no secrets in the chat, outside content is untrusted (prompt injection), never skip permissions, keep a way to undo.
+- **Set these limits before you run an agent** (from the guide's security section): one folder, read before you approve, no secrets in the chat, outside content is untrusted (prompt injection), never skip permissions, keep a way to undo.
 - **Checkpoint** before the break; stragglers get help during it.
 
 ## Activity 4: Build your own website (20 min)
@@ -72,5 +72,5 @@ The prompt is on the slide with a Copy button. It uses the Part 4 components (ta
 
 - Which harness to use for the Part 2 live demo.
 - Vandal Chat steps on the Activity 1 slides were written without seeing the signed-in interface; check them against the real UI.
-- Part 5's Deep Research block has six slides for seven minutes; trim if needed ("How it works" and "How much to trust it" are the easiest to compress).
+- Part 5's Deep Research block has six slides for seven minutes; trim if needed (the pipeline slide and "How much to trust it" are the easiest to compress).
 - Not verified for Part 3: UI IRB guidance on AI (none found) and the text of the Graduate School's AI policy for academic writing.

@@ -377,12 +377,6 @@
   .agenda li.brk .an { font-size: 1.4cqw; font-weight: 700; color: var(--faint); }
 
   /* ---------- both of these are true ---------- */
-  .both-grid { flex: 1; display: grid; grid-template-columns: 1fr auto 1fr; gap: 3cqw; align-items: start; align-content: center; margin: 0 0 1.6cqw; }
-  .both-col h3 { margin: 0 0 1.2cqw; font-size: 1.1cqw; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
-  .both-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.3cqw; }
-  .both-col li { font-size: 3.3cqw; font-weight: 800; line-height: 1.05; letter-spacing: -.02em; color: var(--ink); padding-left: 1.6cqw; border-left: .5cqw solid #595959; }
-  .both-col.should li { border-left-color: var(--gold); }
-  .both-and { align-self: center; margin: 0; font-size: 6cqw; font-weight: 800; font-style: italic; letter-spacing: -.03em; color: var(--gold); }
 
   /* ---------- chatbot vs agent ---------- */
   .who-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; margin-top: 1cqw; }
@@ -589,10 +583,10 @@
       <li><span class="at">2:35</span><span class="an">What AI is, and your tools<span class="ad">Activity 1: Get on MindRouter and Vandal Chat</span></span></li>
       <li><span class="at">3:12</span><span class="an">Agentic coding<span class="ad">Chatbot vs. agent. Live demo. Activity 2: Set up your agent</span></span></li>
       <li class="brk"><span class="at">3:39</span><span class="an">Break</span></li>
-      <li><span class="at">3:49</span><span class="an">Rules of the road<span class="ad">Integrity, disclosure, privacy, IRB. Activity 3: Green, yellow, red</span></span></li>
-      <li><span class="at">4:15</span><span class="an">Working well<span class="ad">TaMPER in practice: prompts that work</span></span></li>
+      <li><span class="at">3:49</span><span class="an">Policy, disclosure, and data<span class="ad">Integrity, disclosure, privacy, IRB. Activity 3: Green, yellow, red</span></span></li>
+      <li><span class="at">4:15</span><span class="an">Writing prompts<span class="ad">TaMPER and the parts of a prompt</span></span></li>
       <li><span class="at">4:23</span><span class="an">AI in your research<span class="ad">Literature and Deep Research. Activity 4: Build your own website</span></span></li>
-      <li><span class="at">4:50</span><span class="an">Your AI-use statement<span class="ad">Exit ticket, takeaways, where to go next</span></span></li>
+      <li><span class="at">4:50</span><span class="an">Your AI-use statement<span class="ad">Exit ticket, what you leave with, where to go next</span></span></li>
     </ol>
   </section>
 
@@ -723,42 +717,22 @@
     <p class="ex-note frag">Illustrative runs written for this slide. Run the prompt three times in Vandal Chat for real ones.</p>
   </section>
 
-  <!-- 7. To Recap -->
+  <!-- 7. To recap -->
   <section class="slide" data-credit="Adapted from M. Overton" data-part="What AI Is" style="justify-content:center">
-    <h2>To Recap</h2>
+    <h2>To recap</h2>
     <ul class="recap">
-      <li>Next Token Prediction Machines</li>
+      <li>Next token prediction machines</li>
       <li>Bullshitters</li>
       <li>Inconsistent</li>
     </ul>
   </section>
 
 
-  <!-- Both of these are true: the bridge from "what AI is" to using it -->
-  <section class="slide" data-part="What AI Is">
-    <h2>Both of these are true.</h2>
-    <div class="both-grid">
-      <div class="both-col">
-        <h3>What I just told you</h3>
-        <ul>
-          <li>Next token prediction machine</li>
-          <li>Bullshitter</li>
-          <li>Inconsistent</li>
-        </ul>
-      </div>
-      <p class="both-and">and</p>
-      <div class="both-col should">
-        <h3>What I&rsquo;m about to tell you</h3>
-        <ul>
-          <li>Use it.</li>
-          <li>Use it well.</li>
-          <li>Here&rsquo;s how.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="gold-band frag" style="margin-top:auto">
-      <span class="k">How to hold both</span>
-      Treat it like any instrument in your lab. Pipettes drift, sequencers miscall bases, reagents come in bad lots. You don&rsquo;t stop using them. You calibrate, run controls, and replicate.
+  <!-- Lab-instrument analogy: the bridge from "what AI is" to using it -->
+  <section class="slide" data-part="What AI Is" style="justify-content:center">
+    <h2>Use it the way you use any lab instrument</h2>
+    <div class="gold-band" style="margin-top:2cqw; max-width:70cqw; font-size:1.9cqw">
+      Pipettes drift, sequencers miscall bases, and reagents come in bad lots. You still use them, because you calibrate, run controls, and replicate. The rest of the workshop covers the equivalent checks for AI.
     </div>
   </section>
 
@@ -773,7 +747,7 @@
   <!-- MindRouter: the layer between any tool and the models on UI hardware -->
   <section class="slide" data-part="Activity 1 &middot; Meet your tools">
     <h2>MindRouter</h2>
-    <p class="lede">The layer that connects your AI tools to models running on University of Idaho hardware.</p>
+    <p class="lede">MindRouter connects your AI tools to models on University of Idaho GPUs.</p>
     <div class="uc-flow mr-flow" style="margin-top:1.2cqw">
       <div class="uc-box input">
         <p class="uc-label">Your tools</p>
@@ -789,7 +763,7 @@
       </div>
     </div>
     <div class="act-grid" style="margin-top:1.2cqw; grid-template-columns:1fr 1.25fr">
-      <p class="body" style="font-size:1.2cqw">It does not care which tool you use. It accepts requests in the OpenAI, Anthropic, and Ollama formats, so most AI tools can connect with just an address and your API key.</p>
+      <p class="body" style="font-size:1.2cqw">It accepts requests in the OpenAI, Anthropic, and Ollama formats, so most AI tools can connect with an address and your API key.</p>
       <div class="gold-band">
         <span class="k">Your turn &middot; 8 min</span>
         <ol class="act-steps">
@@ -805,7 +779,7 @@
 
   <!-- Vandal Chat -->
   <section class="slide" data-part="Activity 1 &middot; Meet your tools">
-    <h2>Vandal Chat: the front door</h2>
+    <h2>Vandal Chat</h2>
     <p class="lede">A chat app that reaches the models through MindRouter. Sign in with your university account.</p>
     <div class="act-grid" style="margin-top:1.4cqw">
       <div class="gold-band">
@@ -857,7 +831,7 @@
     <h1>Agentic coding</h1>
     <ul class="points">
       <li>Chatbot vs. agent</li>
-      <li>Same model, different harness</li>
+      <li>Parts of an agent</li>
       <li>Live: an agent builds a website</li>
       <li>Activity 2: Set up your agent</li>
     </ul>
@@ -865,7 +839,7 @@
 
   <!-- Who does the work? (agent column reveals on click) -->
   <section class="slide" data-part="Agentic coding">
-    <h2>Chatbot vs. agent: who does the work?</h2>
+    <h2>An agent runs the code and fixes its own errors</h2>
     <div class="who-cols">
       <div class="panel chat">
         <div class="panel-head"><span class="dot"></span>Chatbot</div>
@@ -899,7 +873,7 @@
 
   <!-- Anatomy: model + tools + loop -->
   <section class="slide" data-part="Agentic coding">
-    <h2>Same model, different harness</h2>
+    <h2>Parts of an agent</h2>
     <p class="formula">Agent = <span class="hl">model</span> + <span class="hl">tools</span> + <span class="hl">a loop</span></p>
     <div class="t-cards">
       <article class="t-card big"><h3>Model</h3><p>Runs on a server: on campus through MindRouter, or at a company such as Anthropic or OpenAI.</p></article>
@@ -970,7 +944,7 @@
     <p class="tdiv-kick">Activity 2 &middot; 12 min</p>
     <h2>Set up your agent</h2>
     <div class="gold-rule"></div>
-    <p class="tamper-sub">One harness, one key, one folder.</p>
+    <p class="tamper-sub">Install a coding agent and connect it to MindRouter.</p>
   </section>
 
   <!-- Pick a harness -->
@@ -1026,10 +1000,10 @@ Model: default-agent</span></li>
     </div>
   </section>
 
-  <!-- Seatbelts -->
+  <!-- Agent safety limits -->
   <section class="slide" data-part="Activity 2 &middot; Set up your agent">
-    <h2>Seatbelts on</h2>
-    <p class="lede">A chatbot answers. An agent acts, on your computer.</p>
+    <h2>Set these limits before you run an agent</h2>
+    <p class="lede">An agent runs commands and edits files on your computer.</p>
     <div class="t-cards" style="margin-top:1.4cqw">
       <article class="t-card mid"><h3>One folder</h3><p>Start it in the folder for this job. Never your home folder, Documents, or Desktop.</p></article>
       <article class="t-card mid"><h3>Read before you approve</h3><p>Leave permission prompts on. If you don&rsquo;t understand a command, say no and ask what it does.</p></article>
@@ -1050,10 +1024,10 @@ Model: default-agent</span></li>
     </div>
   </section>
 
-  <!-- ═══════════════ PART 3 — RULES OF THE ROAD ═══════════════ -->
+  <!-- ═══════════════ PART 3 — POLICY, DISCLOSURE, AND DATA ═══════════════ -->
   <section class="slide divider" data-part="Part 3">
     <div class="rule"></div>
-    <h1>Rules of the road</h1>
+    <h1>Policy, disclosure, and data</h1>
     <ul class="points">
       <li>What AI can do keeps changing</li>
       <li>Integrity and disclosure</li>
@@ -1063,8 +1037,8 @@ Model: default-agent</span></li>
   </section>
 
   <!-- The jagged frontier (Dell'Acqua et al. 2023); the "Later" outline and the band reveal on clicks -->
-  <section class="slide" data-part="Rules of the road">
-    <h2>The frontier is jagged, and it moves</h2>
+  <section class="slide" data-part="Policy, disclosure, and data">
+    <h2>AI does well on some tasks and fails on similar ones</h2>
     <div class="jag-grid">
       <figure class="jag-fig">
         <svg class="jag-svg" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: a jagged boundary separates tasks AI does well, inside, from tasks it does poorly, outside. A larger dashed boundary shows the frontier later: bigger, and still jagged.">
@@ -1128,13 +1102,13 @@ Model: default-agent</span></li>
       </div>
     </div>
     <div class="gold-band frag" style="margin-top:auto">
-      <span class="k">It moves</span>
-      The authors describe AI&rsquo;s abilities as &ldquo;expanding, but uneven.&rdquo; What failed last year may work now, and the new edge is just as jagged. Test it on your own tasks, and test again.
+      <span class="k">Later models</span>
+      The paper calls this the &ldquo;jagged technological frontier&rdquo; and describes AI&rsquo;s abilities as &ldquo;expanding, but uneven.&rdquo; A task that failed last year may work now, and the new boundary is just as uneven. Test it on your own tasks, and test again.
     </div>
   </section>
 
   <!-- Test the ceiling and the floor -->
-  <section class="slide" data-part="Rules of the road">
+  <section class="slide" data-part="Policy, disclosure, and data">
     <h2>Test the ceiling and the floor</h2>
     <div class="who-cols" style="margin-top:1cqw">
       <div class="panel chat">
@@ -1156,20 +1130,20 @@ Model: default-agent</span></li>
       </div>
     </div>
     <article class="t-card mid" style="margin-top:1.2cqw">
-      <h3>Your ceiling and floor are your own</h3>
+      <h3>Your ceiling and floor depend on your training</h3>
       <p>A field ecologist&rsquo;s floor might be writing code. A bioinformatician&rsquo;s might be designing a field study or writing a grant narrative. Test the AI on yours, not on someone else&rsquo;s.</p>
     </article>
     <div class="gold-band" style="margin-top:auto">
       <span class="k">Same study</span>
-      Consultants below the average performance threshold improved 43%; those above it improved 17%. AI raises the floor for everybody.
+      On tasks inside the frontier, consultants below the average performance threshold improved 43%; those above it improved 17%.
     </div>
   </section>
 
   <!-- Judgment and questions -->
-  <section class="slide" data-part="Rules of the road">
-    <h2>Judgment and good questions are worth more now</h2>
+  <section class="slide" data-part="Policy, disclosure, and data">
+    <h2>Tasks AI speeds up, and tasks that still need you</h2>
     <div class="t-cards two" style="margin-top:1.4cqw">
-      <article class="t-card big plain"><h3>Cheaper with AI</h3>
+      <article class="t-card big plain"><h3>AI speeds up</h3>
         <ul class="big-list">
           <li>First drafts of text</li>
           <li>Code for a standard analysis</li>
@@ -1177,19 +1151,19 @@ Model: default-agent</span></li>
           <li>Figures, formatting, a website</li>
         </ul>
       </article>
-      <article class="t-card big"><h3>Worth more now</h3>
+      <article class="t-card big"><h3>Still needs you</h3>
         <ul class="big-list">
           <li>Choosing a question worth answering</li>
           <li>Knowing whether a result is right</li>
           <li>Knowing what matters in your field</li>
-          <li>Putting your name on it</li>
+          <li>Taking responsibility for the result</li>
         </ul>
       </article>
     </div>
   </section>
 
   <!-- Who sets the rules -->
-  <section class="slide" data-part="Rules of the road">
+  <section class="slide" data-part="Policy, disclosure, and data">
     <h2>Who sets the rules</h2>
     <table class="rules-table" style="margin-top:1cqw">
       <tbody>
@@ -1203,8 +1177,8 @@ Model: default-agent</span></li>
   </section>
 
   <!-- Publishing and grants -->
-  <section class="slide" data-part="Rules of the road">
-    <h2>Publishing and grants: what is settled</h2>
+  <section class="slide" data-part="Policy, disclosure, and data">
+    <h2>What journals and funders require</h2>
     <table class="rules-table three" style="margin-top:.8cqw">
       <tbody>
         <tr><td>Can AI be an author?</td><td>No.</td><td>ICMJE, COPE, Nature, Science, PLOS</td></tr>
@@ -1219,7 +1193,7 @@ Model: default-agent</span></li>
   </section>
 
   <!-- Writing a disclosure -->
-  <section class="slide" data-part="Rules of the road">
+  <section class="slide" data-part="Policy, disclosure, and data">
     <h2>Writing a disclosure</h2>
     <div class="act-grid" style="margin-top:1cqw">
       <div class="t-cards stack">
@@ -1241,7 +1215,7 @@ Model: default-agent</span></li>
   </section>
 
   <!-- What data can go into which tool -->
-  <section class="slide" data-part="Rules of the road">
+  <section class="slide" data-part="Policy, disclosure, and data">
     <h2>What data can go into which tool</h2>
     <table class="rules-table three data" style="margin-top:.8cqw">
       <thead><tr><th>UI risk level</th><th>Examples</th><th>AI tools approved for it</th></tr></thead>
@@ -1257,10 +1231,10 @@ Model: default-agent</span></li>
     </div>
   </section>
 
-  <!-- On campus is not anything goes -->
-  <section class="slide" data-part="Rules of the road">
-    <h2>On campus does not mean anything goes</h2>
-    <p class="lede">MindRouter keeps data on university hardware. Other rules still apply.</p>
+  <!-- Rules that still apply on MindRouter -->
+  <section class="slide" data-part="Policy, disclosure, and data">
+    <h2>Rules that still apply on MindRouter</h2>
+    <p class="lede">MindRouter keeps data on university hardware. These four kinds of data have their own rules.</p>
     <div class="t-cards two" style="margin-top:1.4cqw">
       <article class="t-card mid"><h3>Human-subjects data</h3><p>Your IRB protocol and consent forms decide where the data can go. We found no AI-specific guidance from UI&rsquo;s IRB, so ask the Office of Research Assurances before any AI tool touches it.</p></article>
       <article class="t-card mid"><h3>Work you are reviewing</h3><p>Manuscripts and proposals sent to you for review are confidential. Journals, NIH, and NSF prohibit uploading them.</p></article>
@@ -1298,12 +1272,12 @@ Model: default-agent</span></li>
   </section>
 
 
-  <!-- ═══════════════ PART 4 — WORKING WELL ═══════════════ -->
+  <!-- ═══════════════ PART 4 — WRITING PROMPTS ═══════════════ -->
   <section class="slide divider" data-part="Part 4">
     <div class="rule"></div>
-    <h1>Working well</h1>
+    <h1>Writing prompts</h1>
     <ul class="points">
-      <li>TaMPER in practice</li>
+      <li>TaMPER and the parts of a prompt</li>
       <li>Developing a prompt is a loop</li>
     </ul>
   </section>
@@ -1541,7 +1515,7 @@ Model: default-agent</span></li>
 
   <!-- How it works -->
   <section class="slide" data-part="AI in your research">
-    <h2>How it works: a team of agents, checked by code</h2>
+    <h2>Agents write the report, and code checks every citation</h2>
     <ol class="pipe">
       <li><span class="pn">Plan</span><span class="pl">A planner agent picks sections and searches</span></li>
       <li><span class="pn">Search</span><span class="pl">Web searches through MindRouter</span></li>
@@ -1550,7 +1524,7 @@ Model: default-agent</span></li>
       <li><span class="pn">Graph</span><span class="pl">Verified quotes become linked facts; disagreements are kept</span></li>
       <li class="code"><span class="pn">Write</span><span class="pl">Writer agents see only verified quotes. Code strips any other citation.</span><span class="ptag">code check</span></li>
       <li><span class="pn">Edit</span><span class="pl">An editor agent joins the sections</span></li>
-      <li><span class="pn">Fact-check</span><span class="pl">Agents attack every sentence. Overreach is rewritten; wrong is removed.</span></li>
+      <li><span class="pn">Fact-check</span><span class="pl">Agents check each sentence against its quote. Overstated ones are rewritten and unsupported ones removed.</span></li>
       <li><span class="pn">Review</span><span class="pl">Every citation is checked again</span></li>
       <li><span class="pn">Typeset</span><span class="pl">The PDF, with a disclaimer on every page</span></li>
     </ol>
@@ -1583,19 +1557,19 @@ Model: default-agent</span></li>
       </ul>
     </div>
     <div class="gold-band" style="margin-top:auto">
-      <span class="k">About one in five drafted sentences did not survive</span>
-      They read fine. The evidence did not support them. A plain chat answer has no step like this.
+      <span class="k">The fact-check removed 21% of the drafted statements</span>
+      The cited quotations did not support them. A plain chat answer has no fact-check step.
     </div>
   </section>
 
-  <!-- Deep Research, framed by "Who sets the rules" from Part 3 -->
+  <!-- Deep Research rules, framed by "Who sets the rules" from Part 3 -->
   <section class="slide" data-part="AI in your research">
-    <h2>Deep Research: who sets the rules</h2>
-    <p class="body" style="font-size:1.25cqw">The same five rule-setters from Rules of the road, applied to a Deep Research report.</p>
+    <h2>Rules for Deep Research reports</h2>
+    <p class="body" style="font-size:1.25cqw">The same five groups that set the rules in Part 3, applied to a Deep Research report.</p>
     <table class="rules-table dr" style="margin-top:.6cqw">
       <tbody>
         <tr><td>Your instructor</td><td>The course&rsquo;s AI policy decides whether you can use a report for graded work at all. If the syllabus is silent, ask first. Handing in a report, a section of one, or a paraphrase as your own work is plagiarism. <a class="cite" href="https://www.uidaho.edu/policies/fsh/2/2300" target="_blank" rel="noopener">(FSH 2300)</a></td></tr>
-        <tr><td>Your advisor and committee</td><td>Use a report to get oriented and scope your project. Reading the report is not doing the reading, and the thesis is still yours to write.</td></tr>
+        <tr><td>Your advisor and committee</td><td>Use a report to get oriented and scope your project. A report does not replace reading the sources. You still write the thesis.</td></tr>
         <tr><td>The university</td><td>Vandal Chat is approved for Low data, and for Moderate only from a university-managed computer. Its web searches go to an outside search provider, so keep confidential details out of the question. <a class="cite" href="https://support.uidaho.edu/TDClient/40/Portal/KB/ArticleDet?ID=3464" target="_blank" rel="noopener">(OIT guidance)</a></td></tr>
         <tr><td>Your funder</td><td>NIH does not treat applications substantially developed by AI as your original ideas. Use a report to find sources, then write the application yourself. <a class="cite" href="https://grants.nih.gov/grants/guide/notice-files/NOT-OD-25-132.html" target="_blank" rel="noopener">(NOT-OD-25-132)</a></td></tr>
         <tr><td>Your journal</td><td>The report is not a citable source. Follow its citation, read the page, and cite the page. <a class="cite" href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html" target="_blank" rel="noopener">(ICMJE)</a> Whether to disclose AI-assisted literature searching varies: Science says no declaration is needed; check your journal. <a class="cite" href="https://www.science.org/content/page/science-journals-editorial-policies" target="_blank" rel="noopener">(Science)</a></td></tr>
@@ -1656,7 +1630,7 @@ Model: default-agent</span></li>
     <p class="tdiv-kick">Activity 4 &middot; 20 min</p>
     <h2>Build your own website</h2>
     <div class="gold-rule"></div>
-    <p class="tamper-sub">Your agent, your folder, your page.</p>
+    <p class="tamper-sub">Build a one-page site with your agent and publish it on GitHub Pages.</p>
   </section>
 
   <!-- Build it -->
@@ -1673,8 +1647,8 @@ Model: default-agent</span></li>
         </ol>
       </div>
       <div class="t-cards stack">
-        <article class="t-card mid"><h3>Only what belongs on the web</h3><p>This page is meant to be seen. Nothing private goes in the prompt.</p></article>
-        <article class="t-card mid dark"><h3>Agent not working?</h3><p>Use Vandal Chat instead: same prompt, then save the HTML it returns as index.html yourself. Notice who is doing the work.</p></article>
+        <article class="t-card mid"><h3>Public information only</h3><p>Anything in the prompt can end up on the page, so leave out anything private.</p></article>
+        <article class="t-card mid dark"><h3>Agent not working?</h3><p>Use Vandal Chat with the same prompt, then save the HTML it returns as index.html yourself.</p></article>
       </div>
     </div>
   </section>
@@ -1682,7 +1656,7 @@ Model: default-agent</span></li>
   <!-- The prompt (TaMPER-structured, copyable) -->
   <section class="slide" data-part="Activity 4 &middot; Build your own website">
     <h2>Your prompt</h2>
-    <p class="pc-hint" style="font-size:1.1cqw">Fill in the brackets. It has the parts from Working well: task, context, instructions, output format.</p>
+    <p class="pc-hint" style="font-size:1.1cqw">Fill in the brackets. It has the prompt parts from Part 4: task, context, instructions, and output format.</p>
     <div class="copy-wrap interactive">
       <pre class="pc-template" id="sitePrompt">TASK: Build a one-page academic website for me.
 
@@ -1720,7 +1694,7 @@ OUTPUT FORMAT: Save it as index.html in this folder, then open it in a browser a
       </div>
       <div class="t-cards stack">
         <article class="t-card mid"><h3>Comfortable with git?</h3><p>Ask your agent to commit and push it. It will ask permission first. Read what it is about to do.</p></article>
-        <article class="t-card mid dark"><h3>Before you share the link</h3><p>Open your live link, not the file on your laptop. Read every line. Nothing invented, nothing private.</p></article>
+        <article class="t-card mid dark"><h3>Before you share the link</h3><p>Open your live link, not the file on your laptop. Read every line. Remove anything it invented and anything private.</p></article>
       </div>
     </div>
   </section>
@@ -1749,7 +1723,7 @@ OUTPUT FORMAT: Save it as index.html in this folder, then open it in a browser a
     <h1>Your AI-use statement</h1>
     <ul class="points">
       <li>Exit ticket</li>
-      <li>Takeaways</li>
+      <li>What you leave with</li>
       <li>Where to go next</li>
     </ul>
   </section>
@@ -1777,27 +1751,17 @@ I wrote the content about me and I am responsible for it.</pre>
     </div>
   </section>
 
-  <!-- Takeaways -->
-  <section class="slide" data-part="Close">
-    <h2>Takeaways</h2>
-    <div class="t-cards two" style="margin-top:1.2cqw">
-      <article class="t-card big"><h3>You leave with</h3>
-        <ul class="big-list">
-          <li>A MindRouter account and API key</li>
-          <li>Vandal Chat, including Deep Research</li>
-          <li>A coding agent connected to a model</li>
-          <li>A published website, with an AI-use statement</li>
-        </ul>
-      </article>
-      <article class="t-card big dark"><h3>Keep doing</h3>
-        <ul class="big-list">
-          <li>Check its output against the source</li>
-          <li>Re-test it on your own ceiling and floor; what it can do keeps changing</li>
-          <li>Before you put anything in, know whose rules apply and how risky the data is</li>
-          <li>Disclose what you used, what it did, and how you checked</li>
-        </ul>
-      </article>
-    </div>
+  <!-- What you leave with -->
+  <section class="slide" data-part="Close" style="justify-content:center">
+    <h2>What you leave with today</h2>
+    <article class="t-card big" style="margin-top:1.2cqw; max-width:60cqw">
+      <ul class="big-list" style="font-size:2cqw">
+        <li>A MindRouter account and API key</li>
+        <li>Vandal Chat, including Deep Research</li>
+        <li>A coding agent connected to a model</li>
+        <li>A published website, with an AI-use statement</li>
+      </ul>
+    </article>
   </section>
 
   <!-- Where to go next -->
