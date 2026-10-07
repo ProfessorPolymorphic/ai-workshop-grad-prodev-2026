@@ -1,54 +1,64 @@
 # Workshop outline
 
-2:30 to 5:00 pm, for Biology and BCB graduate students, with experience ranging from none to advanced. About half the time is hands-on. Students work in **MindRouter** and **Vandal Chat**. Vandalizer appears only in the appendix list of tools.
+2:30 to 5:00 pm, for Biology and BCB graduate students, with experience ranging from none to advanced. About half the time is hands-on.
 
-Rough balance: skills and judgment first, the research lifecycle second, tools and logistics the rest.
+Main goal: show students how agentic coding can help them build their own website. Students work in **MindRouter** and **Vandal Chat**, set up one of the six coding harnesses from the [MindRouter agents guide](https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter), and use it to build and publish a personal academic website. Vandalizer appears only in the appendix list of tools.
 
 | Time | Block | Mode | Min |
 |---|---|---|---|
 | 2:30 | Welcome | Talk | 5 |
 | **Part 1** | **What AI is, and your tools** | | |
 | 2:35 | What AI is: next-token prediction, confident fabrication, inconsistency. Overton's slides, biology examples; run the "Inconsistent" prompt live in Vandal Chat. Ends on "Both of these are true": it is an inconsistent, bullshitting next-token predictor, *and* you should use it well (treat it like a lab instrument: calibrate, run controls, replicate) | Talk + demo | 12 |
-| 2:47 | **Activity 1: Meet your tools.** Get every student signed in and working on MindRouter, then Vandal Chat; end with a sign-in checkpoint | Hands-on | 25 |
+| 2:47 | **Activity 1: Meet your tools.** Every student signed in to MindRouter (with an API key) and Vandal Chat; end with a checkpoint | Hands-on | 25 |
 | **Part 2** | **Agentic coding** | | |
 | 3:12 | Chatbot vs. agent: who does the work; agent = model + tools + a loop ("same model, different harness"); what changes when it can act; why a website is a project, not an answer | Talk | 8 |
 | 3:20 | **Live demo:** an agent on MindRouter builds a one-page academic website from a plain-language prompt | Demo | 7 |
-| 3:27 | *Break* | | 10 |
+| 3:27 | **Activity 2: Set up your agent.** Pick one of six harnesses, connect it to MindRouter, test it in an empty my-website folder; safety habits; checkpoint | Hands-on | 12 |
+| 3:39 | *Break* (fix any setup problems) | | 10 |
 | **Part 3** | **Rules of the road** | | |
-| 3:37 | Integrity and disclosure: university and journal policies, authorship, disclosure statements, talking with your advisor | Talk | 8 |
-| 3:45 | Data privacy and IRB: on campus does not mean anything goes. Human-subjects data, unpublished data, manuscripts under review, student work | Talk | 8 |
-| 3:53 | **Activity 2: Green, yellow, red.** Pairs sort grad-student scenarios, then debrief disagreements | Hands-on | 10 |
+| 3:49 | Integrity and disclosure: university and journal policies, authorship, disclosure statements, talking with your advisor | Talk | 8 |
+| 3:57 | Data privacy and IRB: on campus does not mean anything goes. Human-subjects data, unpublished data, manuscripts under review, student work | Talk | 8 |
+| 4:05 | **Activity 3: Green, yellow, red.** Pairs sort grad-student scenarios, then debrief disagreements | Hands-on | 10 |
 | **Part 4** | **Working well** | | |
-| 4:03 | TaMPER in practice: Overton's TaMPER build and prompt walkthrough (fellowship Broader Impacts example), then the revise-and-repeat loop; checking the output; keeping a log | Talk | 8 |
-| 4:11 | **Activity 3: Fix a bad prompt** in Vandal Chat | Hands-on | 12 |
+| 4:15 | TaMPER in practice: Overton's TaMPER build and prompt walkthrough (fellowship Broader Impacts example), then the revise-and-repeat loop. Sets up the Activity 4 prompt | Talk | 8 |
 | **Part 5** | **AI in your research** | | |
 | 4:23 | Literature: a Vandal Chat Deep Research report (run before class), citations spot-checked live | Demo | 7 |
-| 4:30 | **Activity 4: Build your own website.** Chat track (Vandal Chat) or agent track (agent on MindRouter), same TaMPER-structured prompt; publish free with GitHub Pages | Hands-on | 20 |
+| 4:30 | **Activity 4: Build your own website** with the agent from Activity 2; publish free with GitHub Pages | Hands-on | 20 |
 | **Close** | | | |
 | 4:50 | **Exit ticket:** draft your own AI-use disclosure statement | Hands-on | 5 |
 | 4:55 | Takeaways and where to go next with these tools | Talk | 5 |
 
 ## Activity 1: Meet your tools (25 min)
 
-Goal: everyone leaves this activity signed in to MindRouter and Vandal Chat, with both working. Every later activity depends on it.
+Goal: everyone leaves this activity signed in to MindRouter and Vandal Chat, with a MindRouter API key saved. Every later activity depends on it.
 
 | Min | Tool | Students do | Judgment skill |
 |---|---|---|---|
-| 8 | MindRouter | Live status page; sign in; note one small and one large model. Already comfortable: create an API key for Activity 4 | Choosing a model; where your data goes |
+| 8 | MindRouter | Live status page; sign in; note one small and one large model; create an API key (shown once; treat it like a password) | Choosing a model; where your data goes |
 | 12 | Vandal Chat | Same question, two models, compare with a neighbor. Ask for three papers on your thesis topic; check one DOI | Answers vary between models; sources get invented |
-| 5 | Debrief and checkpoint | Three takeaways; anyone not signed in to both tools flags it now | |
+| 5 | Debrief and checkpoint | Three takeaways; anyone not signed in to both tools, or without a key, flags it now | |
+
+## Activity 2: Set up your agent (12 min)
+
+Follows the [MindRouter agents guide](https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter). Each harness name on the slide links to its section of the guide.
+
+- **Pick one harness.** Never opened a terminal: a desktop app (Goose, OpenCode, or Codex inside the ChatGPT desktop app). Comfortable in a terminal: Claude Code (terminal version only; its desktop app cannot use MindRouter), Pi, or ForgeCode.
+- **Connect it** with three values: host `https://mindrouter.uidaho.edu` (some tools want `/v1`), the `mr2_` key from Activity 1, model `default-agent`.
+- **Test it** in an empty folder called my-website: "What files are in this folder?"
+- **Seatbelts on** (from the guide's security section): one folder, read before you approve, no secrets in the chat, outside content is untrusted (prompt injection), never skip permissions, keep a way to undo.
+- **Checkpoint** before the break; stragglers get help during it.
 
 ## Activity 4: Build your own website (20 min)
 
-Goal: every student leaves with a one-page academic website, and a felt sense of the difference between chatbot and agentic coding.
+Goal: every student leaves with a one-page academic website built by their agent, and a felt sense of the difference between chatbot and agentic coding.
 
-| Min | Step | Chat track (anyone) | Agent track (agent already set up) |
-|---|---|---|---|
-| 12 | Build | Paste the prompt into Vandal Chat, save the HTML as index.html, open it in a browser, ask for one change | Same prompt to an agent in an empty folder; read its plan before approving; have it preview and fix |
-| 5 | Publish | GitHub: new public repo named yourusername.github.io, upload index.html; live in a minute or two | Ask the agent to create the repo and publish; read each permission request |
-| 3 | Debrief | Who did the work? Copy-paste count vs. decisions made; did it invent anything about you? | |
+| Min | Step | What students do |
+|---|---|---|
+| 12 | Build | Open the agent in my-website; paste the prompt; read the plan before approving; ask for one change. Fallback if the agent is not working: same prompt in Vandal Chat, save the HTML by hand |
+| 5 | Publish | GitHub: new public repo named yourusername.github.io, upload index.html; live in a minute or two. Comfortable with git: have the agent commit and push |
+| 3 | Debrief | Decisions made, permissions granted, anything invented about you |
 
-The prompt is on the slide with a Copy button. It uses the Part 4 components (task, context, instructions, output format) and tells the model to leave placeholders rather than invent details. Students include only what belongs on a public web page.
+The prompt is on the slide with a Copy button. It uses the Part 4 components (task, context, instructions, output format), asks for a plan first, and tells the model to leave placeholders rather than invent details. Students include only what belongs on a public web page.
 
 ## Appendix
 
@@ -56,7 +66,6 @@ The prompt is on the slide with a Copy button. It uses the Part 4 components (ta
 
 ## Open items
 
-- Which agent to use for the Part 2 live demo (Claude Code, Codex, OpenCode, or Goose on MindRouter).
-- Activity 4 went from 25 to 20 minutes and the exit ticket from 8 to 5 to make room for Part 2.
-- Activity 3 (fix a bad prompt) was planned around the workshop paper, which is paused; it needs a source text.
+- Which harness to use for the Part 2 live demo.
 - Vandal Chat steps on the Activity 1 slides were written without seeing the signed-in interface; check them against the real UI.
+- Slides still to write: Part 3 (integrity, privacy and IRB, Activity 3 scenarios), the Deep Research demo, the exit ticket, and takeaways.
