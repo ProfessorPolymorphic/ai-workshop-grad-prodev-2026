@@ -384,6 +384,33 @@
   .both-col.should li { border-left-color: var(--gold); }
   .both-and { align-self: center; margin: 0; font-size: 6cqw; font-weight: 800; font-style: italic; letter-spacing: -.03em; color: var(--gold); }
 
+  /* ---------- chatbot vs agent ---------- */
+  .who-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; margin-top: 1cqw; }
+  .panel.chat .panel-head { color: var(--muted); background: var(--card-bg); }
+  .panel.chat .panel-head .dot { background: #595959; }
+  .panel.agent .panel-head { color: var(--gold-text); background: var(--gold-soft); }
+  .panel.agent .panel-head .dot { background: var(--gold); }
+  .who-steps { list-style: none; margin: 0; padding: 1.1cqw 1.2cqw; display: flex; flex-direction: column; gap: .75cqw; }
+  .who-steps li { display: grid; grid-template-columns: 4.8cqw 1fr; align-items: center; gap: .9cqw; font-size: 1.4cqw; line-height: 1.3; color: var(--ink); }
+  .who-steps .who { padding: .3cqw 0; border-radius: 999px; text-align: center; font-size: .8cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  .who-steps .you .who { background: var(--ink); color: #fff; }
+  .who-steps .ai .who { background: var(--gold); color: var(--ink); }
+  .who-steps li.again { display: block; padding-left: 5.7cqw; font-size: 1.15cqw; font-style: italic; color: var(--faint); }
+  .who-tally { margin: 0; padding: .7cqw 1.2cqw; border-top: 1px solid var(--rule); font-size: 1.05cqw; color: var(--muted); }
+  .who-tally strong { color: var(--ink); }
+  .vs-table { width: 100%; border-collapse: collapse; margin-top: 1.4cqw; font-size: 1.6cqw; line-height: 1.35; }
+  .vs-table th { padding: .7cqw 1cqw; text-align: left; font-size: 1.05cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-text); border-bottom: 2px solid var(--gold); }
+  .vs-table th:first-child { color: var(--faint); }
+  .vs-table td { padding: 1cqw 1cqw; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--muted); }
+  .vs-table td:first-child { width: 22%; font-weight: 700; color: var(--ink); }
+  .vs-table td:last-child { color: var(--ink); }
+  .t-card.mid h3 { font-size: 1.6cqw; }
+  .t-card.mid p, .t-card.mid ul { font-size: 1.3cqw; }
+  .demo-tag {
+    display: inline-block; align-self: flex-start; margin: 0 0 .8cqw; padding: .3cqw .8cqw; border-radius: 999px; border: 1px solid var(--rule);
+    font-size: .85cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  }
+
   /* ---------- activity slides ---------- */
   .act-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.4cqw; margin-top: .8cqw; align-items: start; }
   .act-steps { margin: 0; padding: 0 0 0 1.4cqw; font-size: 1.12cqw; line-height: 1.5; color: var(--ink); }
@@ -433,11 +460,12 @@
     <h2>Today, 2:30 to 5:00</h2>
     <ol class="agenda">
       <li><span class="at">2:35</span><span class="an">What AI is, and your tools<span class="ad">Activity 1: Get on MindRouter and Vandal Chat</span></span></li>
-      <li><span class="at">3:12</span><span class="an">Rules of the road<span class="ad">Integrity, disclosure, privacy, IRB. Activity 2: Green, yellow, red</span></span></li>
-      <li class="brk"><span class="at">3:38</span><span class="an">Break</span></li>
-      <li><span class="at">3:48</span><span class="an">Working well<span class="ad">TaMPER in practice. Activity 3: Fix a bad prompt</span></span></li>
-      <li><span class="at">4:08</span><span class="an">AI in your research<span class="ad">Literature, coding, agents. Activity 4: Build something</span></span></li>
-      <li><span class="at">4:47</span><span class="an">Your AI-use statement<span class="ad">Exit ticket, takeaways, where to go next</span></span></li>
+      <li><span class="at">3:12</span><span class="an">Agentic coding<span class="ad">Chatbot vs. agent. Live: an agent builds a website</span></span></li>
+      <li class="brk"><span class="at">3:27</span><span class="an">Break</span></li>
+      <li><span class="at">3:37</span><span class="an">Rules of the road<span class="ad">Integrity, disclosure, privacy, IRB. Activity 2: Green, yellow, red</span></span></li>
+      <li><span class="at">4:03</span><span class="an">Working well<span class="ad">TaMPER in practice. Activity 3: Fix a bad prompt</span></span></li>
+      <li><span class="at">4:23</span><span class="an">AI in your research<span class="ad">Literature and Deep Research. Activity 4: Build something</span></span></li>
+      <li><span class="at">4:50</span><span class="an">Your AI-use statement<span class="ad">Exit ticket, takeaways, where to go next</span></span></li>
     </ol>
   </section>
 
@@ -673,7 +701,7 @@
     <h2>What the tools just showed you</h2>
     <div class="t-cards" style="margin-top:1.4cqw">
       <article class="t-card big"><h3>Pick the model on purpose</h3><p>Two models, two answers. Which model you used is a decision, and part of your record.</p></article>
-      <article class="t-card big"><h3>Know where your data goes</h3><p>MindRouter and Vandal Chat keep it on campus. A commercial chatbot does not. Part 2 covers what still cannot go in.</p></article>
+      <article class="t-card big"><h3>Know where your data goes</h3><p>MindRouter and Vandal Chat keep it on campus. A commercial chatbot does not. After the break: what still cannot go in.</p></article>
       <article class="t-card big dark"><h3>Check against the source</h3><p>A clean-looking answer is not a checked answer. The DOI, the paper, the data: go look.</p></article>
     </div>
     <div class="gold-band" style="margin-top:auto; font-size:1.6cqw; padding:1.2cqw 1.6cqw">
@@ -682,8 +710,128 @@
     </div>
   </section>
 
-  <!-- ═══════════════ PART 2 — RULES OF THE ROAD ═══════════════ -->
+  <!-- ═══════════════ PART 2 — AGENTIC CODING ═══════════════ -->
   <section class="slide divider" data-part="Part 2">
+    <div class="rule"></div>
+    <h1>Agentic coding</h1>
+    <ul class="points">
+      <li>Chatbot vs. agent</li>
+      <li>Same model, different harness</li>
+      <li>Live: an agent builds a website</li>
+    </ul>
+  </section>
+
+  <!-- Who does the work? (agent column reveals on click) -->
+  <section class="slide" data-part="Agentic coding">
+    <h2>Chatbot vs. agent: who does the work?</h2>
+    <div class="who-cols">
+      <div class="panel chat">
+        <div class="panel-head"><span class="dot"></span>Chatbot</div>
+        <ol class="who-steps">
+          <li class="you"><span class="who">You</span>Describe what you want</li>
+          <li class="ai"><span class="who">AI</span>Writes code in the chat window</li>
+          <li class="you"><span class="who">You</span>Copy it into a file on your computer</li>
+          <li class="you"><span class="who">You</span>Run it</li>
+          <li class="you"><span class="who">You</span>Paste the error back into the chat</li>
+          <li class="ai"><span class="who">AI</span>Suggests a fix</li>
+          <li class="again">&#8635; Repeat. You carry every change by hand.</li>
+        </ol>
+        <p class="who-tally">Your steps: <strong>copying, pasting, running</strong></p>
+      </div>
+      <div class="panel agent frag">
+        <div class="panel-head"><span class="dot"></span>Agent</div>
+        <ol class="who-steps">
+          <li class="you"><span class="who">You</span>Describe the goal</li>
+          <li class="ai"><span class="who">AI</span>Proposes a plan</li>
+          <li class="you"><span class="who">You</span>Approve the plan</li>
+          <li class="ai"><span class="who">AI</span>Reads, writes, and edits your files</li>
+          <li class="ai"><span class="who">AI</span>Runs the code and reads the output</li>
+          <li class="ai"><span class="who">AI</span>Sees the error and fixes it</li>
+          <li class="again">&#8635; Repeats on its own until it works</li>
+          <li class="you"><span class="who">You</span>Review the result</li>
+        </ol>
+        <p class="who-tally">Your steps: <strong>deciding, approving, reviewing</strong></p>
+      </div>
+    </div>
+    <div class="gold-band frag" style="margin-top:auto">
+      <span class="k">The shift</span>
+      Your job changes from carrying code around to making decisions about it.
+    </div>
+  </section>
+
+  <!-- Anatomy: model + tools + loop -->
+  <section class="slide" data-part="Agentic coding">
+    <h2>Same model, different harness</h2>
+    <p class="formula">Agent = <span class="hl">model</span> + <span class="hl">tools</span> + <span class="hl">a loop</span></p>
+    <div class="t-cards">
+      <article class="t-card big"><h3>Model</h3><p>The same kind of model behind Vandal Chat. An agent can use any model on MindRouter.</p></article>
+      <article class="t-card big"><h3>Tools</h3><p>Read and write files, run commands, search the web, preview a page. You decide which ones it may use.</p></article>
+      <article class="t-card big dark"><h3>A loop</h3><p>Act, look at the result, try again. It keeps going until the job is done or it needs you.</p></article>
+    </div>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">The harness is the difference</span>
+      Vandal Chat gives a model a text box. An agent gives it your project folder and a terminal. Agents that run on MindRouter include Claude Code, Codex, OpenCode, and Goose. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">(Setup guide)</a>
+    </div>
+  </section>
+
+  <!-- Side by side -->
+  <section class="slide" data-part="Agentic coding">
+    <h2>What changes when it can act</h2>
+    <table class="vs-table">
+      <thead><tr><th></th><th>Chatbot</th><th>Agent</th></tr></thead>
+      <tbody>
+        <tr><td>Sees your files</td><td>Only what you paste in</td><td>Your whole project folder</td></tr>
+        <tr><td>Runs code</td><td>No. You do.</td><td>Yes, and reads the output</td></tr>
+        <tr><td>Fixes its own errors</td><td>Only when you paste them back</td><td>Yes, in a loop</td></tr>
+        <tr><td>What you get</td><td>A reply</td><td>A finished change: files written and tested</td></tr>
+        <tr><td>Your job</td><td>Copy, paste, debug</td><td>Set the goal, approve, review</td></tr>
+        <tr><td>What can go wrong</td><td>A wrong answer</td><td>A wrong action. That is why it asks permission.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Why a website -->
+  <section class="slide" data-part="Agentic coding">
+    <h2>A website is a project, not an answer.</h2>
+    <div class="act-grid" style="margin-top:1.2cqw">
+      <div class="t-cards stack">
+        <article class="t-card mid"><h3>Many files</h3><p>Pages, styles, your photo, your CV. A chatbot hands you snippets to assemble; an agent writes the files.</p></article>
+        <article class="t-card mid"><h3>It has to work</h3><p>Broken links, a layout that falls apart on a phone. An agent previews the page and fixes what it sees.</p></article>
+        <article class="t-card mid dark"><h3>It has to be published, and kept up</h3><p>A GitHub repository, published free with GitHub Pages, updated for years. An agent can do the commits.</p></article>
+      </div>
+      <div class="gold-band" style="font-size:1.5cqw">
+        <span class="k">You&rsquo;re looking at one</span>
+        This workshop site was built with an AI coding agent: one HTML file and an image folder, in a GitHub repository, published free with GitHub Pages.
+        <br><a class="go" href="https://github.com/ProfessorPolymorphic/ai-workshop-grad-prodev-2026" target="_blank" rel="noopener">See how it&rsquo;s built &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live demo -->
+  <section class="slide" data-part="Agentic coding">
+    <span class="demo-tag">Live demo</span>
+    <h2>Watch an agent build a website</h2>
+    <div class="act-grid" style="margin-top:.8cqw">
+      <div>
+        <p class="proto-label">The prompt</p>
+        <p class="so-code" style="font-size:1.5cqw; padding:1.2cqw 1.4cqw">Build me a one-page academic website: my name, a photo placeholder, a short bio, my research interests, a publications list, and contact links. Use one HTML file that is easy to edit. Show me your plan before you write anything.</p>
+      </div>
+      <div class="t-cards stack">
+        <article class="t-card mid"><h3>Watch for</h3>
+          <ul>
+            <li>It plans before it builds</li>
+            <li>It creates and edits files itself</li>
+            <li>It previews the page and fixes what is broken</li>
+            <li>It asks before risky steps</li>
+          </ul>
+        </article>
+        <article class="t-card mid dark"><h3>Then you</h3><p>Read the plan. Approve the steps. Check the result in a browser before anyone else sees it.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PART 3 — RULES OF THE ROAD ═══════════════ -->
+  <section class="slide divider" data-part="Part 3">
     <div class="rule"></div>
     <h1>Rules of the road</h1>
     <ul class="points">
@@ -693,8 +841,8 @@
     </ul>
   </section>
 
-  <!-- ═══════════════ PART 3 — WORKING WELL ═══════════════ -->
-  <section class="slide divider" data-part="Part 3">
+  <!-- ═══════════════ PART 4 — WORKING WELL ═══════════════ -->
+  <section class="slide divider" data-part="Part 4">
     <div class="rule"></div>
     <h1>Working well</h1>
     <ul class="points">
@@ -902,13 +1050,12 @@
   </section>
 
 
-  <!-- ═══════════════ PART 4 — AI IN YOUR RESEARCH ═══════════════ -->
-  <section class="slide divider" data-part="Part 4">
+  <!-- ═══════════════ PART 5 — AI IN YOUR RESEARCH ═══════════════ -->
+  <section class="slide divider" data-part="Part 5">
     <div class="rule"></div>
     <h1>AI in your research</h1>
     <ul class="points">
       <li>Literature and Deep Research</li>
-      <li>Coding with an agent</li>
       <li>Activity 4: Build something</li>
     </ul>
   </section>
