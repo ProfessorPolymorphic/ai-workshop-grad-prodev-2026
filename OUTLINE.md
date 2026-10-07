@@ -8,7 +8,7 @@ Rough balance: skills and judgment first, the research lifecycle second, tools a
 |---|---|---|---|
 | 2:30 | Welcome | Talk | 5 |
 | **Part 1** | **What AI is, and your tools** | | |
-| 2:35 | What AI is: next-token prediction, confident fabrication, inconsistency. Overton's slides, biology examples; run the "Inconsistent" prompt live in Vandal Chat | Talk + demo | 12 |
+| 2:35 | What AI is: next-token prediction, confident fabrication, inconsistency. Overton's slides, biology examples; run the "Inconsistent" prompt live in Vandal Chat. Ends on "Both of these are true": it is an inconsistent, bullshitting next-token predictor, *and* you should use it well (treat it like a lab instrument: calibrate, run controls, replicate) | Talk + demo | 12 |
 | 2:47 | **Activity 1: Meet your tools.** MindRouter, then Vandal Chat, then a Vandalizer demo | Hands-on | 25 |
 | **Part 2** | **Rules of the road** | | |
 | 3:12 | Integrity and disclosure: university and journal policies, authorship, disclosure statements, talking with your advisor | Talk | 8 |
