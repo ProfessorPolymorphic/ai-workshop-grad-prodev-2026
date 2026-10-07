@@ -445,6 +445,31 @@
   .scen-grid .scen { font-size: 1.5cqw; line-height: 1.4; color: var(--ink); font-weight: 600; }
   .scen-grid .answer { font-size: 1.2cqw; line-height: 1.4; margin-top: auto; }
 
+  /* ---------- Deep Research ---------- */
+  .pipe { list-style: none; margin: 1.2cqw 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: .9cqw; counter-reset: pipe; }
+  .pipe li { position: relative; display: flex; flex-direction: column; gap: .35cqw; padding: .9cqw 1cqw; border: 1px solid var(--card-bd); border-top: .35cqw solid #d8d8d8; border-radius: .8cqw; background: var(--card-bg); counter-increment: pipe; }
+  .pipe li.code { border-top-color: var(--gold); background: var(--gold-soft); }
+  .pipe .pn { font-size: 1.35cqw; font-weight: 800; color: var(--ink); }
+  .pipe .pn::before { content: counter(pipe) '. '; color: var(--faint); font-weight: 700; }
+  .pipe .pl { font-size: 1.02cqw; line-height: 1.4; color: var(--muted); }
+  .pipe .ptag { align-self: flex-start; margin-top: auto; padding: .15cqw .6cqw; border-radius: 999px; background: var(--gold); font-size: .75cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+  .stat-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1cqw; margin-top: 1.2cqw; }
+  .stat { display: flex; flex-direction: column; gap: .2cqw; padding: .8cqw 1cqw; border-left: .3cqw solid var(--gold); }
+  .stat .sv { font-size: 3cqw; font-weight: 800; letter-spacing: -.02em; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .stat .sl { font-size: 1cqw; line-height: 1.35; color: var(--muted); }
+  .stack-wrap { margin-top: 1.6cqw; }
+  .stack-title { margin: 0 0 .6cqw; font-size: 1.15cqw; font-weight: 700; color: var(--ink); }
+  .stack-bar { display: flex; gap: 2px; height: 2.4cqw; }
+  .stack-bar .seg { display: block; height: 100%; }
+  .stack-bar .seg:first-child { border-radius: 4px 0 0 4px; }
+  .stack-bar .seg:last-child { border-radius: 0 4px 4px 0; }
+  .seg.ok, .sw.ok { background: #15803d; }
+  .seg.rev, .sw.rev { background: #d97706; }
+  .seg.rem, .sw.rem { background: #b91c1c; }
+  .stack-key { list-style: none; margin: .8cqw 0 0; padding: 0; display: flex; gap: 2.4cqw; font-size: 1.15cqw; color: var(--ink); }
+  .stack-key li { display: flex; align-items: center; gap: .5cqw; }
+  .stack-key .sw { display: inline-block; width: 1cqw; height: 1cqw; border-radius: 2px; }
+
   /* ---------- MindRouter flow ---------- */
   .mr-flow .uc-box { min-height: 8cqw; font-size: 1.1cqw; }
   .mr-flow .uc-llm { background: var(--ink); min-width: 14cqw; }
@@ -1486,7 +1511,143 @@ Model: default-agent</span></li>
     </ul>
   </section>
 
-  <!-- Literature and Deep Research: slides to come -->
+  <!-- ═══════════════ LITERATURE: VANDAL CHAT DEEP RESEARCH (from the MindRouter blog post) ═══════════════ -->
+  <section class="slide" data-part="AI in your research">
+    <h2>Deep Research in Vandal Chat</h2>
+    <p class="lede">Ask one big question. In 30 to 60 minutes, a 10&ndash;50 page PDF report with numbered citations arrives in the chat and in your email.</p>
+    <div class="act-grid" style="margin-top:1.4cqw">
+      <div class="gold-band">
+        <span class="k">How to start one</span>
+        <ol class="act-steps" style="font-size:1.35cqw">
+          <li>Open <strong>chat.uidaho.edu</strong> on the campus network or the VPN.</li>
+          <li>Click the <strong>telescope button</strong> in the message box.</li>
+          <li>Describe the question, the scope, and who the report is for.</li>
+          <li>Close the tab if you like. The PDF comes by email.</li>
+        </ol>
+      </div>
+      <div class="t-cards stack">
+        <article class="t-card mid"><h3>Where it runs</h3><p>On university GPUs through MindRouter, at no cost. Only the web searches and page downloads leave campus.</p></article>
+        <article class="t-card mid"><h3>What you get</h3><p>The report, plus a map of every source it found and what happened to each: cited, checked but not cited, set aside, or never read.</p></article>
+      </div>
+    </div>
+    <p class="ex-note" style="margin-top:auto">Source: <a class="cite" href="https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research" target="_blank" rel="noopener">VandalChat Deep Research, MindRouter blog, September 2026</a></p>
+  </section>
+
+  <!-- How it works -->
+  <section class="slide" data-part="AI in your research">
+    <h2>How it works: a team of agents, checked by code</h2>
+    <ol class="pipe">
+      <li><span class="pn">Plan</span><span class="pl">A planner agent picks sections and searches</span></li>
+      <li><span class="pn">Search</span><span class="pl">Web searches through MindRouter</span></li>
+      <li class="code"><span class="pn">Read</span><span class="pl">Code downloads each page. A source counts only if it was actually fetched.</span><span class="ptag">code check</span></li>
+      <li class="code"><span class="pn">Verify</span><span class="pl">An agent pulls quotations. Code confirms each one is on the page.</span><span class="ptag">code check</span></li>
+      <li><span class="pn">Graph</span><span class="pl">Verified quotes become linked facts; disagreements are kept</span></li>
+      <li class="code"><span class="pn">Write</span><span class="pl">Writer agents see only verified quotes. Code strips any other citation.</span><span class="ptag">code check</span></li>
+      <li><span class="pn">Edit</span><span class="pl">An editor agent joins the sections</span></li>
+      <li><span class="pn">Fact-check</span><span class="pl">Agents attack every sentence. Overreach is rewritten; wrong is removed.</span></li>
+      <li><span class="pn">Review</span><span class="pl">Every citation is checked again</span></li>
+      <li><span class="pn">Typeset</span><span class="pl">The PDF, with a disclaimer on every page</span></li>
+    </ol>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">Compare Activity 1</span>
+      A chat model can invent a citation from memory. Here, a writer can only cite a quotation that code found on a page it actually downloaded.
+    </div>
+  </section>
+
+  <!-- One real run -->
+  <section class="slide" data-part="AI in your research">
+    <h2>One real run</h2>
+    <p class="body">The blog&rsquo;s example: how universities measure the effect of generative AI on student learning, for a faculty audience.</p>
+    <div class="stat-row">
+      <div class="stat"><span class="sv">124</span><span class="sl">pages read</span></div>
+      <div class="stat"><span class="sv">81</span><span class="sl">sources accepted<br>43 rejected</span></div>
+      <div class="stat"><span class="sv">64</span><span class="sl">sources cited</span></div>
+      <div class="stat"><span class="sv">24</span><span class="sl">pages in the report</span></div>
+      <div class="stat"><span class="sv">37</span><span class="sl">minutes</span></div>
+    </div>
+    <div class="stack-wrap">
+      <p class="stack-title">What the fact-check did to the 263 statements the writers drafted</p>
+      <div class="stack-bar" role="img" aria-label="192 of 263 statements confirmed as written, 15 revised, 56 removed">
+        <span class="seg ok" style="width:73.0%" title="Confirmed as written: 192"></span><span class="seg rev" style="width:5.7%" title="Revised down to what the evidence supports: 15"></span><span class="seg rem" style="width:21.3%" title="Removed: 56"></span>
+      </div>
+      <ul class="stack-key">
+        <li><span class="sw ok"></span><strong>192</strong> confirmed as written</li>
+        <li><span class="sw rev"></span><strong>15</strong> revised down to what the evidence supports</li>
+        <li><span class="sw rem"></span><strong>56</strong> removed</li>
+      </ul>
+    </div>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">About one in five drafted sentences did not survive</span>
+      They read fine. The evidence did not support them. A plain chat answer has no step like this.
+    </div>
+  </section>
+
+  <!-- Use it / don't -->
+  <section class="slide" data-part="AI in your research">
+    <h2>Use it to get oriented. Do not hand it in.</h2>
+    <div class="t-cards two" style="margin-top:1.4cqw">
+      <article class="t-card big"><h3>Good uses</h3>
+        <ul class="big-list">
+          <li>Getting oriented in a field you do not know</li>
+          <li>Briefing yourself before a committee meeting</li>
+          <li>Scoping a project</li>
+          <li>Finding out what exists before you write</li>
+        </ul>
+      </article>
+      <article class="t-card big dark"><h3>Not okay</h3>
+        <ul class="big-list">
+          <li>Handing in the report, a section, or a paraphrase as your own work: that is plagiarism</li>
+          <li>Citing the report. Follow its citation, read the page, cite the page.</li>
+          <li>Treating the report as the reading</li>
+        </ul>
+      </article>
+    </div>
+    <p class="ex-note" style="margin-top:auto">Your course&rsquo;s and your advisor&rsquo;s AI rules still apply. <a class="cite" href="https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research#when-not-to-use-it" target="_blank" rel="noopener">(When not to use it)</a></p>
+  </section>
+
+  <!-- How much to trust it -->
+  <section class="slide" data-part="AI in your research">
+    <h2>How much to trust it</h2>
+    <p class="lede">&ldquo;More than a plain chat answer, and less than a source you have read yourself.&rdquo; <a class="cite" href="https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research#how-much-should-you-trust-it" target="_blank" rel="noopener">(MindRouter blog)</a></p>
+    <div class="t-cards two" style="margin-top:1.4cqw">
+      <article class="t-card big"><h3>It checks</h3>
+        <ul class="big-list">
+          <li>Each quotation is really on the page</li>
+          <li>Each sentence is supported by a quotation</li>
+          <li>Each citation points to a source it read</li>
+        </ul>
+      </article>
+      <article class="t-card big dark"><h3>It cannot check</h3>
+        <ul class="big-list">
+          <li>Whether the page is right</li>
+          <li>Whether the author is credible</li>
+          <li>Whether a more important source exists that its searches missed</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Live demo -->
+  <section class="slide" data-part="AI in your research">
+    <span class="demo-tag">Live demo</span>
+    <h2>Spot-check a report</h2>
+    <div class="act-grid" style="margin-top:.8cqw">
+      <div>
+        <p class="proto-label">Run before class</p>
+        <p class="so-code" style="font-size:1.3cqw; padding:1.1cqw 1.3cqw">How are environmental DNA (eDNA) methods being used to monitor fish populations in the Pacific Northwest, and what are their main limitations? Write for first-year biology graduate students.</p>
+        <p class="proto-label" style="margin-top:1.2cqw">In class</p>
+        <ol class="act-steps" style="font-size:1.3cqw">
+          <li>Pick three citations at random. Open each page. Does it say what the sentence says?</li>
+          <li>Open the source map. What was set aside, or never read?</li>
+        </ol>
+      </div>
+      <div class="gold-band" style="font-size:1.45cqw">
+        <span class="k">Start your own now</span>
+        Ask about your own research area. It runs while we build websites, and the PDF will be in your email after the workshop. Then follow the citations.
+      </div>
+    </div>
+  </section>
+
 
   <!-- ═══════════════ ACTIVITY 4 — BUILD YOUR OWN WEBSITE ═══════════════ -->
   <section class="slide tdiv" data-part="Activity 4 &middot; Build your own website" data-letter="4">

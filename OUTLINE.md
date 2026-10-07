@@ -25,7 +25,7 @@ Main goal: show students how agentic coding can help them build their own websit
 | **Part 4** | **Working well** | | |
 | 4:15 | TaMPER in practice: Overton's TaMPER build and prompt walkthrough (fellowship Broader Impacts example), then the revise-and-repeat loop. Sets up the Activity 4 prompt | Talk | 8 |
 | **Part 5** | **AI in your research** | | |
-| 4:23 | Literature: a Vandal Chat Deep Research report (run before class), citations spot-checked live | Demo | 7 |
+| 4:23 | Literature: Vandal Chat Deep Research, from the [MindRouter blog post](https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research). How to start one (telescope button, campus network or VPN, 30–60 min, PDF by email); the pipeline (agents checked by code: quotes verified on downloaded pages, writers see only verified evidence, every sentence fact-checked); one real run (263 drafted statements: 192 confirmed, 15 revised, 56 removed); good uses vs. not okay; what it can and cannot check. Live spot-check of a report run before class (eDNA fish monitoring question); students start their own run, PDF arrives by email after the workshop | Talk + demo | 7 |
 | 4:30 | **Activity 4: Build your own website** with the agent from Activity 2; publish free with GitHub Pages | Hands-on | 20 |
 | **Close** | | | |
 | 4:50 | **Exit ticket:** draft your own AI-use disclosure statement | Hands-on | 5 |
@@ -72,4 +72,6 @@ The prompt is on the slide with a Copy button. It uses the Part 4 components (ta
 
 - Which harness to use for the Part 2 live demo.
 - Vandal Chat steps on the Activity 1 slides were written without seeing the signed-in interface; check them against the real UI.
-- Slides still to write: Part 3 (integrity, privacy and IRB, Activity 3 scenarios), the Deep Research demo, the exit ticket, and takeaways.
+- Slides still to write: the exit ticket and takeaways.
+- Part 5's Deep Research block has six slides for seven minutes; trim if needed ("How it works" and "How much to trust it" are the easiest to compress).
+- Not verified for Part 3: UI IRB guidance on AI (none found) and the text of the Graduate School's AI policy for academic writing.
