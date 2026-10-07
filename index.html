@@ -424,6 +424,27 @@
   .t-card ul.big-list { margin: .4cqw 0 0; padding-left: 1.6cqw; font-size: 1.7cqw; line-height: 1.5; color: var(--ink); }
   .t-card ul.big-list li { margin-bottom: .5cqw; }
 
+  /* ---------- rules tables, pills, scenarios ---------- */
+  .rules-table { width: 100%; border-collapse: collapse; font-size: 1.55cqw; line-height: 1.4; }
+  .rules-table td, .rules-table th { padding: .95cqw .9cqw; border-bottom: 1px solid var(--rule); vertical-align: top; text-align: left; }
+  .rules-table th { font-size: .9cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-text); border-bottom: 2px solid var(--gold); }
+  .rules-table td:first-child { width: 24%; font-weight: 700; color: var(--ink); }
+  .rules-table td { color: var(--muted); }
+  .rules-table.three { font-size: 1.35cqw; }
+  .rules-table.three td:first-child { width: 20%; }
+  .rules-table.three td:last-child { width: 22%; font-size: 1.05cqw; color: var(--faint); }
+  .rules-table.data td:nth-child(2) { width: 26%; }
+  .rules-table.data td:last-child { width: auto; font-size: 1.25cqw; color: var(--ink); }
+  .pill { display: inline-block; padding: .15cqw .7cqw; border-radius: 999px; font-size: .85em; font-weight: 800; letter-spacing: .02em; }
+  .pill.green { background: var(--clean-soft); color: var(--clean); }
+  .pill.yellow { background: #fef3c7; color: #92400e; }
+  .pill.red { background: var(--flag-soft); color: var(--flag); }
+  .scen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1cqw; margin-top: .6cqw; }
+  .scen-grid .t-card { min-height: 15cqw; }
+  .scen-grid .t-card { display: flex; flex-direction: column; gap: .6cqw; padding: 1cqw 1.2cqw; }
+  .scen-grid .scen { font-size: 1.5cqw; line-height: 1.4; color: var(--ink); font-weight: 600; }
+  .scen-grid .answer { font-size: 1.2cqw; line-height: 1.4; margin-top: auto; }
+
   /* ---------- MindRouter flow ---------- */
   .mr-flow .uc-box { min-height: 8cqw; font-size: 1.1cqw; }
   .mr-flow .uc-llm { background: var(--ink); min-width: 14cqw; }
@@ -1136,7 +1157,115 @@ Model: default-agent</span></li>
     </div>
   </section>
 
-  <!-- Integrity and disclosure, data and IRB, Activity 3: slides to come -->
+  <!-- Who sets the rules -->
+  <section class="slide" data-part="Rules of the road">
+    <h2>Who sets the rules</h2>
+    <table class="rules-table" style="margin-top:1cqw">
+      <tbody>
+        <tr><td>Your instructor</td><td>Each course sets its own AI limits. Using AI where it is prohibited is academic dishonesty under the Student Code of Conduct. <a class="cite" href="https://www.uidaho.edu/policies/fsh/2/2300" target="_blank" rel="noopener">(FSH 2300)</a></td></tr>
+        <tr><td>Your advisor and committee</td><td>Agree before AI touches your thesis or dissertation, and agree on how you will disclose it. Check the Graduate School&rsquo;s current guidance too.</td></tr>
+        <tr><td>The university</td><td>Decides which tools may handle which data. Anything you put into an AI tool, prompts included, falls under the data classification policy. <a class="cite" href="https://support.uidaho.edu/TDClient/40/Portal/KB/ArticleDet?ID=3464" target="_blank" rel="noopener">(OIT guidance)</a> <a class="cite" href="https://www.uidaho.edu/policies/apm/30/11" target="_blank" rel="noopener">(APM 30.11)</a></td></tr>
+        <tr><td>Your funder</td><td>NIH and NSF have their own rules for applications and for reviewers.</td></tr>
+        <tr><td>Your journal</td><td>Authorship, disclosure, and images. The rules differ between journals, so read the author instructions.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Publishing and grants -->
+  <section class="slide" data-part="Rules of the road">
+    <h2>Publishing and grants: what is settled</h2>
+    <table class="rules-table three" style="margin-top:.8cqw">
+      <tbody>
+        <tr><td>Can AI be an author?</td><td>No.</td><td>ICMJE, COPE, Nature, Science, PLOS</td></tr>
+        <tr><td>Do I disclose AI use?</td><td>Yes, at submission. Analysis, code, and figures go in Methods with the tool and version. Writing help goes in Acknowledgments. Journals differ on details.</td><td>ICMJE (2026), Science (2026)</td></tr>
+        <tr><td>AI-generated images?</td><td>Generally not allowed.</td><td>Nature, Science</td></tr>
+        <tr><td>Reviewing a paper or proposal?</td><td>Do not upload it to an AI tool. It is confidential.</td><td>NIH, NSF, ICMJE, journals</td></tr>
+        <tr><td>NIH applications?</td><td>Applications substantially developed by AI are not treated as your original ideas. Limit: six applications per PI per calendar year, since September 2025.</td><td>NIH NOT-OD-25-132</td></tr>
+        <tr><td>What is misconduct?</td><td>AI-generated data presented as collected, undisclosed AI changes to images, fake references.</td><td>NIH (2026)</td></tr>
+      </tbody>
+    </table>
+    <p class="ex-note" style="margin-top:auto">Sources: <a class="cite" href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html" target="_blank" rel="noopener">ICMJE</a> <a class="cite" href="https://publicationethics.org/guidance/cope-position/authorship-and-ai-tools" target="_blank" rel="noopener">COPE</a> <a class="cite" href="https://www.nature.com/nature-portfolio/editorial-policies/ai" target="_blank" rel="noopener">Nature</a> <a class="cite" href="https://www.science.org/content/page/science-journals-editorial-policies" target="_blank" rel="noopener">Science</a> <a class="cite" href="https://journals.plos.org/plosone/s/ethical-publishing-practice" target="_blank" rel="noopener">PLOS</a> <a class="cite" href="https://grants.nih.gov/grants/guide/notice-files/NOT-OD-23-149.html" target="_blank" rel="noopener">NIH NOT-OD-23-149</a> <a class="cite" href="https://grants.nih.gov/grants/guide/notice-files/NOT-OD-25-132.html" target="_blank" rel="noopener">NIH NOT-OD-25-132</a> <a class="cite" href="https://www.grants.nih.gov/news-events/nih-extramural-nexus-news/2026/05/helpful-reminders-to-ensure-integrity-of-nih-supported-research-when-using-artificial-intelligence" target="_blank" rel="noopener">NIH 2026 reminders</a> <a class="cite" href="https://www.nsf.gov/policies/ai/merit-review" target="_blank" rel="noopener">NSF</a>. Checked October 2026.</p>
+  </section>
+
+  <!-- Writing a disclosure -->
+  <section class="slide" data-part="Rules of the road">
+    <h2>Writing a disclosure</h2>
+    <div class="act-grid" style="margin-top:1cqw">
+      <div class="t-cards stack">
+        <article class="t-card mid"><h3>Say four things</h3>
+          <ul class="big-list" style="font-size:1.4cqw">
+            <li>The tool and model, with version</li>
+            <li>What you used it for</li>
+            <li>How you checked the output</li>
+            <li>That you take responsibility for the result</li>
+          </ul>
+        </article>
+        <p class="ex-note">Based on the UI Library&rsquo;s guidance and ICMJE. <a class="cite" href="https://www.lib.uidaho.edu/datahub/citing-ai.html" target="_blank" rel="noopener">(UI Library)</a> <a class="cite" href="https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html" target="_blank" rel="noopener">(ICMJE)</a></p>
+      </div>
+      <div class="gold-band" style="font-size:1.45cqw">
+        <span class="k">Example, for a Methods section</span>
+        The R code for Figures 2 and 3 was written with Claude Code (Anthropic), connected to the Qwen 3.8 27B model on the University of Idaho&rsquo;s MindRouter service, in October 2026. We reviewed the code line by line and checked its output against hand calculations on a subset of the data. The authors take full responsibility for the analysis.
+      </div>
+    </div>
+  </section>
+
+  <!-- What data can go into which tool -->
+  <section class="slide" data-part="Rules of the road">
+    <h2>What data can go into which tool</h2>
+    <table class="rules-table three data" style="margin-top:.8cqw">
+      <thead><tr><th>UI risk level</th><th>Examples</th><th>AI tools approved for it</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill green">Low</span></td><td>Public information; research data with no regulatory restrictions</td><td>Any approved tool, including ChatGPT, Claude, Vandal Chat, and MindRouter. Tools not on the list: Low only.</td></tr>
+        <tr><td><span class="pill yellow">Moderate</span></td><td>Student records (FERPA)</td><td>Vandal Chat and MindRouter (interim; only from a university-managed computer or server), Microsoft Copilot with the green shield, Google Gemini, Claude Enterprise through UI sign-in, Vandalizer, Zoom AI Companion</td></tr>
+        <tr><td><span class="pill red">High</span></td><td>Health information (HIPAA), Social Security numbers</td><td>Almost none: GitHub Copilot Business or Enterprise, Snyk, and locally hosted models only if their security plan allows it</td></tr>
+      </tbody>
+    </table>
+    <div class="gold-band" style="margin-top:auto">
+      <span class="k">University of Idaho OIT guidance</span>
+      &ldquo;Data uploaded to or downloaded from AI, including prompts, are subject to APM 30.11.&rdquo; Approvals assume a @uidaho.edu account. The list changes; check it before you use a new tool. <a class="cite" href="https://support.uidaho.edu/TDClient/40/Portal/KB/ArticleDet?ID=3464" target="_blank" rel="noopener">(OIT guidance)</a>
+    </div>
+  </section>
+
+  <!-- On campus is not anything goes -->
+  <section class="slide" data-part="Rules of the road">
+    <h2>On campus does not mean anything goes</h2>
+    <p class="lede">MindRouter keeps data on university hardware. Other rules still apply.</p>
+    <div class="t-cards two" style="margin-top:1.4cqw">
+      <article class="t-card mid"><h3>Human-subjects data</h3><p>Your IRB protocol and consent forms decide where the data can go. We found no AI-specific guidance from UI&rsquo;s IRB, so ask the Office of Research Assurances before any AI tool touches it.</p></article>
+      <article class="t-card mid"><h3>Work you are reviewing</h3><p>Manuscripts and proposals sent to you for review are confidential. Journals, NIH, and NSF prohibit uploading them.</p></article>
+      <article class="t-card mid"><h3>Student work, if you teach</h3><p>Grades and student submissions are FERPA records: Moderate risk. Use only tools approved for Moderate, and only if the instructor allows it.</p></article>
+      <article class="t-card mid"><h3>Data you got from someone else</h3><p>A data use agreement may limit where the data can be processed. Read it before uploading.</p></article>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ACTIVITY 3 — GREEN, YELLOW, RED ═══════════════ -->
+  <section class="slide tdiv" data-part="Activity 3 &middot; Green, yellow, red" data-letter="3">
+    <p class="tdiv-kick">Activity 3 &middot; 7 min</p>
+    <h2>Green, yellow, red</h2>
+    <div class="gold-rule"></div>
+    <p class="tamper-sub">In pairs: sort six scenarios. Then we compare.</p>
+  </section>
+
+  <!-- Scenarios; each answer reveals on a click -->
+  <section class="slide" data-part="Activity 3 &middot; Green, yellow, red">
+    <h2>Green, yellow, or red?</h2>
+    <p class="pc-hint" style="font-size:1.1cqw"><span class="pill green">Green</span> fine &nbsp; <span class="pill yellow">Yellow</span> fine if you do something first &nbsp; <span class="pill red">Red</span> don&rsquo;t</p>
+    <div class="scen-grid">
+      <article class="t-card plain"><p class="scen">You ask Vandal Chat to explain a statistics method you never learned.</p>
+        <p class="answer frag"><span class="pill green">Green</span> No data shared. It is your floor, so check it against a textbook.</p></article>
+      <article class="t-card plain"><p class="scen">You build your academic website with Claude Code on your own Claude account.</p>
+        <p class="answer frag"><span class="pill green">Green</span> Public information is Low risk, and OIT lists Claude for Low-risk data.</p></article>
+      <article class="t-card plain"><p class="scen">An agent writes the R code behind a figure in your paper.</p>
+        <p class="answer frag"><span class="pill yellow">Yellow</span> Allowed. Check the code, and disclose the tool and version in Methods.</p></article>
+      <article class="t-card plain"><p class="scen">You want AI to help code themes in interview transcripts from your study.</p>
+        <p class="answer frag"><span class="pill yellow">Yellow</span> Human-subjects data. Ask your IRB first, and never into a Low-only tool.</p></article>
+      <article class="t-card plain"><p class="scen">Your PI asks you to help review a manuscript. You upload it to ChatGPT for a summary.</p>
+        <p class="answer frag"><span class="pill red">Red</span> Confidential. Journals, NIH, and NSF all prohibit it.</p></article>
+      <article class="t-card plain"><p class="scen">You have AI sharpen the bands on a western blot and do not mention it.</p>
+        <p class="answer frag"><span class="pill red">Red</span> Undisclosed AI image changes are a misconduct example in NIH&rsquo;s 2026 guidance.</p></article>
+    </div>
+  </section>
+
 
   <!-- ═══════════════ PART 4 — WORKING WELL ═══════════════ -->
   <section class="slide divider" data-part="Part 4">
