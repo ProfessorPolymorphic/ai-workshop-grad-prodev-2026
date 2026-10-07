@@ -472,6 +472,10 @@
   .stack-key li { display: flex; align-items: center; gap: .5cqw; }
   .stack-key .sw { display: inline-block; width: 1cqw; height: 1cqw; border-radius: 2px; }
 
+  .resource-list.big { gap: .8cqw; }
+  .resource-list.big .resource-item .r-name { min-width: 24cqw; font-size: 1.45cqw; }
+  .resource-list.big .resource-item .r-desc { font-size: 1.25cqw; }
+
   /* ---------- MindRouter flow ---------- */
   .mr-flow .uc-box { min-height: 8cqw; font-size: 1.1cqw; }
   .mr-flow .uc-llm { background: var(--ink); min-width: 14cqw; }
@@ -1748,6 +1752,84 @@ OUTPUT FORMAT: Save it as index.html in this folder, then open it in a browser a
       <li>Takeaways</li>
       <li>Where to go next</li>
     </ul>
+  </section>
+
+  <!-- Exit ticket -->
+  <section class="slide" data-part="Close">
+    <h2>Exit ticket: your AI-use statement</h2>
+    <div class="act-grid" style="margin-top:1cqw; grid-template-columns:1fr 1.35fr">
+      <div class="gold-band">
+        <span class="k">5 min</span>
+        <ol class="act-steps" style="font-size:1.35cqw">
+          <li>Fill in the statement for the website you built today. Your harness shows the model name.</li>
+          <li>Ask your agent to add it to your site&rsquo;s footer, or paste it in yourself.</li>
+          <li>Publish the change and open your site to check it.</li>
+        </ol>
+        <p style="margin:1cqw 0 0; font-size:1.15cqw">Writing about your research instead? Use the same four parts: tool and model, what it did, how you checked, your responsibility.</p>
+      </div>
+      <div class="copy-wrap interactive">
+        <pre class="pc-template" id="discPrompt" style="font-size:1.4cqw">This site was built with help from [harness, e.g. Goose] using [model name and version], through [the University of Idaho's MindRouter service / my own account], in [month year].
+I used it to [what it did: wrote the HTML and CSS from my description].
+I checked it by [how: reading every line on the published page].
+I wrote the content about me and I am responsible for it.</pre>
+        <button class="copy-btn" type="button" data-copy="discPrompt">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Takeaways -->
+  <section class="slide" data-part="Close">
+    <h2>Takeaways</h2>
+    <div class="t-cards two" style="margin-top:1.2cqw">
+      <article class="t-card big"><h3>You leave with</h3>
+        <ul class="big-list">
+          <li>A MindRouter account and API key</li>
+          <li>Vandal Chat, including Deep Research</li>
+          <li>A coding agent connected to a model</li>
+          <li>A published website, with an AI-use statement</li>
+        </ul>
+      </article>
+      <article class="t-card big dark"><h3>Keep doing</h3>
+        <ul class="big-list">
+          <li>Check its output against the source</li>
+          <li>Re-test it on your own ceiling and floor; what it can do keeps changing</li>
+          <li>Before you put anything in, know whose rules apply and how risky the data is</li>
+          <li>Disclose what you used, what it did, and how you checked</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Where to go next -->
+  <section class="slide" data-part="Close">
+    <h2>Where to go next</h2>
+    <div class="resource-list big">
+      <div class="resource-item">
+        <a class="r-name" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">Running agents with MindRouter</a>
+        <span class="r-desc">Setup for all six harnesses, the safety habits, and fixes for common errors.</span>
+      </div>
+      <div class="resource-item">
+        <a class="r-name" href="https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research" target="_blank" rel="noopener">Vandal Chat Deep Research</a>
+        <span class="r-desc">How it works, when to use it, and how much to trust it.</span>
+      </div>
+      <div class="resource-item">
+        <a class="r-name" href="https://ai.uidaho.edu/docs/gallery" target="_blank" rel="noopener">Agentic app gallery</a>
+        <span class="r-desc">Twenty apps that coding agents built on MindRouter for UI researchers, instructors, and staff.</span>
+      </div>
+      <div class="resource-item">
+        <a class="r-name" href="https://support.uidaho.edu/TDClient/40/Portal/KB/ArticleDet?ID=3464" target="_blank" rel="noopener">UI OIT AI guidance</a>
+        <span class="r-desc">Which tools are approved for which data. Check it before you try a new tool.</span>
+      </div>
+      <div class="resource-item">
+        <a class="r-name" href="https://www.lib.uidaho.edu/datahub/citing-ai.html" target="_blank" rel="noopener">UI Library: citing AI</a>
+        <span class="r-desc">How to cite and disclose AI use.</span>
+      </div>
+      <div class="resource-item">
+        <a class="r-name" href="https://arxiv.org/abs/2504.01037" target="_blank" rel="noopener">TaMPER</a>
+        <span class="r-desc">Task, Model, Prompt, Evaluation, Recording. Overton, Robison &amp; Sheneman.</span>
+      </div>
+    </div>
+    <p class="ex-note" style="margin-top:auto">Questions about MindRouter or Vandal Chat: <a class="cite" href="mailto:mindrouter@uidaho.edu">mindrouter@uidaho.edu</a>. Everything from today, including these slides: <a class="cite" href="https://github.com/ProfessorPolymorphic/ai-workshop-grad-prodev-2026" target="_blank" rel="noopener">github.com/ProfessorPolymorphic/ai-workshop-grad-prodev-2026</a></p>
   </section>
 
   <!-- ═══════════════ CLOSING ═══════════════ -->
