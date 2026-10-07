@@ -398,11 +398,6 @@
     color: #fff; font-size: 1.05cqw; font-weight: 700; text-decoration: none;
   }
   .go:hover { background: var(--gold); color: var(--ink); }
-  .demo-tag {
-    display: inline-block; align-self: flex-start; margin: 0 0 .8cqw; padding: .3cqw .8cqw; border-radius: 999px; border: 1px solid var(--rule);
-    font-size: .85cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
-  }
-  .extract-out .uc-content span { color: var(--muted); }
 
   /* ---------- controls ---------- */
   .bar { position: absolute; left: 0; right: 0; bottom: 0; height: .35cqw; background: var(--rule); }
@@ -437,7 +432,7 @@
   <section class="slide" data-part="Today">
     <h2>Today, 2:30 to 5:00</h2>
     <ol class="agenda">
-      <li><span class="at">2:35</span><span class="an">What AI is, and your tools<span class="ad">Activity 1: Meet MindRouter, Vandal Chat, and Vandalizer</span></span></li>
+      <li><span class="at">2:35</span><span class="an">What AI is, and your tools<span class="ad">Activity 1: Get on MindRouter and Vandal Chat</span></span></li>
       <li><span class="at">3:12</span><span class="an">Rules of the road<span class="ad">Integrity, disclosure, privacy, IRB. Activity 2: Green, yellow, red</span></span></li>
       <li class="brk"><span class="at">3:38</span><span class="an">Break</span></li>
       <li><span class="at">3:48</span><span class="an">Working well<span class="ad">TaMPER in practice. Activity 3: Fix a bad prompt</span></span></li>
@@ -617,7 +612,7 @@
     <p class="tdiv-kick">Activity 1 &middot; 25 min</p>
     <h2>Meet your tools</h2>
     <div class="gold-rule"></div>
-    <p class="tamper-sub">MindRouter &rarr; Vandal Chat &rarr; Vandalizer</p>
+    <p class="tamper-sub">MindRouter &rarr; Vandal Chat</p>
   </section>
 
   <!-- MindRouter -->
@@ -631,11 +626,12 @@
         <article class="t-card dark"><h3>More than chat</h3><p>API keys for your own code, coding agents, transcription, and PDF-to-text. You can use the API in Activity 4.</p></article>
       </div>
       <div class="gold-band">
-        <span class="k">Your turn &middot; 6 min</span>
+        <span class="k">Your turn &middot; 8 min</span>
         <ol class="act-steps">
           <li>Open <strong>mindrouter.uidaho.edu</strong>. Watch the live status page for a moment: every request on campus flows through here.</li>
           <li>Log in with your University of Idaho account.</li>
           <li>Find the model list. Write down one <strong>small</strong> model (under 10B) and one <strong>large</strong> model (over 100B). You will use both in a minute.</li>
+          <li><em>Already comfortable?</em> Create an API key in your Dashboard and save it somewhere safe. You can use it in Activity 4.</li>
         </ol>
         <a class="go" href="https://mindrouter.uidaho.edu" target="_blank" rel="noopener">Open MindRouter &rarr;</a>
       </div>
@@ -648,7 +644,7 @@
     <p class="lede">A chat window on MindRouter. Sign in with your university account.</p>
     <div class="act-grid" style="margin-top:1.4cqw">
       <div class="gold-band">
-        <span class="k">Your turn &middot; 10 min</span>
+        <span class="k">Your turn &middot; 12 min</span>
         <ol class="act-steps">
           <li><strong>Compare two models.</strong> Ask your small model, then your large one:
             <span class="prompt">How many protein-coding genes are in the human genome? Give one number and one sentence of justification.</span>
@@ -672,41 +668,17 @@
     </div>
   </section>
 
-  <!-- Vandalizer (instructor demo; output fields fill in once the workshop paper is chosen) -->
-  <section class="slide" data-part="Activity 1 &middot; Meet your tools">
-    <span class="demo-tag">Instructor demo</span>
-    <h2>Vandalizer: the specialist</h2>
-    <p class="body">Built at UI for research administration. Not &ldquo;chat with a PDF&rdquo;: named extraction tasks pull the same fields out of every document, and chain into workflows.</p>
-    <div class="uc-flow extract-out" style="margin-top:1.4cqw">
-      <div class="uc-box input frag">
-        <p class="uc-label">Input</p>
-        <p class="uc-content">workshop_paper.pdf<br><br><span>The paper we use all afternoon.</span></p>
-      </div>
-      <div class="uc-llm frag">
-        <p class="uc-llm-label">Task</p><p class="uc-llm-icon">&#128269;</p><p class="uc-llm-sub">extract fields</p>
-      </div>
-      <div class="uc-box output frag">
-        <p class="uc-label">Output</p>
-        <p class="uc-content">organism: &hellip;<br>sample_size: &hellip;<br>study_design: &hellip;<br>main_finding: &hellip;<br>data_availability: &hellip;</p>
-      </div>
-    </div>
-    <div class="gold-band frag" style="margin-top:auto">
-      <span class="k">Then we check every field against the PDF</span>
-      Vandalizer can score a workflow against a &ldquo;Golden Set&rdquo; of documents you have checked by hand, using TaMPER. The check is built into the tool.
-    </div>
-  </section>
-
   <!-- Debrief -->
   <section class="slide" data-part="Activity 1 &middot; Meet your tools">
     <h2>What the tools just showed you</h2>
     <div class="t-cards" style="margin-top:1.4cqw">
       <article class="t-card big"><h3>Pick the model on purpose</h3><p>Two models, two answers. Which model you used is a decision, and part of your record.</p></article>
       <article class="t-card big"><h3>Know where your data goes</h3><p>MindRouter and Vandal Chat keep it on campus. A commercial chatbot does not. Part 2 covers what still cannot go in.</p></article>
-      <article class="t-card big dark"><h3>Check against the source</h3><p>A clean-looking answer is not a checked answer. The DOI, the PDF, the paper: go look.</p></article>
+      <article class="t-card big dark"><h3>Check against the source</h3><p>A clean-looking answer is not a checked answer. The DOI, the paper, the data: go look.</p></article>
     </div>
-    <div class="gold-band" style="margin-top:auto">
-      <span class="k">From here on</span>
-      Every activity today runs on these tools.
+    <div class="gold-band" style="margin-top:auto; font-size:1.6cqw; padding:1.2cqw 1.6cqw">
+      <span class="k" style="font-size:1cqw">Checkpoint</span>
+      Signed in to both MindRouter and Vandal Chat? If either one is not working, tell us now. Every activity today runs on these two tools.
     </div>
   </section>
 
@@ -958,6 +930,35 @@
     <p class="name">Barrie Robison</p>
     <div class="lines">
       <p>GitHub &nbsp;&middot;&nbsp; <a href="https://github.com/ProfessorPolymorphic" target="_blank" rel="noopener">github.com/ProfessorPolymorphic</a></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ APPENDIX ═══════════════ -->
+  <section class="slide divider" data-part="Appendix">
+    <div class="rule"></div>
+    <h1>Appendix</h1>
+    <ul class="points">
+      <li>Tools we&rsquo;ve built</li>
+    </ul>
+  </section>
+
+  <!-- Tools we've built (public tools only) -->
+  <section class="slide" data-part="Appendix">
+    <h2>Tools we&rsquo;ve built</h2>
+    <p class="lede">Built at the University of Idaho.</p>
+    <div class="resource-list">
+      <div class="resource-item">
+        <a class="r-name" href="https://mindrouter.uidaho.edu" target="_blank" rel="noopener">MindRouter</a>
+        <span class="r-desc">The university&rsquo;s AI cluster: 60+ open-weight models on university GPUs, a web chat, and API keys for your own code and coding agents. <a class="cite" href="https://mindrouter.uidaho.edu/blog/running-ai-agents-with-mindrouter" target="_blank" rel="noopener">(Guide: running agents)</a> <a class="cite" href="https://github.com/ui-insight/MindRouter" target="_blank" rel="noopener">(GitHub)</a></span>
+      </div>
+      <div class="resource-item">
+        <a class="r-name" href="https://chat.uidaho.edu" target="_blank" rel="noopener">Vandal Chat</a>
+        <span class="r-desc">University AI chat, powered by MindRouter. Includes Deep Research: a team of agents that writes a cited report on one big question. <a class="cite" href="https://mindrouter.uidaho.edu/blog/introducing-vandalchat-deep-research" target="_blank" rel="noopener">(Deep Research)</a></span>
+      </div>
+      <div class="resource-item">
+        <a class="r-name" href="https://vandalizer.nkn.uidaho.edu" target="_blank" rel="noopener">Vandalizer</a>
+        <span class="r-desc">Document intelligence from the AI4RA team. Pulls structured fields out of PDFs, chains tasks into workflows, and scores them against a hand-checked Golden Set using TaMPER. Built for research administration; limited early access; open source. <a class="cite" href="https://ui-insight.github.io/vandalizer-manual/" target="_blank" rel="noopener">(Manual)</a> <a class="cite" href="https://github.com/ui-insight/vandalizer" target="_blank" rel="noopener">(GitHub)</a></span>
+      </div>
     </div>
   </section>
 
